@@ -4,7 +4,7 @@ O Orange Portfólio é uma aplicação web inovadora e responsiva, desenvolvida 
 
 \<Imagem ilustrativa em breve>
 
-###### **Experimente agora em** \<link (em breve)>
+##### **Experimente agora em:** https://spa-orange-portfolio.vercel.app/
 
 ## Motivação
 
@@ -34,7 +34,7 @@ Aqui você encontrará instruções de como executar o projeto em ambiente de de
 
 ```bash
 # Clone deste repositório
-$ git clone <https://github.com/...>
+$ git clone git@github.com:squad7-fcamara/spa-orange-portfolio.git
 # Acesse a pasta do projeto
 $ cd nome-da-pasta
 # Instalação das dependências

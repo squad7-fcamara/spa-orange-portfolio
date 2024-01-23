@@ -3,16 +3,3 @@
   margin: 0 auto;
   text-align: center;
 }
-
-.logo {
-  height: 10em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #ffaa66);
-}
-
-.go-the-repositories {
-  color: #888;
-}

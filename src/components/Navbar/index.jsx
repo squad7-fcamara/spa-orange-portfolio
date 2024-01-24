@@ -8,7 +8,7 @@ function Navbar() {
     <>
       <NavbarSC>
         <div>
-          <MdMenu size={"24px"} />
+          <MdMenu size={"3.6rem"} />
           <img
             src={Logomarca}
             alt="logomarca do orange portfólio"
@@ -20,8 +20,8 @@ function Navbar() {
           </DesktopMenu>
         </div>
         <div>
-          <MdAccountCircle size={"40px"} />
-          <MdNotifications size={"24px"} />
+          <MdAccountCircle size={"4.8rem"} />
+          <MdNotifications size={"3.6rem"} />
         </div>
       </NavbarSC>
       <Outlet />

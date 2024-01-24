@@ -2,9 +2,10 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyled = createGlobalStyle`
   :root {
-    font-family: "Roboto", sans-serif;
-    line-height: 1.5;
     font-weight: 400;
+    font-size: 62.5%;
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
     background-color: #FCFDFF;
   }
 

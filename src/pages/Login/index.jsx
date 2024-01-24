@@ -16,7 +16,7 @@ const Login = () => {
       <LoginGoogleBtn />
       <FloatLabel />
       
-      <PrimaryButton>Entrar</PrimaryButton>
+      <PrimaryButton onClick={() => console.log("teste")}>Entrar</PrimaryButton>
 
       <Cadastro>
         <LinkCadastro>Cadastre-se

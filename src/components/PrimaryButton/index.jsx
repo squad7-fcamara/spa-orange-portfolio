@@ -1,10 +1,10 @@
 // import React from 'react'
 import { ButtonPrimary } from './StyledPrimaryButton'
 
-const PrimaryButton = () => {
+const PrimaryButton = ({onClick, children}) => {
   return (
     <>
-      <ButtonPrimary>Entrar</ButtonPrimary>
+      <ButtonPrimary onClick={onClick}> {children}</ButtonPrimary>
     </>
   )
 }

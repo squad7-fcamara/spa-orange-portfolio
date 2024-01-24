@@ -28,14 +28,14 @@ export const ContentContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-size: 35px;
+    font-size: 45px;
     font-weight: 400;
     text align: center;
 `;
 
 export const Cadastro = styled.div`
     width: 100%;
-    margin-top: 10px;
+    margin-top: 0;
     text-align: left;
     a {
         

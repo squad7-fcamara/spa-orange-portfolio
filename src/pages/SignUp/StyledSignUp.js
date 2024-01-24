@@ -25,6 +25,7 @@ export const Title = styled.h1`
     text-align: center;
     font-size: 3rem;
     font-weight: 400;
+    margin-bottom: 2rem;
 `;
 
 export const NameColumn = styled.div`

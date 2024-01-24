@@ -1,17 +1,32 @@
 import styled from "styled-components";
 
-export const CardSC = styled.div`
-  width: 38.9rem;
-  height: 25.8rem;
+export const ProjectCards = styled.div`
+  max-width: 1280px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 1.6rem;
+  justify-content: space-between;
+
+  div {
+    min-width: 32rem;
+    width: 38.9rem;
+    height: 25.8rem;
+    border-radius: 0.4rem;
+    box-shadow: 0.1rem 0.4rem 0.4rem rgba(129, 131, 136, 0.2);
+    margin-block: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 1.6rem;
+  }
+`;
+
+export const CardWithoutProjectSC = styled.div`
   color: #303133;
   background-color: #e6e9f2;
-  box-shadow: 0.1rem 0.4rem 0.4rem rgba(129, 131, 136, 0.2);
 
   h1 {
     width: 27rem;
@@ -21,4 +36,8 @@ export const CardSC = styled.div`
     width: 27rem;
     font-size: 1.4rem;
   }
+`;
+
+export const BlankCardSC = styled.div`
+  background-color: #e6e9f233;
 `;

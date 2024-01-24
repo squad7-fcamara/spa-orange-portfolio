@@ -3,6 +3,7 @@ import { SignUpContainer, Image, Title, NameColumn, SignUpButton, AppContainer }
 import './SignUp_styles.css'
 
 import myImage from '../../assets/img/img-signUp/img_cadastro.png'
+import FloatInput from "../../components/FloatInput/FloatInput"
 
 
 export default function SignUp(){
@@ -15,27 +16,14 @@ export default function SignUp(){
                 <form>
 
                     <Title>Cadastre-se</Title>
-                    <NameColumn>
-                        <div className='label'>
-                            <input type="text" placeholder=" " />
-                            <label htmlFor="name">Nome</label>
-                        </div>
 
-                        <div className='label'>
-                            <input type="text" id="lastName" placeholder=" " />
-                            <label htmlFor="lastName">Sobrenome</label>
-                        </div>
+                    <NameColumn>
+                        <FloatInput label={"Nome"} type={"text"}/>
+                        <FloatInput label={"Sobrenome"} type={"text"}/>
                     </NameColumn>
 
-                    <div className='label'>
-                        <input className="col-maxWidth"  type="email"  placeholder=" " />
-                        <label>Email address</label>
-                    </div>
-    
-                    <div className='label'>
-                        <input className="col-maxWidth"  type="password"  placeholder=" " />
-                        <label>Password</label>
-                    </div>
+                    <FloatInput label={"Email address"} type={"email"} classes={"col-maxWidth"}/>
+                    <FloatInput label={"Password"} type={"password"} classes={"col-maxWidth"}/>
     
                     <SignUpButton>CADASTRAR</SignUpButton>
 

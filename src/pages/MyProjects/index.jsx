@@ -1,5 +1,12 @@
+import ProjectCard from "../../components/ProjectCard";
+import { ProjectSC } from "./style";
+
 function MyProjects() {
-  return <h1>Estou na página Meus Projetos</h1>;
+  return (
+    <ProjectSC>
+      <ProjectCard />
+    </ProjectSC>
+  );
 }
 
 export default MyProjects;

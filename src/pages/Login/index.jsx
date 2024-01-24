@@ -1,12 +1,14 @@
 
+import LoginGoogleBtn from "../../components/LoginGoogleBtn"
 import { HeroImage } from "./StyledLogin"
 
 const Login = () => {
   return (
   <>
-  <img src="../../assets/img/img-login/img_login.png" ></img>
+  
   <HeroImage />
     
+    <LoginGoogleBtn />
     <div>Login</div>
   </>
   )

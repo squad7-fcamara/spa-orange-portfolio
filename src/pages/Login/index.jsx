@@ -1,16 +1,28 @@
-
 import LoginGoogleBtn from "../../components/LoginGoogleBtn"
-import { HeroImage } from "./StyledLogin"
+import FloatLabel from "../../components/Label";
+
+import {AppContainer, ImageContainer, HeroImage, ContentContainer, Title , Cadastro,LinkCadastro} from "./StyledLogin"
 
 const Login = () => {
   return (
-  <>
-  
-  <HeroImage />
+  <AppContainer>
+    <ImageContainer>
+    <HeroImage />
+    </ImageContainer>
     
-    <LoginGoogleBtn />
-    <div>Login</div>
-  </>
+    <ContentContainer>
+      <Title>Entre no Orange Portfólio</Title>
+      <LoginGoogleBtn />
+      <FloatLabel />
+      
+      <Cadastro>
+        <LinkCadastro>Cadastre-se
+        </LinkCadastro>
+      </Cadastro>
+    </ContentContainer>
+
+
+  </AppContainer>
   )
 }
 

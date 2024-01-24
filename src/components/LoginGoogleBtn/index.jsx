@@ -1,5 +1,6 @@
 // import React from 'react';
 import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import {Content} from "./styledLogingGoogleBtn"
 
 const LoginGoogleBtn = () => {
 
@@ -8,7 +9,7 @@ const LoginGoogleBtn = () => {
         flow: 'auth-code'
       });
   return (
-    <>
+    <Content>
           <GoogleLogin onClick={() => login()}
               onSuccess={credentialResponse => {
                   console.log(credentialResponse);
@@ -17,8 +18,9 @@ const LoginGoogleBtn = () => {
                   console.log('Login Failed');
               }}
               useOneTap
+              style={{ padding: '3px' }}
             />
-    </>
+    </Content>
   )
 }
 

@@ -20,7 +20,7 @@ export const NavbarSC = styled.nav`
   }
 `;
 
-export const DesktopMenu = styled.ul`
+export const DesktopMenuSC = styled.ul`
   list-style: none;
   display: flex;
   gap: 4rem;

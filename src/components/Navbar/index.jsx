@@ -1,4 +1,4 @@
-import { DesktopMenu, NavbarSC } from "./style";
+import { DesktopMenuSC, NavbarSC } from "./style";
 import { Outlet } from "react-router-dom";
 import { MdAccountCircle, MdMenu, MdNotifications } from "react-icons/md";
 import Logomarca from "../../assets/images/logomarca.png";
@@ -14,10 +14,10 @@ function Navbar() {
             alt="logomarca do orange portfólio"
             className="logo"
           />
-          <DesktopMenu>
+          <DesktopMenuSC>
             <li>Meus Projetos</li>
             <li>Descobrir</li>
-          </DesktopMenu>
+          </DesktopMenuSC>
         </div>
         <div>
           <MdAccountCircle size={"4.8rem"} />

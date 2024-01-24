@@ -19,8 +19,7 @@ const Login = () => {
       <PrimaryButton onClick={() => console.log("teste")}>Entrar</PrimaryButton>
 
       <Cadastro>
-        <LinkCadastro>Cadastre-se
-        </LinkCadastro>
+        <LinkCadastro>Cadastre-se</LinkCadastro>
       </Cadastro>
     </ContentContainer>
 

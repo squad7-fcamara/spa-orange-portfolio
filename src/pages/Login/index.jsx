@@ -2,6 +2,7 @@ import LoginGoogleBtn from "../../components/LoginGoogleBtn"
 import FloatLabel from "../../components/Label";
 
 import {AppContainer, ImageContainer, HeroImage, ContentContainer, Title , Cadastro,LinkCadastro} from "./StyledLogin"
+import PrimaryButton from "../../components/PrimaryButton";
 
 const Login = () => {
   return (
@@ -15,6 +16,8 @@ const Login = () => {
       <LoginGoogleBtn />
       <FloatLabel />
       
+      <PrimaryButton>Entrar</PrimaryButton>
+
       <Cadastro>
         <LinkCadastro>Cadastre-se
         </LinkCadastro>

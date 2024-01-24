@@ -28,7 +28,7 @@ export const ContentContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-size: 48px;
+    font-size: 35px;
     font-weight: 400;
     text align: center;
 `;
@@ -36,15 +36,16 @@ export const Title = styled.h1`
 export const Cadastro = styled.div`
     width: 100%;
     margin-top: 10px;
+    text-align: left;
     a {
-        text-align: left;
+        
         color: #818388;
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
         letter-spacing: .15px;   }
 `
-export const Link = styled.a`
-
+export const LinkCadastro = styled.a`
+margin-left:0
 `
 

@@ -1,9 +1,9 @@
-import "./style.css";
+import { SoonSC } from "./style";
 import OrangeLogo from "/icon.svg";
 
 function Soon() {
   return (
-    <>
+    <SoonSC>
       <div>
         <a
           href="https://github.com/orgs/squad7-fcamara/repositories"
@@ -19,7 +19,7 @@ function Soon() {
         <br />
         Click na logo para acessar o repositório
       </p>
-    </>
+    </SoonSC>
   );
 }
 

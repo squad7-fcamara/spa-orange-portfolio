@@ -1,5 +1,5 @@
 import "./style.css";
-import OrangeLogo from "/icon.png";
+import OrangeLogo from "/icon.svg";
 
 function Soon() {
   return (

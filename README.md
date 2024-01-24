@@ -1,4 +1,9 @@
-# SPA — Orange Portfólio
+
+<div style="display: flex; align-items: center;">
+    <img src="./public/icon.svg" alt="Descrição da imagem" width="48" style="margin-right: 10px;"/>
+    <h1>SPA — Orange Portfólio</h1>
+</div>
+
 
 O Orange Portfólio é uma aplicação web inovadora e responsiva, desenvolvida para proporcionar aos usuários uma plataforma interativa e esteticamente agradável para exibição de seus projetos. Projetado com uma abordagem centrada no usuário, o Orange Portfólio facilita o cadastro e a visualização de projetos de forma intuitiva.
 

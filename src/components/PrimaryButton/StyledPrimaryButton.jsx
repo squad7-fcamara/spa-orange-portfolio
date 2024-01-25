@@ -17,4 +17,6 @@ export const ButtonPrimary = styled.button`
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
+
+    
 `;

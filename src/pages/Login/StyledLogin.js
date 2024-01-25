@@ -7,7 +7,11 @@ export const AppContainer = styled.div`
 `
 
 export const ImageContainer = styled.div`
-    flex-shrink: 0; 
+    flex-shrink: 0;
+    
+    @media (max-width: 425px) {
+    display: none;
+  }
 `;
 
 export const HeroImage = styled.div`
@@ -25,12 +29,21 @@ export const ContentContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 425px) {
+    align-items: center;
+    margin: 24px;
+    }
 `;
 
 export const Title = styled.h1`
     font-size: 45px;
     font-weight: 400;
     text align: center;
+
+    @media (max-width: 425px){
+        font-size: 24px;
+    }
 `;
 
 export const Cadastro = styled.div`

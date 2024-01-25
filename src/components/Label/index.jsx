@@ -17,8 +17,8 @@ const FloatLabel = () => {
   <LoginLabelContent>
     <SubtitleLoginLabel>Faça Login com email</SubtitleLoginLabel>
     <div className="label-float">
-        <input type="text" placeholder=" "/>
-        <label>Email adress</label>
+        <input type="text" className="email-label" placeholder=" "/>
+        <label>Email address</label>
     </div>
 
     {/* PARA OLHAR ISSO DEPOIS

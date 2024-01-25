@@ -10,6 +10,11 @@ export const SubtitleLoginLabel = styled.h4`
     font-weight: 400;
     line-height: 24px;
     text-align: left;
+
+    @media (max-width: 425px){
+        font-size: 16px;
+    }       
+
 `;
 
 

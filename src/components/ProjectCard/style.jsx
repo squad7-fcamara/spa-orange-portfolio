@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
+const breakpoint = "1024px";
+
 export const ProjectCards = styled.div`
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
   gap: 1.6rem;
-  justify-content: space-evenly;
-
+  justify-content: space-around;
+  
   div {
     height: 25.8rem;
-    width: 38.9rem;
+    min-width: 35.8rem;
+    width: 49%;
     border-radius: 0.4rem;
     margin-block: 1.6rem;
     display: flex;
@@ -18,6 +20,12 @@ export const ProjectCards = styled.div`
     align-content: center;
     align-items: center;
     gap: 1.6rem;
+  }
+
+  @media (max-width: ${breakpoint}) {
+    & {
+      flex-wrap: wrap;
+    }
   }
 `;
 

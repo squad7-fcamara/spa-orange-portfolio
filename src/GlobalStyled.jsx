@@ -2,7 +2,7 @@ import { createGlobalStyle, styled } from "styled-components";
 
 export const Dashboard = styled.div`
   max-width: 1280px;
-  min-width: 360px;
+  width: 100%;
   padding: 7.6rem 3.2rem; //TODO: 24px no mobile
   margin: 4.6rem auto;
   display: flex;

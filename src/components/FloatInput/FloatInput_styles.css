@@ -1,5 +1,6 @@
 
 .label input{
+    position: relative;
     border: 1px solid lightgrey;
     align-items: center;
     border-radius: 5px;
@@ -49,3 +50,11 @@
     top: 0;
     color: #515255;
   }
+
+span {
+    position: absolute;
+    z-index: 2;
+    margin-left: 95%;
+    margin-top: 1rem;
+    cursor: pointer;
+}

@@ -14,7 +14,7 @@ export default function SignUp(){
 
             <SignUpContainer>
 
-                <form>
+                <form className="form">
 
                     <Title>Cadastre-se</Title>
 

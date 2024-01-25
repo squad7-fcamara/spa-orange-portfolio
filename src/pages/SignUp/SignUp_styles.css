@@ -3,3 +3,10 @@
      width: 100%;
      max-width: -webkit-fill-available;
  }
+
+ 
+ @media (max-width: 1060px) {
+     .form {
+        width: 90%;
+     }
+}

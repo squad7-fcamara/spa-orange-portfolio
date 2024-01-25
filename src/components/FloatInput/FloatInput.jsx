@@ -15,22 +15,21 @@ const handleClickShowPassword = () => {
 
 return (
     <>
-      <InputDiv className="label" >     
         {
           type == "password" ? 
-          <div>
+          <InputDiv className="label" >
+            
                 <span onClick={handleClickShowPassword} >{!showPassword ? <FaEye /> : <FaEyeSlash />}</span>
                 <input type={showPassword ? "text" : type} placeholder=" " className={classes} />
                 <label>{label}</label>
-          </div> : 
+          </InputDiv> : 
 
-          <div>
+          <InputDiv className="label" >
             <input type={type} placeholder=" " className={classes} />
             <label>{label}</label>
-          </div>
+          </InputDiv>
         }
         
-      </InputDiv>
     </>
   );
 }

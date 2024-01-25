@@ -10,6 +10,10 @@ export const AppContainer = styled.div`
 
 export const Image = styled.img`
     height: 100vh;  
+
+    @media (max-width: 1060px) {
+        display: none;
+    }
 `;
 
 
@@ -18,6 +22,7 @@ export const SignUpContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 `;
 
 
@@ -30,7 +35,12 @@ export const Title = styled.h1`
 
 export const NameColumn = styled.div`
     display: flex;
-    gap: 1rem;
+    gap: 0 1rem;
+
+    @media (max-width: 1060px) {
+        // display: flex;
+        flex-direction: column;
+    }
 `;
 
 

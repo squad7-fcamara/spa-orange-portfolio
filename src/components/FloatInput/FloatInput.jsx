@@ -17,11 +17,12 @@ return (
     <>
         {
           type == "password" ? 
-          <InputDiv className="label" >
+          <InputDiv className="label password" >
             
                 <span onClick={handleClickShowPassword} >{!showPassword ? <FaEye /> : <FaEyeSlash />}</span>
                 <input type={showPassword ? "text" : type} placeholder=" " className={classes} />
                 <label>{label}</label>
+                
           </InputDiv> : 
 
           <InputDiv className="label" >

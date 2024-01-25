@@ -51,11 +51,18 @@
     color: #515255;
   }
 
+
+.password {
+  display: flex;
+  justify-content: end;
+}
+
 span {
     position: absolute;
     z-index: 2;
-    margin-left: 95%;
+    margin-inline-end: auto;
     margin-top: 1rem;
+    margin-right: 1rem;
     cursor: pointer;
 }
 

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ProjectCards = styled.div`
-  max-width: 1280px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -9,9 +8,9 @@ export const ProjectCards = styled.div`
   justify-content: space-between;
 
   div {
-    min-width: 32rem;
+    min-width: 31.2rem;
+    min-height: 25.8rem;
     width: 38.9rem;
-    height: 25.8rem;
     border-radius: 0.4rem;
     box-shadow: 0.1rem 0.4rem 0.4rem rgba(129, 131, 136, 0.2);
     margin-block: 1.6rem;

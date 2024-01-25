@@ -17,7 +17,6 @@
     transition: all .1s linear;
     -webkit-transition: all .1s linear;
     -moz-transition: all .1s linear;
-    -webkit-appearance:none;
   }
   
   .label-float input:focus{

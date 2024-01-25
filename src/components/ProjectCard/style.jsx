@@ -1,19 +1,16 @@
 import styled from "styled-components";
 
 export const ProjectCards = styled.div`
-  max-width: 1280px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1.6rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   div {
-    min-width: 32rem;
-    width: 38.9rem;
     height: 25.8rem;
+    width: 38.9rem;
     border-radius: 0.4rem;
-    box-shadow: 0.1rem 0.4rem 0.4rem rgba(129, 131, 136, 0.2);
     margin-block: 1.6rem;
     display: flex;
     flex-direction: column;
@@ -27,6 +24,7 @@ export const ProjectCards = styled.div`
 export const CardWithoutProjectSC = styled.div`
   color: #303133;
   background-color: #e6e9f2;
+  box-shadow: 0.1rem 0.4rem 0.4rem rgba(129, 131, 136, 0.2);
 
   h1 {
     width: 27rem;

@@ -8,5 +8,39 @@
  @media (max-width: 1060px) {
      .form {
         width: 90%;
+        display: inline;
      }
+
+     .div-positioner {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+     }
+
+     
+    .alert {
+        position: static!important;
+    }
+    .alert > div{
+        position: static!important;
+        margin-bottom: 2.5rem;
+    }
+
+    .alert > div > div {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.div-positioner {
+    position: relative;
+    height: 100%;
 }

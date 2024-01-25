@@ -6,29 +6,70 @@ import myImage from '../../assets/img/img-signUp/img_cadastro.png'
 import FloatInput from "../../components/FloatInput/FloatInput"
 import PrimaryButton from "../../components/PrimaryButton"
 
+import toast, { Toaster } from 'react-hot-toast'
+
 
 export default function SignUp(){
+
+    const notifyAlert = () => 
+        toast.success('Cadastro feito com sucesso!', {
+
+            iconTheme: {
+                primary: '#fff',
+                secondary: '#2E7D32',
+              },
+
+            style: {
+                background: "#2E7D32",
+                color: "white",
+                minWidth: "20rem",
+            }
+
+        }
+    )
+
+    const handleSubmit = (event) => {
+        notifyAlert()
+        event.preventDefault();
+    }
+
     return(
         <AppContainer>
             <Image src={myImage} />
 
             <SignUpContainer>
 
-                <form className="form">
+                <div className="div-positioner">
 
-                    <Title>Cadastre-se</Title>
+                    <form className="form" onSubmit={handleSubmit}>
 
-                    <NameColumn>
-                        <FloatInput label={"Nome"} type={"text"}/>
-                        <FloatInput label={"Sobrenome"} type={"text"}/>
-                    </NameColumn>
 
-                    <FloatInput label={"Email address"} type={"email"} classes={"col-maxWidth"}/>
-                    <FloatInput label={"Password"} type={"password"} classes={"col-maxWidth"}/>
-    
-                    <PrimaryButton onClick={() => console.log("cadastrar")} text={"CADASTRAR"} />
+                        <Toaster 
+                        containerClassName="alert"
+                            containerStyle={{
+                                position: 'absolute',
+                                marginTop: '2.5rem',
+                                marginBottom: '1rem',
+                                }}
+                        />
 
-                </form>
+                        <Title>Cadastre-se</Title>
+
+                        <NameColumn>
+                            <FloatInput label={"Nome"} type={"text"}/>
+                            <FloatInput label={"Sobrenome"} type={"text"}/>
+                        </NameColumn>
+
+                        <FloatInput label={"Email address"} type={"email"} classes={"col-maxWidth"}/>
+                        <FloatInput label={"Password"} type={"password"} classes={"col-maxWidth"}/>
+        
+                        <PrimaryButton text={"CADASTRAR"} />
+
+
+                    </form>
+
+                </div>
+
 
             </SignUpContainer>
 

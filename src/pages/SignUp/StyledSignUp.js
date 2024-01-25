@@ -5,6 +5,7 @@ export const AppContainer = styled.div`
     margin: 0;
     display: flex;
     width: 100vw;
+    height: 100vh;
 `;
 
 

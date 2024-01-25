@@ -1,8 +1,9 @@
 import LoginGoogleBtn from "../../components/LoginGoogleBtn"
-import FloatLabel from "../../components/Label";
+// import FloatLabel from "../../components/Label";
 
 import {AppContainer, ImageContainer, HeroImage, ContentContainer, Title , Cadastro,LinkCadastro} from "./StyledLogin"
 import PrimaryButton from "../../components/PrimaryButton";
+import FloatInput from "../../components/FloatInput/FloatInput";
 
 const Login = () => {
   return (
@@ -14,7 +15,10 @@ const Login = () => {
     <ContentContainer>
       <Title>Entre no Orange Portfólio</Title>
       <LoginGoogleBtn />
-      <FloatLabel />
+      {/* <FloatLabel /> */}
+
+      < FloatInput label={"Email address"} type={"email"} classes={"col-maxWidth"} />
+      < FloatInput label={"Password"} type={"password"} classes={"col-maxWidth"} />
       
       <PrimaryButton onClick={() => console.log("teste")} text={"ENTRAR"} />
 

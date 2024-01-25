@@ -24,7 +24,7 @@ export const ContentContainer = styled.div`
     margin-left: 123px;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
 `;
 
 export const Title = styled.h1`

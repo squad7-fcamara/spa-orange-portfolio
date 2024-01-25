@@ -70,6 +70,10 @@ span {
   input {
     width: 100%;
     max-width: -webkit-fill-available;  
-    min-width: none;
   }
+
+  .label input {
+    min-width: 0;
+  }
+  
 }

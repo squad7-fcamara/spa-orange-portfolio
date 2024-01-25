@@ -1,5 +1,12 @@
+import { Dashboard } from "../../GlobalStyled";
+import SearchBar from "../../components/SearchBar";
+
 function Discover() {
-  return <h1>Estou na página Descobrir</h1>;
+  return (
+    <Dashboard>
+      <SearchBar />;
+    </Dashboard>
+  );
 }
 
 export default Discover;

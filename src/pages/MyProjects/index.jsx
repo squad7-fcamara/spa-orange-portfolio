@@ -1,11 +1,13 @@
+import { Dashboard } from "../../GlobalStyled";
 import ProjectCard from "../../components/ProjectCard";
-import { ProjectSC } from "./style";
+import SearchBar from "../../components/SearchBar";
 
 function MyProjects() {
   return (
-    <ProjectSC>
+    <Dashboard>
+      <SearchBar />
       <ProjectCard />
-    </ProjectSC>
+    </Dashboard>
   );
 }
 

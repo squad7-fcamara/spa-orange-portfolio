@@ -1,4 +1,13 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, styled } from "styled-components";
+
+export const Dashboard = styled.div`
+  height: calc(100dvh - 7.3rem);
+  margin: 0 3.2rem; //TODO: 24px no mobile
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const GlobalStyled = createGlobalStyle`
   :root {

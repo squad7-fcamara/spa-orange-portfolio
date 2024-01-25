@@ -3,9 +3,8 @@ import { createGlobalStyle, styled } from "styled-components";
 export const Dashboard = styled.div`
   max-width: 1280px;
   min-width: 360px;
-  height: calc(100dvh - 7.3rem);
-  padding: 1.6rem 3.2rem; //TODO: 24px no mobile
-  margin: 7.3rem auto 1.6rem;
+  padding: 7.6rem 3.2rem; //TODO: 24px no mobile
+  margin: 4.6rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

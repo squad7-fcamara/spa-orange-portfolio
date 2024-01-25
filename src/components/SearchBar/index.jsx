@@ -1,11 +1,18 @@
-import { Outlet } from "react-router-dom";
+import { SearchBarSC } from "./style";
 
 function SearchBar() {
   return (
-    <>
-      <p>Lorem ipsum dolor</p>
-      <Outlet />
-    </>
+    <SearchBarSC>
+      <label htmlFor="search-tag-input">
+        Meus Projetos<br/>
+        <input
+          type="text"
+          name="search-tag"
+          id="search-tag-input"
+          placeholder="Buscar tags"
+        />
+      </label>
+    </SearchBarSC>
   );
 }
 

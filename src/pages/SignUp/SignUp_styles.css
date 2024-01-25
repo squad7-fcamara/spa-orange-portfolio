@@ -59,14 +59,6 @@
      max-width: -webkit-fill-available;
  }
 
-
- button:hover {
-    transition: 0.5s;
-    cursor: pointer;
-    background-color: rgb(216, 40, 21);
-  }
-
-
 .teste{
     display: flex;
     justify-content: center;

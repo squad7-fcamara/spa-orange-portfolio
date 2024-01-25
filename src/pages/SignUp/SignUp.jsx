@@ -1,9 +1,10 @@
-import { SignUpContainer, Image, Title, NameColumn, SignUpButton, AppContainer } from "./StyledSignUp"
+import { SignUpContainer, Image, Title, NameColumn, AppContainer } from "./StyledSignUp"
 
 import './SignUp_styles.css'
 
 import myImage from '../../assets/img/img-signUp/img_cadastro.png'
 import FloatInput from "../../components/FloatInput/FloatInput"
+import PrimaryButton from "../../components/PrimaryButton"
 
 
 export default function SignUp(){
@@ -25,7 +26,7 @@ export default function SignUp(){
                     <FloatInput label={"Email address"} type={"email"} classes={"col-maxWidth"}/>
                     <FloatInput label={"Password"} type={"password"} classes={"col-maxWidth"}/>
     
-                    <SignUpButton>CADASTRAR</SignUpButton>
+                    <PrimaryButton onClick={() => console.log("cadastrar")} text={"CADASTRAR"} />
 
                 </form>
 

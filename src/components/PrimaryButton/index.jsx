@@ -1,10 +1,9 @@
-// import React from 'react'
 import { ButtonPrimary } from './StyledPrimaryButton'
 
-const PrimaryButton = ({onClick, children}) => {
+const PrimaryButton = ({onClick, text}) => {
   return (
     <>
-      <ButtonPrimary onClick={onClick}> {children}</ButtonPrimary>
+      <ButtonPrimary onClick={onClick}> {text}</ButtonPrimary>
     </>
   )
 }

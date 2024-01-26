@@ -1,4 +1,4 @@
-import { DesktopMenuSC, NavbarSC } from "./style";
+import { DesktopMenuSC, MobileDisplaySC, NavbarSC } from "./style";
 import { Outlet } from "react-router-dom";
 import { MdAccountCircle, MdMenu, MdNotifications } from "react-icons/md";
 import Logomarca from "../../assets/images/logomarca.png";
@@ -8,7 +8,9 @@ function Navbar() {
     <>
       <NavbarSC>
         <div>
-          <MdMenu size={"3.6rem"} />
+          <MobileDisplaySC>
+            <MdMenu size={"3.6rem"} />
+          </MobileDisplaySC>
           <img
             src={Logomarca}
             alt="logomarca do orange portfólio"

@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+const mobile = "425px";
+
+export const MobileDisplaySC = styled.div`
+  :only-child {
+    display: none;
+  }
+  @media (max-width: ${mobile}) {
+    :only-child {
+      display: initial;
+    }
+  }
+`;
+
 export const NavbarSC = styled.nav`
   width: 100dvw;
   height: 7.3rem;
@@ -22,10 +35,23 @@ export const NavbarSC = styled.nav`
     font-size: 2rem;
     color: #fcfdff;
   }
+
+  @media (max-width: ${mobile}) {
+    padding: 1.6rem;
+    div {
+      gap: 1.6rem;
+    }
+  }
 `;
 
 export const DesktopMenuSC = styled.ul`
   list-style: none;
   display: flex;
   gap: 4rem;
+
+  @media (max-width: ${mobile}) {
+    & {
+      display: none;
+    }
+  }
 `;

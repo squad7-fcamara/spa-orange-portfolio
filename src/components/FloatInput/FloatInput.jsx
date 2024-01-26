@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import './FloatInput_styles.css'
 
-export default function FloatInput({label, type, classes}) {
+export default function FloatInput({label, type, id_value, classes, handleInputText, handleInputPassWord}) {
   
 const [showPassword, setShowPassword] = useState(false)
 
@@ -20,13 +20,21 @@ return (
           <InputDiv className="label password" >
             
                 <span onClick={handleClickShowPassword} >{!showPassword ? <FaEye /> : <FaEyeSlash />}</span>
-                <input type={showPassword ? "text" : type} placeholder=" " className={classes} />
+                <input 
+                type={showPassword ? "text" : type}
+                placeholder=" " 
+                className={classes} 
+                onChange={handleInputPassWord}/>
                 <label>{label}</label>
                 
           </InputDiv> : 
 
           <InputDiv className="label" >
-            <input type={type} placeholder=" " className={classes} />
+            <input type={type} 
+            id={id_value} 
+            placeholder=" " 
+            className={classes} 
+            onChange={handleInputText}/>
             <label>{label}</label>
           </InputDiv>
         }

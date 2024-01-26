@@ -11,6 +11,10 @@ export const SubtitleLoginLabel = styled.h4`
     line-height: 24px;
     text-align: left;
 
+    @media (max-width: 1024px){
+      font-size: 16px;
+    }
+
     @media (max-width: 425px){
         font-size: 16px;
     }       
@@ -42,7 +46,12 @@ export const Input = styled.input`
 
   &::placeholder {
     color: transparent;
-  }
+  };
+
+  @media (max-width: 1024px) {
+        width: 405px;
+        background-color: black;
+    };
 `;
 
 export const PasswordToggle = styled.div`

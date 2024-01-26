@@ -57,7 +57,7 @@
   justify-content: end;
 }
 
-span {
+.password span {
     position: absolute;
     z-index: 2;
     margin-inline-end: auto;

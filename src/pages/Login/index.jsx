@@ -37,7 +37,7 @@ const Login = () => {
         <LoginGoogleBtn />
         <FloatLabel handleInputText={handleInputText} handleInputPassWord={handleInputPassWord}/>
 
-        <PrimaryButton onClick={clickTeste}>Entrar</PrimaryButton>
+        <PrimaryButton onClick={clickTeste} text={"ENTRAR"} ></PrimaryButton>
 
       <Cadastro>
         <LinkCadastro>Cadastre-se</LinkCadastro>

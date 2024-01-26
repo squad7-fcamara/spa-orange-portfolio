@@ -56,3 +56,7 @@ export const DesktopMenuSC = styled.ul`
     }
   }
 `;
+
+export const ProfileIconSC = styled.img`
+  width: 4rem;
+`;

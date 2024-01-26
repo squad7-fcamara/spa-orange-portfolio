@@ -1,6 +1,11 @@
-import { DesktopMenuSC, MobileDisplaySC, NavbarSC } from "./style";
+import {
+  DesktopMenuSC,
+  MobileDisplaySC,
+  NavbarSC,
+  ProfileIconSC,
+} from "./style";
 import { Outlet } from "react-router-dom";
-import { MdAccountCircle, MdMenu, MdNotifications } from "react-icons/md";
+import { MdMenu, MdNotifications } from "react-icons/md";
 import Logomarca from "../../assets/images/logomarca.png";
 
 function Navbar() {
@@ -22,7 +27,10 @@ function Navbar() {
           </DesktopMenuSC>
         </div>
         <div>
-          <MdAccountCircle size={"4.8rem"} />
+          <ProfileIconSC
+            src="/src/assets/images/profile-picture-default.svg"
+            alt="ícone imagem de perfil"
+          />
           <MdNotifications size={"3.6rem"} color="#FCFDFF" />
         </div>
       </NavbarSC>

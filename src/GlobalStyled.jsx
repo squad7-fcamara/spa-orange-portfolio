@@ -1,6 +1,6 @@
 import { createGlobalStyle, styled } from "styled-components";
 
-const mobile = "425px";
+const tablet = "768px";
 
 export const Dashboard = styled.div`
   max-width: 1536px;
@@ -12,7 +12,7 @@ export const Dashboard = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
 
-  @media (max-width: ${mobile}) {
+  @media (max-width: ${tablet}) {
     & {
       padding: 0 2.4rem;
     }

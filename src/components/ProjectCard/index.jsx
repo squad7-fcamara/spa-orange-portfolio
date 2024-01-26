@@ -1,9 +1,9 @@
 import { MdCollections } from "react-icons/md";
-import { CardWithoutProjectSC, BlankCardSC, ProjectCards } from "./style";
+import { CardWithoutProjectSC, BlankCardSC, ProjectCardSC } from "./style";
 
 function ProjectCard() {
   return (
-    <ProjectCards>
+    <ProjectCardSC>
       <CardWithoutProjectSC>
         <MdCollections size={"5.4rem"} />
         <h1>Adicione seu primeiro projeto</h1>
@@ -11,7 +11,7 @@ function ProjectCard() {
       </CardWithoutProjectSC>
       <BlankCardSC />
       <BlankCardSC />
-    </ProjectCards>
+    </ProjectCardSC>
   );
 }
 

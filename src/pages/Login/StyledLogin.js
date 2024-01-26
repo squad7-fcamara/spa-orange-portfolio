@@ -17,7 +17,7 @@ export const ImageContainer = styled.div`
 
 export const HeroImage = styled.div`
     width: 525px;
-    height: 641px;
+    height: 100vh;
     background-size: cover;
     background-image: url(${myImage});
     background-position: left top;
@@ -43,7 +43,6 @@ export const ContentContainer = styled.div`
     @media (max-width: 425px) {
         
     align-items: center;
-    background-color: red;
     margin: 24px;
     }
 `;

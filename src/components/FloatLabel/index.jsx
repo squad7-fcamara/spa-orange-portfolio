@@ -13,7 +13,7 @@ const FloatLabel = () => {
     <LoginLabelContent>
       <SubtitleLoginLabel>Faça Login com email</SubtitleLoginLabel>
       <div className="label-float">
-        <FloatInput label="Email Address" type="text" class="email-label" />
+        <FloatInput label="Email Address" id="login-email" type="text" class="email-label" />
       </div>
 
       {/* PARA OLHAR ISSO DEPOIS
@@ -22,7 +22,7 @@ const FloatLabel = () => {
      o input "text" e o input "password" */}
       <div className="label-float">
 
-        <FloatInput label="Password" type="password" class="input-field" />
+        <FloatInput label="Password" type="password" class="passsword-label" />
 
       </div>
     </LoginLabelContent>

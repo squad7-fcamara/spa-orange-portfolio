@@ -68,7 +68,7 @@
 /* MÍDIAS */
 @media (max-width: 1024px) {
   .label-float {
-    width: 405px;
+    width: 373px;
     margin: 2px;
     padding: 0;    
   }
@@ -83,9 +83,15 @@
 @media (max-width: 425px) {
   
   .email-label,
-  .input-field {
+  .passsword-label {
     width: 312px; 
     height: 41px;
     padding-bottom: 3px;
+  }
+}
+
+@media (max-width: 375px) {
+  .label-float {
+    width: 323px;
   }
 }

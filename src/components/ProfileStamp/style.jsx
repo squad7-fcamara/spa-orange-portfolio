@@ -8,7 +8,7 @@ export const ProfileStampSC = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 11.2rem;
-  margin-bottom: 5.6rem;
+  margin-bottom: 4rem;
 
   img {
     width: 12.2rem;
@@ -42,7 +42,7 @@ export const ProfileStampSC = styled.div`
   @media (max-width: ${breakpoint}) {
     & {
       flex-direction: column;
-      margin-top: 5.6rem;
+      margin: 5.6rem auto 2.4rem;
 
       img {
         margin: 0 auto 1.6rem;

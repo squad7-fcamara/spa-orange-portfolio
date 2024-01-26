@@ -1,12 +1,22 @@
 import { createGlobalStyle, styled } from "styled-components";
 
+const mobile = "425px";
+
 export const Dashboard = styled.div`
+  max-width: 1536px;
   width: 100%;
-  padding: 0 3.2rem; //TODO: 24px no mobile
+  min-height: calc(100dvh - 7.3rem);
+  padding: 0 3.2rem 8rem;
   margin: 7.3rem auto 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  @media (max-width: ${mobile}) {
+    & {
+      padding: 0 2.4rem;
+    }
+  }
 `;
 
 export const GlobalStyled = createGlobalStyle`

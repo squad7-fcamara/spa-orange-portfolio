@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
-const breakpoint = "1024px";
+const laptop = "1024px";
+const tablet = "768px";
+const mobile = "425px";
 
 export const ProjectCards = styled.div`
   width: 100%;
   display: flex;
   gap: 1.6rem;
-  justify-content: space-around;
-  
+  justify-content: space-between;
+  margin-top: 1.6rem;
+
   div {
-    height: 25.8rem;
-    min-width: 35.8rem;
+    max-height: 29.7rem;
+    min-height: 25.8rem;
+    height: 50vw;
     width: 49%;
     border-radius: 0.4rem;
     margin-block: 1.6rem;
@@ -22,9 +26,24 @@ export const ProjectCards = styled.div`
     gap: 1.6rem;
   }
 
-  @media (max-width: ${breakpoint}) {
+  @media (max-width: ${laptop}) {
     & {
       flex-wrap: wrap;
+    }
+  }
+  @media (max-width: ${tablet}) {
+    div {
+      width: 48%;
+      margin-top: 0;
+    }
+  }
+  @media (max-width: ${mobile}) {
+    div {
+      width: 100%;
+      h1,
+      p {
+        width: 82%;
+      }
     }
   }
 `;

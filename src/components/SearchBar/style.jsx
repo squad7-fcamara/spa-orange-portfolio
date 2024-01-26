@@ -5,7 +5,7 @@ export const SearchBarSC = styled.div`
   font-size: 2rem;
   font-weight: 500;
   line-height: 2;
-  padding-bottom: 4rem;
+  padding-bottom: .8rem;
 
   label {
     width: 100%;

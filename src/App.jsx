@@ -1,14 +1,7 @@
-// import OrangeLogo from "/icon.png";
-import "./App.css";
-import Login from "./pages/Login";
-// import SignUp from "./pages/SignUp/SignUp";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      <Login />
-    </>
-  );
+  return <Outlet />;
 }
 
 export default App;

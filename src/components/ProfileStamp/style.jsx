@@ -27,16 +27,17 @@ export const ProfileStampSC = styled.div`
   p {
     font-size: 1.6rem;
     color: #0b0c0d;
+    opacity: 0.5;
   }
   button {
     width: 20rem;
     height: 4.2rem;
     font-size: 1.5rem;
     font-weight: 500;
-    color: #00000061;
+    color: rgba(0, 0, 0, 0.38);
     border: none;
     border-radius: 0.4rem;
-    background: #0000001e;
+    background: rgba(0, 0, 0, 0.12);
   }
 
   @media (max-width: ${breakpoint}) {

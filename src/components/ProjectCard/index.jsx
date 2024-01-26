@@ -5,7 +5,7 @@ function ProjectCard() {
   return (
     <ProjectCardSC>
       <CardWithoutProjectSC>
-        <MdCollections size={"5.4rem"} />
+        <MdCollections size={"5.4rem"} color="#323232"/>
         <h1>Adicione seu primeiro projeto</h1>
         <p>Compartilhe seu talento com milhares de pessoas</p>
       </CardWithoutProjectSC>

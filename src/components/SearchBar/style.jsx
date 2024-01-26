@@ -9,7 +9,7 @@ export const SearchBarSC = styled.div`
 
   label {
     width: 100%;
-    color: #0b0c0d;
+    color: rgba(11, 12, 13, 1);
     opacity: 0.6;
   }
   input {
@@ -22,7 +22,7 @@ export const SearchBarSC = styled.div`
 
     ::placeholder {
       font-size: 1.6rem;
-      color: #818388;
+      color: rgba(129, 131, 136, 1);
     }
   }
 `;

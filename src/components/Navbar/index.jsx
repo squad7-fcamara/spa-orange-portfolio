@@ -9,7 +9,7 @@ function Navbar() {
       <NavbarSC>
         <div>
           <MobileDisplaySC>
-            <MdMenu size={"3.6rem"} />
+            <MdMenu size={"3.6rem"} color="#FCFDFF" />
           </MobileDisplaySC>
           <img
             src={Logomarca}
@@ -23,7 +23,7 @@ function Navbar() {
         </div>
         <div>
           <MdAccountCircle size={"4.8rem"} />
-          <MdNotifications size={"3.6rem"} />
+          <MdNotifications size={"3.6rem"} color="#FCFDFF" />
         </div>
       </NavbarSC>
       <Outlet />

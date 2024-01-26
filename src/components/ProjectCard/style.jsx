@@ -55,15 +55,17 @@ export const ProjectCardSC = styled.div`
 export const CardWithoutProjectSC = styled.div`
   color: #303133;
   background-color: #e6e9f2;
-  box-shadow: 0.1rem 0.4rem 0.4rem rgba(129, 131, 136, 0.2);
-
+  box-shadow: 0.1rem 0.4rem 0.4rem rgba(230, 233, 242, 1);
+  
   h1 {
     width: 27rem;
     font-size: 1.6rem;
+    opacity: 0.6;
   }
   p {
     width: 27rem;
     font-size: 1.4rem;
+    opacity: 0.6;
   }
 `;
 

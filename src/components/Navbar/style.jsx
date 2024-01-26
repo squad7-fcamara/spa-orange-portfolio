@@ -25,6 +25,7 @@ export const NavbarSC = styled.nav`
   right: 0;
   z-index: 1;
   background-color: #111133;
+  border-bottom: 1px solid #111133;
   box-shadow: 0 0.4rem 0.4rem rgba(17, 17, 51, 0.2);
 
   div {

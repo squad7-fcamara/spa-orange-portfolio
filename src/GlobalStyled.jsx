@@ -2,11 +2,11 @@ import { createGlobalStyle, styled } from "styled-components";
 
 export const Dashboard = styled.div`
   width: 100%;
-  padding: 7.6rem 3.2rem; //TODO: 24px no mobile
-  margin: 4.6rem auto;
+  padding: 0 3.2rem; //TODO: 24px no mobile
+  margin: 7.3rem auto 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
 `;
 
 export const GlobalStyled = createGlobalStyle`

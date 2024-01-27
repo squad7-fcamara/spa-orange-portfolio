@@ -1,9 +1,8 @@
 import LoginGoogleBtn from "../../components/LoginGoogleBtn"
-import FloatLabel from "../../components/FloatLabel";
-
 import { AppContainer, ImageContainer, HeroImage, ContentContainer, Title, Cadastro, LinkCadastro } from "./StyledLogin"
 import PrimaryButton from "../../components/PrimaryButton";
 import { useState } from "react";
+import FloatInput from "../../components/FloatInput/FloatInput";
 
 const Login = () => {
   // useState
@@ -35,7 +34,9 @@ const Login = () => {
       <ContentContainer>
         <Title>Entre no Orange Portfólio</Title>
         <LoginGoogleBtn />
-        <FloatLabel handleInputText={handleInputText} handleInputPassWord={handleInputPassWord}/>
+
+        <FloatInput label={"Email address"} type={"email"} id_value={"email"} handleInputText={handleInputText} classes={"col-maxWidth"}/>
+        <FloatInput label={"Password"} type={"password"} id_value={"password"} handleInputText={handleInputPassWord} classes={"col-maxWidth"}/>
 
         <PrimaryButton onClick={clickTeste} text={"ENTRAR"} ></PrimaryButton>
 

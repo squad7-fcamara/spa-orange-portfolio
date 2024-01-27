@@ -1,3 +1,4 @@
+import "../../reset.css";
 import { Dashboard } from "../../GlobalStyled";
 import SearchBar from "../../components/SearchBar";
 

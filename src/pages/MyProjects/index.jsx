@@ -1,3 +1,4 @@
+import "../../reset.css";
 import { Dashboard } from "../../GlobalStyled";
 import ProjectStamp from "../../components/ProfileStamp";
 import ProjectCard from "../../components/ProjectCard";

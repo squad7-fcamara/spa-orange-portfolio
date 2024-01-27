@@ -7,24 +7,24 @@ const mobile = "425px";
 export const ProjectCardSC = styled.div`
   width: 100%;
   display: flex;
-  gap: 1.6rem;
+  gap: 16px;
   justify-content: space-between;
-  margin-top: 1.6rem;
+  margin-top: 16px;
 
   div,
   span {
-    max-height: 29.7rem;
-    min-height: 25.8rem;
+    max-height: 297px;
+    min-height: 258px;
     height: 50vw;
     width: 49%;
-    border-radius: 0.4rem;
-    margin-block: 1.6rem;
+    border-radius: 4px;
+    margin-block: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     align-items: center;
-    gap: 1.6rem;
+    gap: 16px;
   }
 
   @media (max-width: ${laptop}) {
@@ -55,16 +55,16 @@ export const ProjectCardSC = styled.div`
 export const CardWithoutProjectSC = styled.div`
   color: #303133;
   background-color: #e6e9f2;
-  box-shadow: 0.1rem 0.4rem 0.4rem rgba(230, 233, 242, 1);
-  
+  box-shadow: 1px 4px 4px rgba(230, 233, 242, 1);
+
   h1 {
-    width: 27rem;
-    font-size: 1.6rem;
+    width: 270px;
+    font-size: 16px;
     opacity: 0.6;
   }
   p {
-    width: 27rem;
-    font-size: 1.4rem;
+    width: 270px;
+    font-size: 14px;
     opacity: 0.6;
   }
 `;

@@ -15,8 +15,8 @@ export const MobileDisplaySC = styled.div`
 
 export const NavbarSC = styled.nav`
   width: 100dvw;
-  height: 7.3rem;
-  padding: 1.6rem 3rem;
+  height: 73px;
+  padding: 16px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,21 +26,21 @@ export const NavbarSC = styled.nav`
   z-index: 1;
   background-color: #111133;
   border-bottom: 1px solid #111133;
-  box-shadow: 0 0.4rem 0.4rem rgba(17, 17, 51, 0.2);
+  box-shadow: 0 4px 4px rgba(17, 17, 51, 0.2);
 
   div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 4rem;
-    font-size: 2rem;
+    gap: 40px;
+    font-size: 20px;
     color: #fcfdff;
   }
 
   @media (max-width: ${mobile}) {
-    padding: 1.6rem;
+    padding: 16px;
     div {
-      gap: 1.6rem;
+      gap: 16px;
     }
   }
 `;
@@ -48,7 +48,7 @@ export const NavbarSC = styled.nav`
 export const DesktopMenuSC = styled.ul`
   list-style: none;
   display: flex;
-  gap: 4rem;
+  gap: 40px;
 
   @media (max-width: ${mobile}) {
     & {
@@ -58,5 +58,5 @@ export const DesktopMenuSC = styled.ul`
 `;
 
 export const ProfileIconSC = styled.img`
-  width: 4rem;
+  width: 40px;
 `;

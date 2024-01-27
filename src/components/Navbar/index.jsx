@@ -14,7 +14,7 @@ function Navbar() {
       <NavbarSC>
         <div>
           <MobileDisplaySC>
-            <MdMenu size={"3.6rem"} color="#FCFDFF" />
+            <MdMenu size={"36px"} color="#FCFDFF" />
           </MobileDisplaySC>
           <img
             src={Logomarca}
@@ -31,7 +31,7 @@ function Navbar() {
             src="/src/assets/images/profile-picture-default.svg"
             alt="ícone imagem de perfil"
           />
-          <MdNotifications size={"3.6rem"} color="#FCFDFF" />
+          <MdNotifications size={"36px"} color="#FCFDFF" />
         </div>
       </NavbarSC>
       <Outlet />

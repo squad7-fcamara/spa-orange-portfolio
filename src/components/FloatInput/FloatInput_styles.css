@@ -22,6 +22,7 @@
   }
   
   .label label{
+    margin-top: 0.25rem;
     pointer-events: none;
     position: absolute;
     top: calc(50% - 10px);

@@ -74,6 +74,6 @@ export const Cadastro = styled.div`
         letter-spacing: .15px;   }
 `
 export const LinkCadastro = styled.a`
-margin-left:0
+    text-decoration: none;
 `
 

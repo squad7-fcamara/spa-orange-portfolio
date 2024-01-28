@@ -41,7 +41,7 @@ const Login = () => {
         <PrimaryButton onClick={clickTeste} text={"ENTRAR"} ></PrimaryButton>
 
       <Cadastro>
-        <LinkCadastro>Cadastre-se</LinkCadastro>
+        <LinkCadastro href="./sign-up">Cadastre-se</LinkCadastro>
       </Cadastro>
     </ContentContainer>
 

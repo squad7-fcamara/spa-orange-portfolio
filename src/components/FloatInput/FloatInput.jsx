@@ -27,7 +27,7 @@ return (
                 name={name}
                 placeholder=" " 
                 className={"col-maxWidth " + classes} 
-                {...register(label, { required: "A senha deve conter mais de 6 caracteres.", minLength:6 })}
+                {...register(label, { required: "A senha deve conter mais de 6 caracteres.", minLength:3 })}
                 />
                 <label>{label}</label>
                 

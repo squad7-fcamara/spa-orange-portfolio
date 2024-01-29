@@ -77,3 +77,6 @@ export const LinkCadastro = styled.a`
     text-decoration: none;
 `
 
+export const FormLogin = styled.form`
+    width: 100%
+`

@@ -1,27 +1,35 @@
 import LoginGoogleBtn from "../../components/LoginGoogleBtn"
-import { AppContainer, ImageContainer, HeroImage, ContentContainer, Title, Cadastro, LinkCadastro } from "./StyledLogin"
+import { FormLogin, AppContainer, ImageContainer, HeroImage, ContentContainer, Title, Cadastro, LinkCadastro } from "./StyledLogin"
 import PrimaryButton from "../../components/PrimaryButton";
-import { useState } from "react";
+// import { useState } from "react";
 import FloatInput from "../../components/FloatInput/FloatInput";
+
+import { useForm } from "react-hook-form"
 
 const Login = () => {
   // useState
-  const [teste, setTeste] = useState("")
+  // const [teste, setTeste] = useState("")
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
   // teste
-  const handleInputText = (e) => {
-    setEmail(e.target.value)
-  }
-  const handleInputPassWord = (e) => {
-    setPassword(e.target.value)
-  };
-  const clickTeste = () =>{
-    setTeste(console.log("email:" , email, "password: ", password))
+  // const handleInputText = (e) => {
+  //   setEmail(e.target.value)
+  // }
+  // const handleInputPassWord = (e) => {
+  //   setPassword(e.target.value)
+  // };
+  // const clickTeste = () =>{
+  //   setTeste(console.log("email:" , email, "password: ", password))
 
-    return teste
+  //   return teste
+  // }
+
+  const { register, handleSubmit } = useForm()
+
+  const onSubmit = (data) => {
+    console.log(data)
   }
 
 
@@ -33,12 +41,18 @@ const Login = () => {
 
       <ContentContainer>
         <Title>Entre no Orange Portfólio</Title>
-        <LoginGoogleBtn />
 
-        <FloatInput label={"Email address"} type={"email"} id_value={"email"} handleInputText={handleInputText} classes={"col-maxWidth"}/>
-        <FloatInput label={"Password"} type={"password"} id_value={"password"} handleInputText={handleInputPassWord} classes={"col-maxWidth"}/>
+        <FormLogin onSubmit={handleSubmit(onSubmit)} method="get">
 
-        <PrimaryButton onClick={clickTeste} text={"ENTRAR"} ></PrimaryButton>
+          <LoginGoogleBtn />
+
+          <FloatInput label={"email"} type={"email"} name={"email"} id_value={"email"} register={register} />
+          <FloatInput label={"senha"} type={"password"} name={"password"} id_value={"password"} register={register} />
+
+          <PrimaryButton text={"ENTRAR"} ></PrimaryButton>
+
+        </FormLogin>
+
 
       <Cadastro>
         <LinkCadastro href="./sign-up">Cadastre-se</LinkCadastro>

@@ -1,6 +1,7 @@
 import { ProfileStampSC } from "./style";
 
-function ProjectStamp() {
+function ProjectStamp({ userProfile }) {
+  const { nome, sobrenome } = userProfile;
   return (
     <ProfileStampSC>
       <div>
@@ -10,7 +11,9 @@ function ProjectStamp() {
         />
       </div>
       <div>
-        <h1>Lorem ipsum</h1>
+        <h1>
+          {nome} {sobrenome}
+        </h1>
         <p>Brasil</p>
         <button>ADICIONAR PROJETO</button>
       </div>

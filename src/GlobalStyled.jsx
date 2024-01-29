@@ -1,6 +1,7 @@
 import { createGlobalStyle, styled } from "styled-components";
 
 const tablet = "768px";
+const mobile = "425px";
 
 export const GlobalStyled = createGlobalStyle`
   * {
@@ -20,11 +21,11 @@ export const GlobalStyled = createGlobalStyle`
 `;
 
 export const Dashboard = styled.div`
-  max-width: 1536px;
+  max-width: 1280px;
   width: 100%;
   min-height: calc(100dvh - 73px);
-  padding: 0 32px 80px;
-  margin: 73px auto 0;
+  padding: 0 32px 32px;
+  margin: 73px auto 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -32,6 +33,11 @@ export const Dashboard = styled.div`
   @media (max-width: ${tablet}) {
     & {
       padding: 0 24px;
+    }
+  }
+  @media (max-width: ${mobile}) {
+    & {
+      padding: 0 12px;
     }
   }
 `;

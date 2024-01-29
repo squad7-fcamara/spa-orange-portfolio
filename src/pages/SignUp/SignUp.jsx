@@ -7,31 +7,40 @@ import FloatInput from "../../components/FloatInput/FloatInput"
 import PrimaryButton from "../../components/PrimaryButton"
 
 import toast, { Toaster } from 'react-hot-toast'
+import { useForm } from "react-hook-form"
 
 
 export default function SignUp(){
 
-    const notifyAlert = () => 
-        toast.success('Cadastro feito com sucesso!', {
+    const { register, handleSubmit, formState: { errors } } = useForm()
 
-            iconTheme: {
-                primary: '#fff',
-                secondary: '#2E7D32',
-              },
+    const onSubmit = (data) => {
+    alert(JSON.stringify(data));
+  };
 
-            style: {
-                background: "#2E7D32",
-                color: "white",
-                minWidth: "20rem",
-            }
+    // console.log(watch("example"))
 
-        }
-    )
+    // const notifyAlert = () => 
+    //     toast.success('Cadastro feito com sucesso!', {
 
-    const handleSubmit = (event) => {
-        notifyAlert()
-        event.preventDefault();
-    }
+    //         iconTheme: {
+    //             primary: '#fff',
+    //             secondary: '#2E7D32',
+    //           },
+
+    //         style: {
+    //             background: "#2E7D32",
+    //             color: "white",
+    //             minWidth: "20rem",
+    //         }
+
+    //     }
+    // )
+
+    // const handleSubmit = (event) => {
+    //     notifyAlert()
+    //     event.preventDefault();
+    // }
 
     return(
         <AppContainer>
@@ -41,7 +50,7 @@ export default function SignUp(){
 
                 <div className="div-positioner">
 
-                    <form className="form" onSubmit={handleSubmit}>
+                    <form className="form" onSubmit={handleSubmit(onSubmit)} method="POST" >
 
 
                         <Toaster 
@@ -56,15 +65,16 @@ export default function SignUp(){
                         <Title>Cadastre-se</Title>
 
                         <NameColumn>
-                            <FloatInput label={"Nome"} type={"text"}/>
-                            <FloatInput label={"Sobrenome"} type={"text"}/>
+                            <FloatInput label={"nome"} type={"text"} name={"firstName"} register={register} required />
+                            <FloatInput label={"sobrenome"} type={"text"} name={"lastName"} register={register} required />
                         </NameColumn>
 
-                        <FloatInput label={"Email address"} type={"email"} classes={"col-maxWidth"}/>
-                        <FloatInput label={"Password"} type={"password"} classes={"col-maxWidth"}/>
+                        <FloatInput label={"email"} type={"email"} name={"email"} classes={"col-maxWidth"} register={register} required />
+                        <FloatInput label={"senha"} type={"password"} name={"password"} classes={"col-maxWidth"} register={register} required />
         
                         <PrimaryButton text={"CADASTRAR"} />
 
+                        { errors.email && <span>This field is required</span> }
 
                     </form>
 

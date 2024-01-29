@@ -34,6 +34,7 @@
     padding: 5px;
     box-sizing: border-box;
     color: #515255;
+    text-transform: capitalize;
   }
   
   .label input:required:invalid + label{

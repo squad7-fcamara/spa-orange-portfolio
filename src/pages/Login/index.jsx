@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 
 // import LoginGoogleBtn from "../../components/LoginGoogleBtn"
@@ -24,7 +25,7 @@ const Login = () => {
   };
 
   const handleClickLogin = () => {
-    axios.get(`https://apisquad7.azurewebsites.net/api/usuario/validarLogin?email=${email}&senha=${password}`, { withCredentials: true })
+    axios.get(`https://apisquad7.azurewebsites.net/api/usuario/validarLogin?email=${email}&senha=${password}`)
       .then(response => {
         
         console.log('Deu certo:', response.data);
@@ -51,7 +52,9 @@ const Login = () => {
         <PrimaryButton onClick={handleClickLogin} text={"ENTRAR"} ></PrimaryButton>
 
       <Cadastro>
-        <LinkCadastro>Cadastre-se</LinkCadastro>
+        <NavLink to={"/sign-up"}>
+          <LinkCadastro href="">Cadastre-se</LinkCadastro>
+        </NavLink>
       </Cadastro>
     </ContentContainer>
 

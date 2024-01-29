@@ -71,9 +71,12 @@ export const Cadastro = styled.div`
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        letter-spacing: .15px;   }
+        letter-spacing: .15px;   
+        text-decoration: none;
+    }
 `
 export const LinkCadastro = styled.a`
-margin-left:0
+    margin-left:0;
+    cursor:pointer;
 `
 

@@ -6,6 +6,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import './FloatInput_styles.css'
 
 export default function FloatInput({label, name, type, id_value, classes, register, required}) {
+
+  
   
 const [showPassword, setShowPassword] = useState(false)
 
@@ -24,8 +26,8 @@ return (
                 type={showPassword ? "text" : type}
                 name={name}
                 placeholder=" " 
-                className={classes} 
-                {...register(label, { required })}
+                className={"col-maxWidth " + classes} 
+                {...register(label, { required: "A senha deve conter mais de 6 caracteres.", minLength:6 })}
                 />
                 <label>{label}</label>
                 
@@ -36,8 +38,8 @@ return (
             name={name}
             id={id_value} 
             placeholder=" " 
-            className={classes} 
-            {...register(label, { required })}
+            className={"col-maxWidth " + classes} 
+            {...register(label, { required: required })}
             />
             <label>{label}</label>
           </InputDiv>

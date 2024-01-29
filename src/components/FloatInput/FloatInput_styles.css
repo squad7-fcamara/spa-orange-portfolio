@@ -37,7 +37,7 @@
     text-transform: capitalize;
   }
   
-  .label input:required:invalid + label{
+  /* .label input:required:invalid + label{
     color: red;
   }
   .label input:focus:required:invalid{
@@ -45,7 +45,34 @@
   }
   .label input:required:invalid + label:before{
     content: '*';
+  } */
+
+  .label .required + label::after{
+    content: ' *';
   }
+  
+  .label .required  {
+    border: 1px solid #D32F2F;
+  }
+
+  .label .required:focus {
+    border: 2px solid #D32F2F;
+  }
+
+  .label .required:focus + label,
+  .label input:not(:placeholder-shown) + label{
+    font-size: 13px;
+    top: 0;
+    color: #D32F2F;
+  }
+
+.helperMessage {
+  font-size: 0.75rem;
+  margin: 0.3rem 0.8rem;
+  color: #D32F2F
+}
+
+
   .label input:focus + label,
   .label input:not(:placeholder-shown) + label{
     font-size: 13px;

@@ -9,38 +9,73 @@ import PrimaryButton from "../../components/PrimaryButton"
 import toast, { Toaster } from 'react-hot-toast'
 import { useForm } from "react-hook-form"
 
+import { api } from "../../api/apiRest"
+
 
 export default function SignUp(){
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
+
+    const notifyAlert = (status) => {
+
+        if (status == 200) {
+            toast.success('Cadastro feito com sucesso!', {
+
+                    duration: Infinity,
+        
+                    iconTheme: {
+                        primary: '#fff',
+                        secondary: '#2E7D32',
+                    },
+            
+                    style: {
+                        background: "#2E7D32",
+                        color: "white",
+                        minWidth: "20rem",
+                    }
+                }
+            )
+            return
+        }
+
+        toast.error('Erro ao realizar o cadastro. Tente novamente', {
+
+            iconTheme: {
+                primary: '#fff',
+                secondary: '#DD0000',
+            },
+    
+            style: {
+                background: "#DD0000",
+                color: "white",
+                minWidth: "20rem",
+            }
+
+            }
+
+        )
+
+
+    } 
+
     const onSubmit = (data) => {
-    alert(JSON.stringify(data));
-  };
+        
+        api.post('a/usuario/', {
+            nome: data?.nome,
+            sobrenome: data?.sobrenome,
+            email: data?.email,
+            senha: data?.senha
+        })
+        .then((response) => {
+            notifyAlert(response.status)
+        })
+        .catch((error) => {
+            notifyAlert(error.status)
+        }) 
 
-    // console.log(watch("example"))
+    };
 
-    // const notifyAlert = () => 
-    //     toast.success('Cadastro feito com sucesso!', {
-
-    //         iconTheme: {
-    //             primary: '#fff',
-    //             secondary: '#2E7D32',
-    //           },
-
-    //         style: {
-    //             background: "#2E7D32",
-    //             color: "white",
-    //             minWidth: "20rem",
-    //         }
-
-    //     }
-    // )
-
-    // const handleSubmit = (event) => {
-    //     notifyAlert()
-    //     event.preventDefault();
-    // }
 
     return(
         <AppContainer>
@@ -65,16 +100,16 @@ export default function SignUp(){
                         <Title>Cadastre-se</Title>
 
                         <NameColumn>
-                            <FloatInput label={"nome"} type={"text"} name={"firstName"} register={register} required />
-                            <FloatInput label={"sobrenome"} type={"text"} name={"lastName"} register={register} required />
+                            <FloatInput label={"nome"} type={"text"} name={"firstName"} register={register} required={true} classes={errors.nome && "required"} />
+                            <FloatInput label={"sobrenome"} type={"text"} name={"lastName"} register={register} required={true} classes={errors.sobrenome && "required"} />
                         </NameColumn>
 
-                        <FloatInput label={"email"} type={"email"} name={"email"} classes={"col-maxWidth"} register={register} required />
-                        <FloatInput label={"senha"} type={"password"} name={"password"} classes={"col-maxWidth"} register={register} required />
-        
-                        <PrimaryButton text={"CADASTRAR"} />
+                        <FloatInput label={"email"} type={"email"} name={"email"} classes={errors.email && "required"} register={register} required={true} />
+                        <FloatInput label={"senha"} type={"password"} name={"password"} classes={errors.senha && "required"} register={register} required={true} />
 
-                        { errors.email && <span>This field is required</span> }
+                        { errors.senha && <span className="helperMessage">{errors.senha.message}</span> }    
+                        
+                        <PrimaryButton text={"CADASTRAR"} />
 
                     </form>
 

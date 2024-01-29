@@ -91,6 +91,9 @@ export const Cadastro = styled.div`
     text-decoration: none}
 `
 export const LinkCadastro = styled.a`
-margin-left:0
+    text-decoration: none;
 `
 
+export const FormLogin = styled.form`
+    width: 100%
+`

@@ -1,33 +1,25 @@
-import { useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast'
 
 
 import LoginGoogleBtn from "../../components/LoginGoogleBtn"
+import { FormLogin, AppContainer, ImageContainer, HeroImage, ContentContainer, Title, Cadastro, LinkCadastro } from "./StyledLogin"
 import PrimaryButton from "../../components/PrimaryButton";
+
 import FloatInput from "../../components/FloatInput/FloatInput";
 
-import { AppContainer, ImageContainer, HeroImage, ContentContainer, Title, SubtitleLoginLabel, Cadastro, LinkCadastro } from "./StyledLogin"
+import { useForm } from "react-hook-form"
 
 const Login = () => {
-  // useState
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { register, handleSubmit, formState: { errors } } = useForm()
 
-  // Listening: Email / Senha
-  const handleInputText = (e) => {
-    setEmail(e.target.value)
-  }
-  const handleInputPassWord = (e) => {
-    setPassword(e.target.value)
-  };
+  const onSubmit =  async (data) => {
+    console.log(data)
 
-  //Click validation
-  const handleClickLogin = async () => {
     try {
-      const response = await axios.get(`https://apisquad7.azurewebsites.net/api/usuario/validarLogin?email=${email}&senha=${password}`);
+      const response = await axios.get(`https://apisquad7.azurewebsites.net/api/usuario/validarLogin?email=${data.email}&senha=${data.senha}`);
       if (response.data === -1) {
         console.log('Login falhou:', response.data);
         toast.error('Email ou senha incorreta. Tente novamente.', {
@@ -47,7 +39,8 @@ const Login = () => {
     } catch (error) {
       console.error('Erro na requisição:', error);
     }
-  };
+  }
+
 
   return (
     <AppContainer>
@@ -70,13 +63,18 @@ const Login = () => {
         
 
         <Title>Entre no Orange Portfólio</Title>
-        {/* Comentei o  botão do google para resolver depois */}
-        <LoginGoogleBtn />
-        <SubtitleLoginLabel>Faça Login com email</SubtitleLoginLabel>
-        <FloatInput label={"Email address"} type={"email"} id_value={"email"} handleInputText={handleInputText} classes={"col-maxWidth"} />
-        <FloatInput label={"Password"} type={"password"} id_value={"password"} handleInputText={handleInputPassWord} classes={"col-maxWidth"} />
 
-        <PrimaryButton onClick={handleClickLogin} text={"ENTRAR"} ></PrimaryButton>
+        <FormLogin onSubmit={handleSubmit(onSubmit)} method="get">
+
+          <LoginGoogleBtn />
+
+          <FloatInput label={"email"} type={"email"} name={"email"} id_value={"email"} register={register} required={true} classes={errors.email && "required"} />
+          <FloatInput label={"senha"} type={"password"} name={"password"} id_value={"password"} register={register} required={true} classes={errors.senha && "required"} />
+
+          <PrimaryButton text={"ENTRAR"} ></PrimaryButton>
+
+        </FormLogin>
+
 
         <Cadastro>
           <NavLink to={"/sign-up"}>

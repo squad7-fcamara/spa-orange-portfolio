@@ -4,7 +4,7 @@ export const userData = {
   sobrenome: "Oliveira",
   email: "joaooliveira@gmail.com",
   senha: null,
-  lstProjeto: [
+  lstProjeto: [/* 
     {
       idProjeto: 1,
       idUsuario: 4,
@@ -71,5 +71,5 @@ export const userData = {
       descricao: "Projeto desenvolvido no curso de full stack.",
       dataCriacao: "01/27/2024 00:00:00",
     },
-  ],
+   */],
 };

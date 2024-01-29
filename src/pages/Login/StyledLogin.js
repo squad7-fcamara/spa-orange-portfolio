@@ -33,7 +33,7 @@ export const ContentContainer = styled.div`
     margin: 0 auto;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
 
 
     @media (max-width: 1024px) {
@@ -60,6 +60,22 @@ export const Title = styled.h1`
         font-size: 24px;
     }
 `;
+export const SubtitleLoginLabel = styled.h4`
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+
+    @media (max-width: 1024px){
+      font-size: 16px;
+    }
+
+    @media (max-width: 425px){
+        font-size: 16px;
+    }       
+
+`;
 
 export const Cadastro = styled.div`
     width: 100%;
@@ -72,11 +88,9 @@ export const Cadastro = styled.div`
         font-style: normal;
         font-weight: 400;
         letter-spacing: .15px;   
-        text-decoration: none;
-    }
+    text-decoration: none}
 `
 export const LinkCadastro = styled.a`
-    margin-left:0;
-    cursor:pointer;
+margin-left:0
 `
 

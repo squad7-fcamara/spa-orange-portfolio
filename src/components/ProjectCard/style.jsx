@@ -7,6 +7,7 @@ const mobile = "768px";
 export const ProjectCardSC = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 23px;
   margin-top: 16px;

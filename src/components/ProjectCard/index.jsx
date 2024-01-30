@@ -1,8 +1,9 @@
 import { MdCollections } from "react-icons/md";
 import { Card, ProjectCardSC } from "./style";
 
-function ProjectCard({ userProfile }) {
-  const userProjects = userProfile.lstProjeto;
+function ProjectCard({ projectData }) {
+  const { fullName, projects } = projectData;
+  console.log(projectData);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -13,7 +14,7 @@ function ProjectCard({ userProfile }) {
 
   return (
     <ProjectCardSC>
-      {userProjects.length <= 0 ? (
+      {projects.length <= 0 ? (
         <>
           <Card className="card-without-project">
             <MdCollections className="icon" size={"54px"} color="#323232" />
@@ -24,11 +25,11 @@ function ProjectCard({ userProfile }) {
           <Card className="blank-card" />
         </>
       ) : (
-        userProjects.map((project) => (
+        projects.map((project) => (
           <Card
             key={project.idProjeto}
             className="card-with-project"
-            imageProject={project.imagem}
+            $imageProject={project.imagem}
           >
             <footer>
               <span>
@@ -37,7 +38,7 @@ function ProjectCard({ userProfile }) {
                   alt="imagem de perfil"
                 />
                 <h1>
-                  {userProfile.nome} {userProfile.sobrenome} •{" "}
+                  {project.nomeCompleto ? project.nomeCompleto : fullName} •{" "}
                   {formatDate(project.dataCriacao)}
                 </h1>
               </span>

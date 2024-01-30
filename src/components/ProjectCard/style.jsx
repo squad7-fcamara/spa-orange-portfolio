@@ -91,7 +91,7 @@ export const Card = styled.div`
   }
 
   &.card-with-project {
-    background-image: url(${(props) => props.imageProject});
+    background-image: url(${(props) => props.$imageProject});
     background-size: cover;
 
     img {

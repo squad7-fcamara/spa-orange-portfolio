@@ -6,11 +6,16 @@ import SearchBar from "../../components/SearchBar";
 import { userData } from "../../Data";
 
 function MyProjects() {
+  const { nome, sobrenome } = userData;
+  const fullName = nome + " " + sobrenome;
+  const projects = userData.lstProjeto;
+  const projectData = { fullName, projects };
+
   return (
     <Dashboard>
-      <ProjectStamp userProfile={userData} />
+      <ProjectStamp fullName={fullName} />
       <SearchBar />
-      <ProjectCard userProfile={userData} />
+      <ProjectCard projectData={projectData} />
     </Dashboard>
   );
 }

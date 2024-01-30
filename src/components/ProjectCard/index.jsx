@@ -3,8 +3,6 @@ import { Card, ProjectCardSC } from "./style";
 
 function ProjectCard({ projectData }) {
   const { fullName, projects } = projectData;
-  console.log(projectData);
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const month = (date.getMonth() + 1).toString().padStart(2, "0");

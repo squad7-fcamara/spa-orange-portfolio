@@ -1,7 +1,7 @@
 import { MdCreate } from "react-icons/md";
 import styled from "styled-components";
 
-export const DropdownBtn = styled.div`
+export const DropdownBtn = styled.span`
   position: absolute;
   top: 16px;
   right: 16px;
@@ -38,7 +38,7 @@ export const DropdownIcon = styled(MdCreate)`
   color: rgba(48, 49, 51, 1);
 `;
 
-export const DropDowndivOptions = styled.div`
+export const DropDowndivOptions = styled.span`
   position: absolute;
   top: 55px;
   right: 16px;

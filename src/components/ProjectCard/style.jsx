@@ -8,7 +8,6 @@ export const ProjectCardSC = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 23px;
   margin-top: 16px;
 
@@ -45,14 +44,14 @@ export const ProjectCardSC = styled.div`
       width: 30%;
       height: 200px;
     }
-    .blank-card:last-child {
-      display: none;
-    }
   }
   @media (max-width: ${tablet}) {
     div {
       width: 48%;
       height: 258px;
+    }
+    .blank-card:last-child {
+      display: none;
     }
   }
   @media (max-width: ${mobile}) {
@@ -92,6 +91,7 @@ export const Card = styled.div`
 
   &.card-with-project {
     background-image: url(${(props) => props.$imageProject});
+    background-image: url(https://media.istockphoto.com/id/1193323373/vector/a-colorful-trendy-card-design-vector-illustration.jpg?s=612x612&w=0&k=20&c=iIqY56kV1nKpfKCceag5NFWBnogRv8ZmJCFiicZxlpU=);
     background-size: cover;
 
     img {

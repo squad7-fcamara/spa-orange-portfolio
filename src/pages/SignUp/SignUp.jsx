@@ -7,31 +7,75 @@ import FloatInput from "../../components/FloatInput/FloatInput"
 import PrimaryButton from "../../components/PrimaryButton"
 
 import toast, { Toaster } from 'react-hot-toast'
+import { useForm } from "react-hook-form"
+
+import { api } from "../../api/apiRest"
 
 
 export default function SignUp(){
 
-    const notifyAlert = () => 
-        toast.success('Cadastro feito com sucesso!', {
+    const { register, handleSubmit, formState: { errors } } = useForm()
+
+
+    const notifyAlert = (status) => {
+
+        if (status == 200) {
+            toast.success('Cadastro feito com sucesso!', {
+
+                    duration: Infinity,
+        
+                    iconTheme: {
+                        primary: '#fff',
+                        secondary: '#2E7D32',
+                    },
+            
+                    style: {
+                        background: "#2E7D32",
+                        color: "white",
+                        minWidth: "20rem",
+                    }
+                }
+            )
+            return
+        }
+
+        toast.error('Erro ao realizar o cadastro. Tente novamente', {
 
             iconTheme: {
                 primary: '#fff',
-                secondary: '#2E7D32',
-              },
-
+                secondary: '#DD0000',
+            },
+    
             style: {
-                background: "#2E7D32",
+                background: "#DD0000",
                 color: "white",
                 minWidth: "20rem",
             }
 
-        }
-    )
+            }
 
-    const handleSubmit = (event) => {
-        notifyAlert()
-        event.preventDefault();
-    }
+        )
+
+
+    } 
+
+    const onSubmit = (data) => {
+        
+        api.post('usuario/', {
+            nome: data?.nome,
+            sobrenome: data?.sobrenome,
+            email: data?.email,
+            senha: data?.senha
+        })
+        .then((response) => {
+            notifyAlert(response.status)
+        })
+        .catch((error) => {
+            notifyAlert(error.status)
+        }) 
+
+    };
+
 
     return(
         <AppContainer>
@@ -41,7 +85,7 @@ export default function SignUp(){
 
                 <div className="div-positioner">
 
-                    <form className="form" onSubmit={handleSubmit}>
+                    <form className="form" onSubmit={handleSubmit(onSubmit)} method="POST" >
 
 
                         <Toaster 
@@ -56,15 +100,16 @@ export default function SignUp(){
                         <Title>Cadastre-se</Title>
 
                         <NameColumn>
-                            <FloatInput label={"Nome"} type={"text"}/>
-                            <FloatInput label={"Sobrenome"} type={"text"}/>
+                            <FloatInput label={"nome"} type={"text"} name={"firstName"} register={register} required={true} classes={errors.nome && "required"} />
+                            <FloatInput label={"sobrenome"} type={"text"} name={"lastName"} register={register} required={true} classes={errors.sobrenome && "required"} />
                         </NameColumn>
 
-                        <FloatInput label={"Email address"} type={"email"} classes={"col-maxWidth"}/>
-                        <FloatInput label={"Password"} type={"password"} classes={"col-maxWidth"}/>
-        
-                        <PrimaryButton text={"CADASTRAR"} />
+                        <FloatInput label={"email"} type={"email"} name={"email"} classes={errors.email && "required"} register={register} required={true} />
+                        <FloatInput label={"senha"} type={"password"} name={"password"} classes={errors.senha && "required"} register={register} required={true} />
 
+                        { errors.senha && <span className="helperMessage">{errors.senha.message}</span> }    
+                        
+                        <PrimaryButton text={"CADASTRAR"} />
 
                     </form>
 

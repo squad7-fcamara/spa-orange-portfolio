@@ -61,7 +61,7 @@ export default function SignUp(){
 
     const onSubmit = (data) => {
         
-        api.post('a/usuario/', {
+        api.post('usuario/', {
             nome: data?.nome,
             sobrenome: data?.sobrenome,
             email: data?.email,

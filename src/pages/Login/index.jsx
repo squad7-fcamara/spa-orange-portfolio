@@ -1,4 +1,5 @@
-import axios from "axios";
+import { api } from "../../api/apiRest";
+
 import { NavLink } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast'
 
@@ -19,7 +20,7 @@ const Login = () => {
     console.log(data)
 
     try {
-      const response = await axios.get(`https://apisquad7.azurewebsites.net/api/usuario/validarLogin?email=${data.email}&senha=${data.senha}`);
+      const response = await api.get(`usuario/validarLogin?email=${data.email}&senha=${data.senha}`);
       if (response.data === -1) {
         console.log('Login falhou:', response.data);
         toast.error('Email ou senha incorreta. Tente novamente.', {

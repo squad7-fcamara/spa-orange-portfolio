@@ -5,7 +5,7 @@ import toast, { Toaster } from 'react-hot-toast'
 
 
 import LoginGoogleBtn from "../../components/LoginGoogleBtn"
-import { FormLogin, AppContainer, ImageContainer, HeroImage, ContentContainer, Title, Cadastro, LinkCadastro } from "./StyledLogin"
+import { FormLogin, AppContainer, ImageContainer, HeroImage, ContentContainer, Title, Cadastro } from "./StyledLogin"
 import PrimaryButton from "../../components/PrimaryButton";
 
 import FloatInput from "../../components/FloatInput/FloatInput";
@@ -78,9 +78,7 @@ const Login = () => {
 
 
         <Cadastro>
-          <NavLink to={"/sign-up"}>
-            <LinkCadastro href="">Cadastre-se</LinkCadastro>
-          </NavLink>
+          <NavLink to={"/sign-up"}> Cadastre-se </NavLink>
         </Cadastro>
       </ContentContainer>
 

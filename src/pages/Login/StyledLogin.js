@@ -90,9 +90,6 @@ export const Cadastro = styled.div`
         letter-spacing: .15px;   
     text-decoration: none}
 `
-export const LinkCadastro = styled.a`
-    text-decoration: none;
-`
 
 export const FormLogin = styled.form`
     width: 100%

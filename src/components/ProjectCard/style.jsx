@@ -5,13 +5,15 @@ const tablet = "768px";
 const mobile = "425px";
 
 export const ProjectCardSC = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   gap: 16px;
   justify-content: space-between;
   margin-top: 16px;
+  
 
-  div,
+  .card-without-project-sc,
   span {
     max-height: 297px;
     min-height: 258px;
@@ -36,13 +38,13 @@ export const ProjectCardSC = styled.div`
     }
   }
   @media (max-width: ${tablet}) {
-    div {
+    .card-without-project-sc {
       width: 48%;
       margin-top: 0;
     }
   }
   @media (max-width: ${mobile}) {
-    div {
+    .card-without-project-sc {
       width: 100%;
       h1,
       p {
@@ -53,6 +55,7 @@ export const ProjectCardSC = styled.div`
 `;
 
 export const CardWithoutProjectSC = styled.div`
+  position: relative;
   color: #303133;
   background-color: #e6e9f2;
   box-shadow: 1px 4px 4px rgba(230, 233, 242, 1);

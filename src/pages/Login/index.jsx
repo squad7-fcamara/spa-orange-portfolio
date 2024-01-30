@@ -9,12 +9,38 @@ import { FormLogin, AppContainer, ImageContainer, HeroImage, ContentContainer, T
 import PrimaryButton from "../../components/PrimaryButton";
 
 import FloatInput from "../../components/FloatInput/FloatInput";
+import Loader from "../../components/Loader/Loader";
 
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { useForm } from "react-hook-form"
+
+import Cookies from "js-cookie";
 
 const Login = () => {
 
+  const [isLogedIn, setIsLogedIn] = useState(false)
+
+  const [isLoading, setIsLoading] = useState(true)
+
   const { register, handleSubmit, formState: { errors } } = useForm()
+
+  const navigate = useNavigate()
+  
+  useEffect(()=> {
+    
+    const token = Cookies.get('auth_token')
+
+    if (token) {
+      setIsLogedIn(true)
+    }
+
+    if (isLogedIn) {
+      navigate('/my-projects')
+      setIsLoading(false)
+    }
+
+  },[isLogedIn, navigate])
 
   const onSubmit =  async (data) => {
     console.log(data)
@@ -35,13 +61,22 @@ const Login = () => {
           }
         });
       } else {
-        console.log('Login bem-sucedido:', response.data);
+        console.log('Login bem-sucedido:', response);
+
+        const token = response.data
+        Cookies.set('auth_token', token)
+
+        setIsLogedIn(true)
+
       }
     } catch (error) {
       console.error('Erro na requisição:', error);
     }
   }
 
+  if (isLoading) {
+    return <Loader />
+  }
 
   return (
     <AppContainer>

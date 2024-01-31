@@ -14,7 +14,7 @@ export const MobileDisplaySC = styled.div`
 `;
 
 export const NavbarSC = styled.nav`
-  width: 100dvw;
+  width: 100%;
   height: 73px;
   padding: 16px 30px;
   display: flex;

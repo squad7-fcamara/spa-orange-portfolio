@@ -17,7 +17,7 @@ export const ProjectCardSC = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-block: 40px;
+    margin-block: 16px;
     gap: 16px;
     border-radius: 4px;
     transition: transform 0.3s ease;
@@ -98,6 +98,22 @@ export const Card = styled.div`
       border-radius: 4px;
     }
 
+    header {
+      position: relative;
+      top: 35px;
+      width: 100%;
+      height: 28px;
+      margin: 0;
+    }
+
+    header div {
+      width: 28px;
+      height: 28px;
+      opacity: 0;
+      margin: 0 88%;
+      display: ${(props) => props.$profilePage};
+    }
+
     footer {
       width: 100%;
       height: 36px;
@@ -105,7 +121,8 @@ export const Card = styled.div`
       align-items: center;
       justify-content: space-between;
       gap: 6px;
-      margin-top: 315px;
+      margin-top: 258px;
+      padding-top: ${(props) => props.$profilePage === "none" && "24px"};
     }
 
     footer h1 {
@@ -134,22 +151,35 @@ export const Card = styled.div`
     }
     @media (max-width: ${laptop}) {
       footer {
-        margin-top: 250px;
+        margin-top: 200px;
       }
     }
     @media (max-width: ${tablet}) {
       footer {
-        margin-top: 315px;
+        margin-top: 258px;
       }
     }
     @media (max-width: ${mobile}) {
+      header div {
+        margin: 0 93%;
+      }
       footer {
-        margin-top: 350px;
+        margin-top: 300px;
       }
     }
-    @media (max-width: "375px") {
+    @media (max-width: ${"542px"}) {
+      header div {
+        margin: 0 88%;
+      }
+    }
+    @media (max-width: ${"375px"}) {
       footer {
-        margin-top: 0px;
+        margin-top: 220px;
+      }
+    }
+    @media (max-width: ${"320px"}) {
+      footer {
+        margin-top: 200px;
       }
     }
   }
@@ -158,6 +188,12 @@ export const Card = styled.div`
   &.card-with-project:hover {
     cursor: pointer;
     transform: translate(-3px, -6px);
+  }
+
+  &.card-with-project:hover {
+    header > div:only-child {
+      opacity: 1;
+    }
   }
 
   &.blank-card {

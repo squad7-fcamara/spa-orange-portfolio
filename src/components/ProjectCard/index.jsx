@@ -1,5 +1,7 @@
 import { MdCollections } from "react-icons/md";
 import { Card, ProjectCardSC } from "./style";
+import { useLocation } from "react-router-dom";
+import ModalEdit from "../ModalEdit";
 
 function ProjectCard({ projectData }) {
   const { fullName, projects } = projectData;
@@ -9,6 +11,7 @@ function ProjectCard({ projectData }) {
     const year = date.getFullYear().toString().slice(-2);
     return `${month}/${year}`;
   };
+  const { pathname } = useLocation();
 
   return (
     <ProjectCardSC>
@@ -28,7 +31,11 @@ function ProjectCard({ projectData }) {
             key={project.idProjeto}
             className="card-with-project"
             $imageProject={project.imagem}
+            $profilePage={pathname !== "/my-projects" ? "none" : "initial"}
           >
+            <header>
+              <div>{<ModalEdit />}</div>
+            </header>
             <footer>
               <span>
                 <img

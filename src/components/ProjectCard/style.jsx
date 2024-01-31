@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-const laptop = "1280px";
-const tablet = "1024px";
-const mobile = "768px";
+const desktop = "1280px";
+const laptop = "1024px";
+const tablet = "768px";
+const mobile = "425px";
 
 export const ProjectCardSC = styled.div`
   width: 100%;
@@ -11,81 +12,58 @@ export const ProjectCardSC = styled.div`
   gap: 23px;
   margin-top: 16px;
 
-  div {
-    width: 390px;
-    height: 258px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-block: 16px;
-    gap: 16px;
-    border-radius: 4px;
-    transition: transform 0.3s ease;
+  @media (max-width: ${desktop}) {
+    gap: 48px;
   }
-
-  .icon {
-    margin: 0 auto;
-  }
-
-  h1,
-  p {
-    margin: 0 48px;
-    opacity: 0.6;
-  }
-  p {
-    font-size: 14px;
-  }
-
   @media (max-width: ${laptop}) {
-    & {
-      flex-wrap: wrap;
-    }
-    div {
-      width: 30%;
-      height: 200px;
-    }
-  }
-  @media (max-width: ${tablet}) {
-    div {
-      width: 48%;
-      height: 258px;
-    }
-    .blank-card:last-child {
-      display: none;
-    }
-  }
-  @media (max-width: ${mobile}) {
-    .blank-card {
-      display: none;
-    }
-    div {
-      width: 100%;
-      height: 300px;
-      h1,
-      p {
-        margin: 0 24px;
-      }
-    }
-  }
-  @media (max-width: ${"375px"}) {
-    div {
-      height: 220px;
-    }
-  }
-  @media (max-width: ${"320px"}) {
-    div {
-      height: 200px;
-    }
+    gap: 23px;
   }
 `;
 
 export const Card = styled.div`
+  width: 32%;
+  height: 258px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 32px;
+  gap: 16px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+
+  @media (max-width: ${desktop}) {
+    width: 30%;
+    height: 20vw;
+  }
+  @media (max-width: ${laptop}) {
+    width: 48%;
+    height: 25vw;
+    &.blank-card:last-child {
+      display: none;
+    }
+  }
+  @media (max-width: 599px) {
+    width: 100%;
+    height: 55vw; 
+    &.blank-card {
+      display: none;
+    }
+  }
+
   &.card-without-project {
     color: #303133;
     background-color: #e6e9f2;
     box-shadow: 1px 4px 4px rgba(230, 233, 242, 1);
-    img {
-      display: none;
+    .icon {
+      margin: 0 auto;
+    }
+    h1,
+    p {
+      margin: 0 48px;
+      opacity: 0.6;
+    }
+    p {
+      font-size: 14px;
     }
   }
 
@@ -149,7 +127,7 @@ export const Card = styled.div`
       border-radius: 100px;
       background-color: #00000014;
     }
-    @media (max-width: ${laptop}) {
+    @media (max-width: ${desktop}) {
       footer {
         margin-top: 200px;
       }

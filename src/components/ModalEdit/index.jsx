@@ -21,7 +21,7 @@ const ModalEdit = () => {
         <DropdownIcon />
       </DropdownBtn>
 
-      <DropDowndivOptions>
+      <DropDowndivOptions $isOpen={isDropdownOpen}>
         <DropdownCardEdit>
           <DropdownCardEditOptions>Editar</DropdownCardEditOptions>
           <DropdownCardEditOptions>Excluir</DropdownCardEditOptions>

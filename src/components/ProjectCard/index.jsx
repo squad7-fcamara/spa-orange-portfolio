@@ -2,6 +2,7 @@ import { MdCollections } from "react-icons/md";
 import { Card, ProjectCardSC } from "./style";
 import { useLocation } from "react-router-dom";
 import ModalEdit from "../ModalEdit";
+import { useState } from "react";
 
 function ProjectCard({ projectData }) {
   const { fullName, projects } = projectData;
@@ -12,6 +13,16 @@ function ProjectCard({ projectData }) {
     return `${month}/${year}`;
   };
   const { pathname } = useLocation();
+  const [isButtonVisible, setIsButtonVisible] = useState(false);
+
+  // Listening do mouse - Versão para PC - OBS: Não coonsegui alternar na versão mobile .
+  const handleMouseEnter = () => {
+    setIsButtonVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsButtonVisible(false);
+  };
 
   return (
     <ProjectCardSC>
@@ -32,9 +43,11 @@ function ProjectCard({ projectData }) {
             className="card-with-project"
             $imageProject={project.imagem}
             $profilePage={pathname !== "/my-projects" ? "none" : "initial"}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <header>
-              <div>{<ModalEdit />}</div>
+              <div>{isButtonVisible && <ModalEdit />}</div>
             </header>
             <footer>
               <span>

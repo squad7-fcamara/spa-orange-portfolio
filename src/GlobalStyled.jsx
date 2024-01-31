@@ -35,20 +35,23 @@ export const Dashboard = styled.div`
     height: 122px;
     font-size: 34px;
     text-align: center;
-    margin: 64px 0 16px;
+    margin: 64px 0 0;
   }
 
   @media (max-width: ${tablet}) {
     & {
       padding: 0 24px;
     }
-    & header {
+    & > header {
       font-size: 24px;
     }
   }
   @media (max-width: ${mobile}) {
     & {
       padding: 0 12px;
+    }
+    & > header {
+      font-size: 16px;
     }
   }
 `;

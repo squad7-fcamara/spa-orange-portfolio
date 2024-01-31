@@ -43,7 +43,7 @@ export const DropDowndivOptions = styled.span`
   top: 55px;
   right: 16px;
   width: 208px;
-  height: ${({ isOpen }) => (isOpen ? '118px' : '0px')};
+  height: ${(props) => (props.$isOpen ? "118px" : "0px")};
   overflow: hidden;
   transition: height 0.5s ease;
   border-radius: 8px;

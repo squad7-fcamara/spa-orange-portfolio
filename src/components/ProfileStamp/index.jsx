@@ -1,6 +1,14 @@
 import { ProfileStampSC } from "./style";
 
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/auth/AuthContext";
+
 function ProjectStamp() {
+
+  const auth = useContext(AuthContext)
+
+  
+
   return (
     <ProfileStampSC>
       <div>
@@ -10,7 +18,7 @@ function ProjectStamp() {
         />
       </div>
       <div>
-        <h1>Lorem ipsum</h1>
+        <h1>{auth.user.nome} {auth.user.sobrenome} </h1>
         <p>Brasil</p>
         <button>ADICIONAR PROJETO</button>
       </div>

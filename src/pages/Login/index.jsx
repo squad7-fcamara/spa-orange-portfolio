@@ -1,7 +1,7 @@
-import { api } from "../../api/apiRest";
+// import { api } from "../../api/apiRest";
 
 import { NavLink } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 
 
 import LoginGoogleBtn from "../../components/LoginGoogleBtn"
@@ -9,74 +9,71 @@ import { FormLogin, AppContainer, ImageContainer, HeroImage, ContentContainer, T
 import PrimaryButton from "../../components/PrimaryButton";
 
 import FloatInput from "../../components/FloatInput/FloatInput";
-import Loader from "../../components/Loader/Loader";
+// import Loader from "../../components/Loader/Loader";
 
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { useForm } from "react-hook-form"
 
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
+import { AuthContext } from "../../contexts/auth/AuthContext";
 
 const Login = () => {
 
-  const [isLogedIn, setIsLogedIn] = useState(false)
+  const auth = useContext(AuthContext)
 
-  const [isLoading, setIsLoading] = useState(true)
+
+  // const [isLogedIn, setIsLogedIn] = useState(false)
+
+  // const [isLoading, setIsLoading] = useState(false)
 
   const { register, handleSubmit, formState: { errors } } = useForm()
 
   const navigate = useNavigate()
-  
-  useEffect(()=> {
-    
-    const token = Cookies.get('auth_token')
-
-    if (token) {
-      setIsLogedIn(true)
-    }
-
-    if (isLogedIn) {
-      navigate('/my-projects')
-      setIsLoading(false)
-    }
-
-  },[isLogedIn, navigate])
 
   const onSubmit =  async (data) => {
-    console.log(data)
 
-    try {
-      const response = await api.get(`usuario/validarLogin?email=${data.email}&senha=${data.senha}`);
-      if (response.data === -1) {
-        console.log('Login falhou:', response.data);
-        toast.error('Email ou senha incorreta. Tente novamente.', {
-          iconTheme: {
-            primary: '#fff',
-            secondary: '#DD0000',
-          },
-          style: {
-            background: "#DD0000",
-            color: "white",
-            minWidth: "20rem",
-          }
-        });
-      } else {
-        console.log('Login bem-sucedido:', response);
+    const isLogged = await auth.validateLogin(data.email, data.senha)
 
-        const token = response.data
-        Cookies.set('auth_token', token)
-
-        setIsLogedIn(true)
-
-      }
-    } catch (error) {
-      console.error('Erro na requisição:', error);
+    if(isLogged) {
+      navigate('/my-projects')
+    } else {
+      alert("nao rolou")
     }
+
+    // try {
+    //   const response = await api.get(`usuario/validarLogin?email=${data.email}&senha=${data.senha}`);
+    //   if (response.data === -1) {
+    //     console.log('Login falhou:', response.data);
+    //     toast.error('Email ou senha incorreta. Tente novamente.', {
+    //       iconTheme: {
+    //         primary: '#fff',
+    //         secondary: '#DD0000',
+    //       },
+    //       style: {
+    //         background: "#DD0000",
+    //         color: "white",
+    //         minWidth: "20rem",
+    //       }
+    //     });
+    //   } else {
+    //     console.log('Login bem-sucedido:', response);
+
+    //     // const token = response.data
+    //     // Cookies.set('auth_token', token)
+
+    //     // setIsLogedIn(true)
+
+    //   }
+    // } catch (error) {
+    //   console.error('Erro na requisição:', error);
+    // }
   }
 
-  if (isLoading) {
-    return <Loader />
-  }
+  // if (isLoading) {
+  //   return <Loader />
+  // }
 
   return (
     <AppContainer>

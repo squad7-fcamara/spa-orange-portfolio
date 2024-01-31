@@ -8,25 +8,35 @@ import MyProjects from "./pages/MyProjects/index.jsx";
 import Discover from "./pages/Discover/index.jsx";
 import Login from "./pages/Login/index.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
+import { AuthProvider } from "./contexts/auth/AuthProvider.jsx";
+
+import { RequireAuth } from "./contexts/auth/RequireAuth.jsx";
+import { LoginContext } from "./contexts/auth/LoginContext.jsx";
 
 const routes = createBrowserRouter([
-  { path: "/", element: <Login /> },
-  { path: "/sign-up", element: <SignUp /> },
+  { path: "/", element: <LoginContext><Login /></LoginContext> },
+  { path: "/sign-up", element:  <RequireAuth><SignUp /></RequireAuth> },
   {
     path: "/",
-    element: <Navbar />,
+    element:  <RequireAuth> <Navbar /> </RequireAuth> ,
     children: [
-      { path: "my-projects", element: <MyProjects /> },
-      { path: "discover", element: <Discover /> },
+      { path: "my-projects", element: <RequireAuth> <MyProjects /> </RequireAuth>},
+      { path: "discover", element: <RequireAuth>  <Discover /> </RequireAuth> },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <GoogleOAuthProvider clientId="861664577576-isgm37phm8vcqnsialfvm3g788oi239r.apps.googleusercontent.com">
-      <GlobalStyled />
-      <RouterProvider router={routes} />
-    </GoogleOAuthProvider>
+
+    <AuthProvider>
+
+      <GoogleOAuthProvider clientId="861664577576-isgm37phm8vcqnsialfvm3g788oi239r.apps.googleusercontent.com">
+        <GlobalStyled />
+        <RouterProvider router={routes} />
+      </GoogleOAuthProvider>
+
+    </AuthProvider>
+    
   </React.StrictMode>
 );

@@ -5,6 +5,7 @@ import ProjectStamp from "../../components/ProfileStamp";
 import ProjectCard from "../../components/ProjectCard";
 import SearchBar from "../../components/SearchBar";
 import { getUsuarioProjetoByIdUsuario } from "../../services/userServices";
+import ModalCardAdd from "../../components/ModalCardAdd";
 
 function MyProjects() {
   const [userData, setUserData] = useState({
@@ -26,12 +27,14 @@ function MyProjects() {
   const projects = userData.lstProjeto;
   const projectData = { fullName, projects };
 
-  return (
+  return (<>
+    <ModalCardAdd />
     <Dashboard>
       <ProjectStamp fullName={fullName} />
       <SearchBar />
       <ProjectCard projectData={projectData} />
     </Dashboard>
+  </>
   );
 }
 

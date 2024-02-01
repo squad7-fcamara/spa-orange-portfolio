@@ -102,23 +102,62 @@ const ModalCardAdd = () => {
 
 
   const onSubmitProjectToApi = async (data) => {
+    console.log(data)
+    console.log(data.imagem[0].name, data.imagem[0].type)
     try {
-      const formData = new FormData();
-      formData.append('IdUsuario', userId);
-      formData.append('Titulo', data.addProjectTitle);
-      formData.append('Tag', data.addProjectTag);
-      formData.append('Link', data.projectTitle);
-      formData.append('Descricao', data.descricao);
+      // const formData = new FormData();
+      // formData.append('IdUsuario', userId);
+      // formData.append('Titulo', data.titulo);
+      // formData.append('Tag', data.tag);
+      // formData.append('Link', data.link);
+      // formData.append('Descricao', data.descricao);
 
-      if (data.imagem[0]) {
-        formData.append('Imagem', data.imagem[0]);
-      }
+      // console.log(formData)
 
-      const response = await api.post('projeto/', formData);
+      // if (data.imagem[0]) {
+      //   formData.append('Imagem', data.imagem[0]);
+      // }
+
+    //   "idProjeto": 3,
+    // "idUsuario": 4,
+    // "titulo": "Hackathon Squad 7",
+    // "imagem": "caminho-imagem",
+    // "tag": "tag",
+    // "link": "www.github.com/joaooliveira/Squad7",
+    // "descricao": "Projeto desenvolvido no Hackathon pelo Squad 7",
+    // "dataCriacao": "01/29/2024 19:44:31",
+    // "nomeCompleto": "João Oliveira"
+
+    // console.log(imageSrc)
+
+    // console.log({})
+
+    console.log({
+        IdProjeto: '',
+        IdUsuario: userId,
+        Titulo: data?.titulo,
+        Imagem: `@${data.imagem[0].name};type=${data.imagem[0].type}`,
+        // Imagem: `${imageSrc}`,
+        Tag: data?.tag,
+        Link: data?.link,
+        Descricao: data?.descricao
+    })
+
+      const response = await api.post('projeto', {
+        IdProjeto: '',
+        IdUsuario: userId,
+        Titulo: data?.titulo,
+        Imagem: `@${data.imagem[0].name};type=${data.imagem[0].type}`,
+        // Imagem: `${imageSrc}`,
+        Tag: data?.tag,
+        Link: data?.link,
+        Descricao: data?.descricao
+      });
       notifyAlert(response.status);
       console.log('Resposta da API:', response.data);
     } catch (error) {
       notifyAlert(error.status);
+      console.log(error);
     }
   };
 
@@ -132,6 +171,9 @@ const ModalCardAdd = () => {
           <form className="form" onSubmit={handleSubmit(onSubmitProjectToApi)} method="POST" >
             <Container>
               <Title>Adicionar Projeto</Title>
+
+              <input value={userId} {...register('idUsuario')} ></input>
+              <input type='file' id="picture" {...register('imagem')} ></input>
 
               <ColumnImage>
                 <Subtitle>Selecione o conteúdo que você deseja fazer upload</Subtitle>
@@ -158,6 +200,7 @@ const ModalCardAdd = () => {
                         ref={fileInputRef}
                         style={{ display: 'none' }}
                         onChange={handleFileChange}
+                        
                       />
 
                       <MdCollections className="icon" size={"54px"} color="#323232" />

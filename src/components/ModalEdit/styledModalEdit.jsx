@@ -57,6 +57,7 @@ export const DropDowndivOptions = styled.span`
 `;
 
 export const DropdownCardEdit = styled.ul`
+  font-size: 1rem;
   list-style: none;
   width: 100%;
   padding: 0;
@@ -75,7 +76,7 @@ export const DropdownCardEditOptions = styled.li`
   background: var(--Neutral-Colors-Neutral-60, #FCFDFF);
   cursor: pointer;
 
-  font-size:16px
+  font-size: 1rem
   color: rgba(81, 82, 85, 1);
   transition: background-color 0.8s ease;
   padding-left: 16px; /* Distância da borda esquerda */

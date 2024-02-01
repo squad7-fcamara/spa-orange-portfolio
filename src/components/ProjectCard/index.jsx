@@ -3,12 +3,9 @@ import { Card, ProjectCardSC } from "./style";
 import { useLocation } from "react-router-dom";
 import ModalEdit from "../ModalEdit";
 import { useState } from "react";
-// import { api } from "../../api/apiRest";
 
-function ProjectCard({ projects, fullName }) {
-  // const { fullName, projects } = projectData;
+function ProjectCard({ projects }) {
 
-  
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
@@ -63,8 +60,7 @@ function ProjectCard({ projects, fullName }) {
                   alt="imagem de perfil"
                 />
                 <h1>
-                  {fullName} •{" "}
-                  {console.log(fullName)}
+                  {project.nomeCompleto} •{" "}
                   {formatDate(project.dataCriacao)}
                 </h1>
               </span>

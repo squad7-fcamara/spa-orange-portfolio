@@ -10,13 +10,13 @@ import SecondaryButton from "../SecondaryButton"
 import {
   BackgroundFilter, ModalContentCardAdd, Container, Content, Title, Subtitle, TextArea, Image, ColumnImage, ColumnContent, ButtonContainer, FooterSubtitleContent,
   FooterButtonContent
-} from "./StyledModalCardAdd"
+} from "./StyledModalCardEdit"
 import "./styles.css"
 
 
 import { MdCollections } from "react-icons/md";
 
-const ModalCardAdd = () => {
+const ModalCardEdit = () => {
 
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
@@ -132,7 +132,7 @@ const ModalCardAdd = () => {
         <ModalContentCardAdd>
           <form className="form" onSubmit={handleSubmit(onSubmitProjectToApi)} method="POST" >
             <Container>
-              <Title>Adicionar Projeto</Title>
+              <Title>Editar projeto</Title>
 
               <ColumnImage>
                 <Subtitle>Selecione o conteúdo que você deseja fazer upload</Subtitle>
@@ -235,4 +235,4 @@ const ModalCardAdd = () => {
   )
 }
 
-export default ModalCardAdd
+export default ModalCardEdit

@@ -21,7 +21,7 @@ export const GlobalStyled = createGlobalStyle`
 `;
 
 export const Dashboard = styled.div`
-  max-width: 1280px;
+  /* max-width: 1280px;
   width: 100%;
   min-height: calc(100dvh - 73px);
   padding: 0 32px 0;
@@ -53,5 +53,5 @@ export const Dashboard = styled.div`
     & > header {
       font-size: 16px;
     }
-  }
+  } */
 `;

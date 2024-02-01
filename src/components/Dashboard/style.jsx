@@ -1,3 +1,4 @@
+import "../../reset.css";
 import styled from "styled-components";
 import { bp } from "../../utils/breakpoints";
 
@@ -8,6 +9,7 @@ export const DashboardSC = styled.main`
   padding-top: 4.5rem;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 

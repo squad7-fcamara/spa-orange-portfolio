@@ -189,7 +189,7 @@ const ModalCardAdd = () => {
                     register={register}
                     required={true}
                     classes={errors.title && "required"}
-                    C
+                    
                   />
                   <FloatInput
                     id_value="input-add-project-input-teste"

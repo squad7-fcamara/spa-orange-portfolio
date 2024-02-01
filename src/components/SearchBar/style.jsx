@@ -1,28 +1,53 @@
 import { styled } from "styled-components";
 
 export const SearchBarSC = styled.div`
-  display: flex;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 2;
-  padding-bottom: 8px;
+  min-height: 2.5rem;
+  max-width: 518px;
+  width: 100%;
+  border: solid 1px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  padding: 0.5rem;
 
-  label {
-    width: 100%;
-    color: rgba(11, 12, 13, 1);
-    opacity: 0.6;
-  }
-  input {
-    max-width: 518px;
-    width: 100%;
-    height: 56px;
-    padding: 12px;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.23);
+  &:hover { cursor: text; }
 
-    ::placeholder {
-      font-size: 16px;
-      color: rgba(129, 131, 136, 1);
-    }
+
   }
 `;
+
+export const UlTags = styled.ul`
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap; 
+
+  .tag-li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0.25rem;
+    background-color: #9747FF;
+    color: white;
+    border-radius: 10px;
+    transition: 0.5s;
+
+    &:hover {
+      transition: 0.5s;
+      background-color: #111133;
+    }
+  }
+
+  .placeholder {
+    font-size: 1rem;
+    padding: 0.25rem;
+    color: #888;
+  }
+`
+
+export const ClearTag = styled.span`
+  display: flex;
+  align-items: center;
+  margin-left: 0.25rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+`

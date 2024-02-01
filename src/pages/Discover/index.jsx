@@ -3,18 +3,35 @@ import { useEffect, useState } from "react";
 import { Dashboard } from "../../GlobalStyled";
 import SearchBar from "../../components/SearchBar";
 import ProjectCard from "../../components/ProjectCard";
+import { api } from "../../api/apiRest";
 import { getProjects } from "../../services/projectServices";
 
 function Discover() {
   const [projects, setProjects] = useState([]);
+  const [search, setSearch] = useState('')
+
   useEffect(() => {
     async function fetchData() {
-      const response = await getProjects();
-      setProjects(response.data);
+      
+      if (search == "" ) {
+        const response = await getProjects();
+        setProjects(response.data);
+      } else {
+        const response = await api.get(`/projeto/getByTags?tags=${search}`)
+        setProjects(response.data);
+      }
     }
 
     fetchData();
-  }, []);
+
+  }, [search]);
+
+
+  const handleSearch = (tags) => {
+    const formattedTags = `${tags.join(';')}`;
+    setSearch(formattedTags)
+  };
+
 
   return (
     <Dashboard>
@@ -22,8 +39,9 @@ function Discover() {
         Junte-se à comunidade de inovação, inspiração e descobertas,
         transformando experiências em conexões inesquecíveis
       </header>
-      <SearchBar />
-      <ProjectCard projectData={{ projects }} />
+      <SearchBar getSearch={ handleSearch } />
+      <ProjectCard projects={ projects } />
+      {/* TODO: getUserById para preencher os dados do projeto. */}
     </Dashboard>
   );
 }

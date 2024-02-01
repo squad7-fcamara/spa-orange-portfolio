@@ -25,7 +25,7 @@ export const Dashboard = styled.div`
   width: 100%;
   min-height: calc(100dvh - 73px);
   padding: 0 32px 0;
-  margin: 73px auto 0;
+  margin: 73px auto 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

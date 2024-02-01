@@ -30,6 +30,7 @@ export const Card = styled.div`
   gap: 16px;
   border-radius: 4px;
   transition: transform 0.3s ease;
+  margin-bottom: 3rem;
 
   @media (max-width: ${desktop}) {
     width: 30%;

@@ -3,16 +3,21 @@ import { Card, ProjectCardSC } from "./style";
 import { useLocation } from "react-router-dom";
 import ModalEdit from "../ModalEdit";
 import { useState } from "react";
+// import { api } from "../../api/apiRest";
 
-function ProjectCard({ projectData }) {
-  const { fullName, projects } = projectData;
+function ProjectCard({ projects, fullName }) {
+  // const { fullName, projects } = projectData;
+
+  
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const year = date.getFullYear().toString().slice(-2);
     return `${month}/${year}`;
   };
+
   const { pathname } = useLocation();
+  
   const [isButtonVisible, setIsButtonVisible] = useState(false);
 
   // Listening do mouse - Versão para PC - OBS: Não coonsegui alternar na versão mobile .
@@ -38,6 +43,7 @@ function ProjectCard({ projectData }) {
         </>
       ) : (
         projects.map((project) => (
+
           <Card
             key={project.idProjeto}
             className="card-with-project"
@@ -46,6 +52,7 @@ function ProjectCard({ projectData }) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
+
             <header>
               <div>{isButtonVisible && <ModalEdit />}</div>
             </header>
@@ -56,16 +63,17 @@ function ProjectCard({ projectData }) {
                   alt="imagem de perfil"
                 />
                 <h1>
-                  {project.nomeCompleto ? project.nomeCompleto : fullName} •{" "}
+                  {fullName} •{" "}
+                  {console.log(fullName)}
                   {formatDate(project.dataCriacao)}
                 </h1>
               </span>
-              {/* {project.tag.map((tag) => tag)} */}
               <div className="tag">{project.tag}</div>
             </footer>
           </Card>
         ))
       )}
+
     </ProjectCardSC>
   );
 }

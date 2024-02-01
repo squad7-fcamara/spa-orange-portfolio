@@ -21,6 +21,7 @@ const ModalCardAdd = () => {
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
   const [imageSrc, setImageSrc] = useState(null);
+  const [image, setImage] = useState()
 
 
   const handleClick = () => {
@@ -29,6 +30,8 @@ const ModalCardAdd = () => {
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
+    setImage(selectedFile)
+
     if (selectedFile) {
       const reader = new FileReader();
       reader.onload = () => {
@@ -63,7 +66,7 @@ const ModalCardAdd = () => {
     if (status == 200) {
       toast.success('Projeto adicionado com sucesso!', {
 
-        duration: Infinity,
+        duration: 3000,
 
         iconTheme: {
           primary: '#fff',
@@ -102,62 +105,26 @@ const ModalCardAdd = () => {
 
 
   const onSubmitProjectToApi = async (data) => {
-    console.log(data)
-    console.log(data.imagem[0].name, data.imagem[0].type)
+    
     try {
-      // const formData = new FormData();
-      // formData.append('IdUsuario', userId);
-      // formData.append('Titulo', data.titulo);
-      // formData.append('Tag', data.tag);
-      // formData.append('Link', data.link);
-      // formData.append('Descricao', data.descricao);
-
-      // console.log(formData)
-
-      // if (data.imagem[0]) {
-      //   formData.append('Imagem', data.imagem[0]);
-      // }
-
-    //   "idProjeto": 3,
-    // "idUsuario": 4,
-    // "titulo": "Hackathon Squad 7",
-    // "imagem": "caminho-imagem",
-    // "tag": "tag",
-    // "link": "www.github.com/joaooliveira/Squad7",
-    // "descricao": "Projeto desenvolvido no Hackathon pelo Squad 7",
-    // "dataCriacao": "01/29/2024 19:44:31",
-    // "nomeCompleto": "João Oliveira"
-
-    // console.log(imageSrc)
-
-    // console.log({})
-
-    console.log({
-        IdProjeto: '',
-        IdUsuario: userId,
-        Titulo: data?.titulo,
-        Imagem: `@${data.imagem[0].name};type=${data.imagem[0].type}`,
-        // Imagem: `${imageSrc}`,
-        Tag: data?.tag,
-        Link: data?.link,
-        Descricao: data?.descricao
-    })
 
       const response = await api.post('projeto', {
-        IdProjeto: '',
         IdUsuario: userId,
         Titulo: data?.titulo,
-        Imagem: `@${data.imagem[0].name};type=${data.imagem[0].type}`,
-        // Imagem: `${imageSrc}`,
+        Imagem: `@${image.name};type=${image.type}`,
         Tag: data?.tag,
         Link: data?.link,
         Descricao: data?.descricao
+      } , {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
       });
+
       notifyAlert(response.status);
-      console.log('Resposta da API:', response.data);
+
     } catch (error) {
       notifyAlert(error.status);
-      console.log('Resposta da API:', error.status)
     }
   };
 
@@ -172,7 +139,6 @@ const ModalCardAdd = () => {
             <Container>
               <Title>Adicionar Projeto</Title>
 
-              <input value={userId} {...register('idUsuario')} ></input>
               <input type='file' id="picture" {...register('imagem')} ></input>
 
               <ColumnImage>

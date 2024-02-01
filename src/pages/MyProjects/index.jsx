@@ -6,6 +6,7 @@ import ProjectCard from "../../components/ProjectCard";
 import SearchBar from "../../components/SearchBar";
 import { getUsuarioProjetoByIdUsuario } from "../../services/userServices";
 import ModalCardAdd from "../../components/ModalCardAdd";
+import ModalCardEdit from "../../components/ModalCardEdit";
 
 function MyProjects() {
   const [userData, setUserData] = useState({
@@ -28,7 +29,8 @@ function MyProjects() {
   const projectData = { fullName, projects };
 
   return (<>
-    <ModalCardAdd />
+     <ModalCardAdd />
+    {/* <ModalCardEdit /> */}
     <Dashboard>
       <ProjectStamp fullName={fullName} />
       <SearchBar />

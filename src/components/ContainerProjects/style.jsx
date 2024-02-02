@@ -9,7 +9,6 @@ export const ContainerProjectSC = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  justify-content: space-between;
 
   @media (max-width: ${bp.tablet}) {
     padding-top: 1.5rem;

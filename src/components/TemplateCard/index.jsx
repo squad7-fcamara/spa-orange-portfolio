@@ -8,22 +8,19 @@ import {
 import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
 import ModalEdit from "../ModalEdit";
 import { useState } from "react";
+import { formatDate } from "../../utils/formatDate";
+import { useLocation } from "react-router-dom";
 
-const TemplateCard = () => {
-  // TODO: RECEBER PROPS
+const TemplateCard = (props) => {
+  const { pathname } = useLocation();
+  const [isButtonVisible, setIsButtonVisible] = useState(false);
+
   // FIXME: APAGAR MOCK PROPS
-
-  const props = {
-    class: "with-project",
+  const props1 = {
     activated: true,
     projectImage:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png",
-    userPicture: profilePictureDefault,
-    userName: "Lorem Ipsum",
-    projectDate: "12/23",
   };
-
-  const [isButtonVisible, setIsButtonVisible] = useState(false);
 
   const handleMouseEnter = () => {
     setIsButtonVisible(true);
@@ -41,7 +38,7 @@ const TemplateCard = () => {
       onMouseLeave={handleMouseLeave}
     >
       <EditBtnSpaceSC className="header">
-        {isButtonVisible && <ModalEdit />}
+        {isButtonVisible && pathname === "/profile" && <ModalEdit />}
       </EditBtnSpaceSC>
       <ProjectImageSC
         className="project-image"
@@ -62,7 +59,7 @@ const TemplateCard = () => {
         <div className="informative-text">
           <h1 className="user-name">{props.userName}</h1>
           <span className="dot">•</span>
-          <p className="project-date">{props.projectDate}</p>
+          <p className="project-date">{formatDate(props.projectDate)}</p>
         </div>
       </ProjectOwnerInfosSC>
     </ContainerCardSC>

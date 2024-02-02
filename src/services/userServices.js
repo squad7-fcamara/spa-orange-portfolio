@@ -1,10 +1,14 @@
-import axios from "axios";
+import { api } from "../api/apiRest";
 
-const baseURL = "https://apisquad7.azurewebsites.net/api/usuario";
-
-export function getUsuarioProjetoByIdUsuario() {
-  const response = axios.get(
-    `${baseURL}/getUsuarioProjetoByIdUsuario?idUsuario=4` //TODO: pegar id do usuário logado
-  );
-  return response;
-}
+export const getAllProjects = async () => {
+  try {
+    const response = await api.get(`/projeto`);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Erro ao obter projetos:",
+      error.response.status,
+      error.response.statusText
+    );
+  }
+};

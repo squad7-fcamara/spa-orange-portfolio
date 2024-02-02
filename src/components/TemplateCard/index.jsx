@@ -16,13 +16,6 @@ const TemplateCard = (props) => {
   const { pathname } = useLocation();
   const [isButtonVisible, setIsButtonVisible] = useState(false);
 
-  // FIXME: APAGAR MOCK PROPS
-  const props1 = {
-    activated: true,
-    projectImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png",
-  };
-
   const handleMouseEnter = () => {
     setIsButtonVisible(true);
   };

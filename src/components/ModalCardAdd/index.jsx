@@ -15,6 +15,7 @@ import "./styles.css"
 
 
 import { MdCollections } from "react-icons/md";
+import ModalVisualProject from '../ModalVisualProject';
 
 const ModalCardAdd = () => {
 
@@ -133,6 +134,7 @@ const ModalCardAdd = () => {
 
   return (
     <>
+      <ModalVisualProject />
       <BackgroundFilter>
         <ModalContentCardAdd>
           <form className="form" onSubmit={handleSubmit(onSubmitProjectToApi)} method="POST" >

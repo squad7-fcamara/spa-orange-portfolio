@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import ModalEdit from "../ModalEdit";
 import { useState } from "react";
 
-function ProjectCard({ projects }) {
+function ProjectCard({ projects, fullName }) {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -60,7 +60,7 @@ function ProjectCard({ projects }) {
                   alt="imagem de perfil"
                 />
                 <h1>
-                  {project.nomeCompleto} •{" "}
+                  {project.nomeCompleto ? project.nomeCompleto : fullName  } •{" "}
                   {formatDate(project.dataCriacao)}
                 </h1>
               </span>

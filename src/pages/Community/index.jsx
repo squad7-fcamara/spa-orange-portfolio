@@ -3,7 +3,7 @@ import CommunityHeader from "../../components/CommunityHeader";
 import { ContainerProjectSC } from "../../components/ContainerProjects/style";
 import TemplateCard from "../../components/TemplateCard";
 import { useEffect, useState } from "react";
-import { getAllProjects } from "../../services/userServices";
+import { getAllProjects } from "../../services/projectServices";
 
 const Community = () => {
   const [projectsList, setProjectsList] = useState([]);

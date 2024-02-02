@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { bp } from "../../utils/breakpoints";
 
 export const ContainerCardSC = styled.div`
+  position: relative;
   width: 33%;
 
   display: flex;
@@ -57,6 +58,8 @@ export const ContainerCardSC = styled.div`
   }
 
   &.with-project {
+    height: 16rem;
+
     .project-image {
       display: initial;
     }
@@ -85,12 +88,28 @@ export const ContainerCardSC = styled.div`
   }
 `;
 
-export const CardSC = styled.div``;
+export const EditBtnSpaceSC = styled.header`
+  width: 100%;
+  height: 2.75rem;
+  
+  padding-right: 1rem;
+
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+`;
 
 export const ProjectImageSC = styled.img`
   width: 100%;
   height: 16rem;
+
   border-radius: 0.25rem;
+
+  object-fit: cover;
+  object-position: center;
 
   @media (max-width: ${bp.tablet}) {
     height: calc((100vw - 1.5rem) * 9 / 16);

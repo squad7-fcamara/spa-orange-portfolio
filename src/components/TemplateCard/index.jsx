@@ -1,14 +1,37 @@
 import { MdCollections } from "react-icons/md";
-import { ProjectImageSC, ContainerCardSC } from "./style";
+import { ProjectImageSC, ContainerCardSC, EditBtnSpaceSC } from "./style";
+import ModalEdit from "../ModalEdit";
+import { useState } from "react";
 
 const TemplateCard = () => {
   // TODO: RECEBER PROPS
   // FIXME: APAGAR MOCK PROPS
-  
-  const props = { class: "add-project", activated: true };
+
+  const props = {
+    class: "with-project",
+    activated: true,
+    projectImage:
+      "https://www.datocms-assets.com/205/1652096903-landing-page-template.png?auto=format&crop=top&fit=crop&h=350&w=450",
+  };
+
+  const [isButtonVisible, setIsButtonVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsButtonVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsButtonVisible(false);
+  };
 
   return (
-    <ContainerCardSC className={props?.class} $activated={props?.activated}>
+    <ContainerCardSC
+      className={props?.class}
+      $activated={props?.activated}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <EditBtnSpaceSC>{isButtonVisible && <ModalEdit />}</EditBtnSpaceSC>
       <ProjectImageSC
         className="project-image"
         src={props.projectImage}

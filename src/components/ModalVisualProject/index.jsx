@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject} from "./StyledModalVisualProject"
+import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject"
 
 const ModalVisualProject = () => {
   return (
@@ -34,6 +34,12 @@ const ModalVisualProject = () => {
                 </TagProjects>
                 
                 <ImagemProject />
+
+                <DescriptionProject>
+                    <p className="description-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quas quibusdam voluptatum eum. Suscipit incidunt explicabo odio magni est provident nulla praesentium quam, necessitatibus nobis mollitia totam unde laudantium rerum.
+                    </p>
+                </DescriptionProject>
                 
             </ContainerProject>
         

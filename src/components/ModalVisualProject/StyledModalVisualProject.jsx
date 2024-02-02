@@ -35,10 +35,10 @@ export const BackgroundFilter=styled.span`
 
 export const CardVisualProject=styled.div`
     width: 980px;
-    height: 100%;
+    height: 600px;
 
     // OBSERVAR ISSO NO RESPONSIVO
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 48px auto 95px;
 
     left: 207px;
@@ -91,7 +91,7 @@ font-style: normal;
 text-align: center;
 font-weight: 400;
 display:flex;
-justify-content: center; /* Alinha horizontalmente ao centro */
+justify-content: center; 
 align-items: center;
 line-height: 24px;
 width: 350px;
@@ -124,8 +124,8 @@ export const PerfilImageDate = styled.span`
     
     .perfil-image-project {
         
-        width: 40px; /* Ajuste conforme necessário */
-        height: 40px; /* Ajuste conforme necessário */
+        width: 40px; 
+        height: 40px; 
         border-radius: 50%;
         margin-right: 10px;
         background-color:blue;
@@ -166,14 +166,14 @@ export const PerfilImageDate = styled.span`
 export const TagProjects = styled.div`
 grid-row: 1;
 display: flex;
-flex-wrap: wrap; /* Permite que os elementos quebrem para a linha de baixo */
+flex-wrap: wrap; 
 max-width: 215px;
 width: 215px;
 height: 70px;
 font-size: 11px;
 margin-right: 0;
 color: #000000de;
-justify-content: end; /* Alinha os itens à esquerda do container pai */
+justify-content: end; 
 align-items: center;
 text-align: end;
 
@@ -191,7 +191,7 @@ export const ImagemProject = styled.div`
     grid-column: span 3;
     max-width: 800px;
     max-height: 500px;
-    margin: 0 auto;
+    margin: 20px auto;
     width: 100%;
     height: 400px;
     background-color: #e6e9f2;
@@ -201,3 +201,16 @@ export const ImagemProject = styled.div`
     display: flex;
 `
 
+export const DescriptionProject = styled.div`
+    grid-row: 3;
+    grid-column: span 3;
+    width: 100%;
+    margin-bottom: 40px;
+
+    p.description-text {
+        font-family: 'Roboto', sans-serif;
+        font-size: 13px; 
+        text-align: justify; 
+        margin: 0;
+    }
+`;

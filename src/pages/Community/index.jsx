@@ -8,14 +8,21 @@ import { getAllProjects } from "../../services/projectServices";
 const Community = () => {
   const [projectsList, setProjectsList] = useState([]);
 
+  // TODO: PEGAR ID DO USUÁRIO LOGADO
+  // IDs para testar funcionamento:
+  //  - 99: Não existe
+  //  -  6: sem projeto
+  //  -  5: com projeto
+  const [userAuthId, setUserAuthId] = useState(4);
+
   useEffect(() => {
-    async function loadProjects() {
-      const response = await getAllProjects();
+    async function loadProjects(excludeId) {
+      const response = await getAllProjects(excludeId);
       setProjectsList(response);
     }
 
-    loadProjects();
-  }, []);
+    loadProjects(userAuthId);
+  }, [userAuthId]);
 
   return (
     <DashboardSC>

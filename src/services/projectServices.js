@@ -1,9 +1,13 @@
 import { api } from "../api/apiRest";
 import { getJustOneUserWithYourProjectsByUserId } from "./userService";
 
-export const getAllProjects = async () => {
+export const getAllProjects = async (excludeId) => {
   try {
-    const response = await api.get(`/projeto`);
+    const response = await api.get("/projeto/getComunidade", {
+      params: {
+        idUsuario: excludeId,
+      },
+    });
     return response.data;
   } catch (error) {
     console.error(

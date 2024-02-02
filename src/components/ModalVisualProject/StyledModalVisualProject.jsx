@@ -159,9 +159,6 @@ export const PerfilImageDate = styled.span`
         }
     }
     `
-    // color: #515255;
-    // opacity: 1;
-    // margin: 0 16px;
     
 export const TagProjects = styled.div`
 grid-row: 1;

@@ -40,7 +40,9 @@ const TemplateCard = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <EditBtnSpaceSC>{isButtonVisible && <ModalEdit />}</EditBtnSpaceSC>
+      <EditBtnSpaceSC className="header">
+        {isButtonVisible && <ModalEdit />}
+      </EditBtnSpaceSC>
       <ProjectImageSC
         className="project-image"
         src={props.projectImage}
@@ -51,7 +53,7 @@ const TemplateCard = () => {
       <p className="paragraph">
         Compartilhe seu talento com milhares de pessoas
       </p>
-      <ProjectOwnerInfosSC>
+      <ProjectOwnerInfosSC className="footer">
         <img
           className="user-picture"
           src={props.userPicture || profilePictureDefault}

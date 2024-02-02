@@ -3,7 +3,7 @@ import { bp } from "../../utils/breakpoints";
 
 export const ContainerCardSC = styled.div`
   position: relative;
-  width: 33%;
+  width: 32%;
 
   display: flex;
   flex-direction: column;
@@ -26,19 +26,23 @@ export const ContainerCardSC = styled.div`
   .project-image,
   .icon-pictures,
   .title,
-  .paragraph {
+  .paragraph,
+  .header,
+  .footer {
     display: none;
   }
 
   &.add-project {
     height: 16rem;
     gap: 1rem;
-    background: #e6e9f2;
+
+    background-color: #e6e9f2;
+    box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.12);
 
     .icon-pictures,
     .title,
     .paragraph {
-      display: initial;
+      display: inherit;
     }
 
     &:hover {
@@ -59,8 +63,10 @@ export const ContainerCardSC = styled.div`
   &.with-project {
     height: 18rem;
 
-    .project-image {
-      display: initial;
+    .project-image,
+    .header,
+    .footer {
+      display: inherit;
     }
 
     &:hover {
@@ -79,8 +85,8 @@ export const ContainerCardSC = styled.div`
     }
   }
 
-  @media (max-width: ${bp.laptop}) {
-    width: 50%;
+  @media (max-width: 1280px) {
+    width: 48%;
   }
   @media (max-width: ${bp.tablet}) {
     width: 100%;

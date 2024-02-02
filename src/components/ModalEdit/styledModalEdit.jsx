@@ -2,10 +2,6 @@ import { MdCreate } from "react-icons/md";
 import styled from "styled-components";
 
 export const DropdownBtn = styled.span`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
   display: flex;
   flex-direction: column;
   align-items: center;

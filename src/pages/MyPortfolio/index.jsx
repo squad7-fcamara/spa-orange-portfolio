@@ -10,16 +10,13 @@ const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
   const [authUserProjects, setAuthUserProjects] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [userAuthId, setUserAuthId] = useState(0);
 
-  // FIXME: PEGAR ID DO USUÁRIO LOGADO
-  useEffect(() => {
-    // IDs para testar funcionamento:
-    //  - 99: Não existe
-    //  -  6: sem projeto
-    //  -  5: com projeto
-    setUserAuthId(5);
-  }, []);
+  // TODO: PEGAR ID DO USUÁRIO LOGADO
+  // IDs para testar funcionamento:
+  //  - 99: Não existe
+  //  -  6: sem projeto
+  //  -  5: com projeto
+  const [userAuthId, setUserAuthId] = useState(6);
 
   useEffect(() => {
     const loadAuthUserData = async (userId) => {
@@ -29,7 +26,6 @@ const MyPortfolio = () => {
       };
       setFullName(response.fullName);
       setAuthUserProjects(response.projects);
-      console.log(response.projects);
       setIsLoaded(true);
     };
 

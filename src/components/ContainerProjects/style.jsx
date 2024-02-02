@@ -12,7 +12,7 @@ export const ContainerProjectSC = styled.div`
 
   @media (max-width: ${bp.tablet}) {
     padding-top: 1.5rem;
-
     flex-direction: column;
+    gap: 5rem;
   }
 `;

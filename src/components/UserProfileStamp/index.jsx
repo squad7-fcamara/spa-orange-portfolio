@@ -11,13 +11,12 @@ import { useEffect, useState } from "react";
 
 const UserProfileStamp = (props) => {
   const [profilePicture, setProfilePicture] = useState(profilePictureDefault);
-  const [userName, setUserName] = useState("Carregando...");
-  const [userCountry, setUserCountry] = useState("...");
-  const [btnLabel, setBtnLabel] = useState("...");
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [userCountry, setUserCountry] = useState("");
+  const [btnLabel, setBtnLabel] = useState("");
 
   useEffect(() => {
-    setUserName(props.fullName || "Lorem Ipsum");
+    setUserName(props.fullName);
     setProfilePicture(props.userPicture || profilePictureDefault);
     setUserCountry("Brasil");
     setBtnLabel("ADICIONAR PROJETO");
@@ -29,7 +28,10 @@ const UserProfileStamp = (props) => {
       <SectionSC>
         <UserNameSC>{userName}</UserNameSC>
         <UserCountrySC>{userCountry}</UserCountrySC>
-        <AddProjectButtonSC $activated={isLoaded} disabled={!isLoaded}>
+        <AddProjectButtonSC
+          $activated={props.isLoaded}
+          disabled={!props.isLoaded}
+        >
           {btnLabel}
         </AddProjectButtonSC>
       </SectionSC>

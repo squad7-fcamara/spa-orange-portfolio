@@ -6,6 +6,7 @@ import {
   ProjectOwnerInfosSC,
 } from "./style";
 import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
+import noImageDefault from "../../assets/images/no-image.png";
 import ModalEdit from "../ModalEdit";
 import { useState } from "react";
 import { formatDate } from "../../utils/formatDate";
@@ -32,8 +33,8 @@ const TemplateCard = (props) => {
 
   return (
     <ContainerCardSC
-      className={props?.class}
-      $activated={props?.activated}
+      className={props.class}
+      $activated={props.activated}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -42,7 +43,7 @@ const TemplateCard = (props) => {
       </EditBtnSpaceSC>
       <ProjectImageSC
         className="project-image"
-        src={props.projectImage}
+        src={props.projectImage || noImageDefault}
         alt="imagem do projeto"
       />
       <MdCollections className="icon-pictures " size={"3rem"} color="#323232" />

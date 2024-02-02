@@ -1,8 +1,5 @@
 import { api } from "../api/apiRest";
-
-export const getJustOneUserWithYourProjectsByUserId = async (data) => {
-  console.log(data);
-};
+import { getJustOneUserWithYourProjectsByUserId } from "./userService";
 
 export const getAllProjects = async () => {
   try {
@@ -15,4 +12,9 @@ export const getAllProjects = async () => {
       error.response.statusText
     );
   }
+};
+
+export const getAuthUserProjects = async (userId) => {
+  const response = await getJustOneUserWithYourProjectsByUserId(userId);
+  return response.lstProjeto;
 };

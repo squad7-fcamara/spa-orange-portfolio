@@ -5,14 +5,15 @@ export const UserProfileStampSC = styled.header`
   max-width: 22.75rem;
 
   margin: 0 auto;
-  margin-top: 112px;
-  margin-bottom: 40px;
+  margin-top: 7rem;
+  margin-bottom: 2.5rem;
 
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
 
   @media (max-width: ${bp.tablet}) {
+    margin-top: 2.5rem;
     flex-direction: column;
   }
 `;

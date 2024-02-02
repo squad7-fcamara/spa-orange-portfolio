@@ -46,7 +46,10 @@ export const ContainerCardSC = styled.div`
     }
 
     &:hover {
-      cursor: ${(props) => (props.$activated ? "pointer" : "not-allowed")};
+      ${(props) =>
+        props.$activated
+          ? "cursor: pointer; transition: transform 0.3s ease-in-out;transform: scale(1.03);"
+          : "cursor: not-allowed"};
     }
 
     &:active {
@@ -73,6 +76,10 @@ export const ContainerCardSC = styled.div`
       transition: transform 0.3s ease-in-out;
       transform: scale(1.03);
     }
+    
+    @media (max-width: ${bp.tablet}) {
+      height: calc((100vw - 1.5rem) * 9 / 16);
+    }
   }
 
   &.blank {
@@ -87,24 +94,39 @@ export const ContainerCardSC = styled.div`
 
   @media (max-width: 1280px) {
     width: 48%;
+
+    &.blank:last-child {
+      display: none;
+    }
   }
   @media (max-width: ${bp.tablet}) {
     width: 100%;
+
+    &.blank {
+      display: none;
+    }
   }
 `;
 
 export const EditBtnSpaceSC = styled.header`
   width: 100%;
-  height: 2.75rem;
+  height: 2rem;
 
   padding-right: 1rem;
 
   position: absolute;
-  top: 0;
+  top: 0.5rem;
 
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+
+  @media (max-width: ${bp.laptop}) {
+    top: 0;
+  }
+  @media (max-width: ${bp.tablet}) {
+    top: -0.75rem;
+  }
 `;
 
 export const ProjectImageSC = styled.img`

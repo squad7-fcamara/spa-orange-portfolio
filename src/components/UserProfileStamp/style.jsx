@@ -1,13 +1,20 @@
 import styled from "styled-components";
+import { bp } from "../../utils/breakpoints";
 
 export const UserProfileStampSC = styled.header`
-  width: 364px;
+  max-width: 22.75rem;
+
   margin: 0 auto;
   margin-top: 112px;
   margin-bottom: 40px;
 
   display: flex;
   justify-content: space-between;
+  gap: 1.5rem;
+
+  @media (max-width: ${bp.tablet}) {
+    flex-direction: column;
+  }
 `;
 
 export const SectionSC = styled.section`
@@ -15,6 +22,10 @@ export const SectionSC = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: ${bp.tablet}) {
+    gap: 0.5rem;
+  }
 `;
 
 export const ProfilePictureSC = styled.img`
@@ -22,9 +33,18 @@ export const ProfilePictureSC = styled.img`
   height: 8rem;
 
   border-radius: 50%;
+
+  @media (max-width: ${bp.tablet}) {
+    margin: 0 auto;
+  }
 `;
 
 export const UserNameSC = styled.h1`
+  max-width: 12.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
   font-size: 1.5rem;
   color: #303133;
 `;

@@ -8,10 +8,8 @@ export const ContainerCardSC = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
 
   border-radius: 0.25rem;
-  box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.12);
 
   .icon-pictures {
     margin: 0 auto;
@@ -34,6 +32,7 @@ export const ContainerCardSC = styled.div`
 
   &.add-project {
     height: 16rem;
+    gap: 1rem;
     background: #e6e9f2;
 
     .icon-pictures,
@@ -58,7 +57,7 @@ export const ContainerCardSC = styled.div`
   }
 
   &.with-project {
-    height: 16rem;
+    height: 18rem;
 
     .project-image {
       display: initial;
@@ -91,7 +90,7 @@ export const ContainerCardSC = styled.div`
 export const EditBtnSpaceSC = styled.header`
   width: 100%;
   height: 2.75rem;
-  
+
   padding-right: 1rem;
 
   position: absolute;
@@ -107,11 +106,57 @@ export const ProjectImageSC = styled.img`
   height: 16rem;
 
   border-radius: 0.25rem;
+  box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.12);
 
   object-fit: cover;
   object-position: center;
 
   @media (max-width: ${bp.tablet}) {
     height: calc((100vw - 1.5rem) * 9 / 16);
+  }
+`;
+
+export const ProjectOwnerInfosSC = styled.footer`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .user-picture {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .informative-text {
+    height: 2.5rem;
+    font-size: 1rem;
+    color: #515255;
+
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  @media (max-width: ${bp.laptop}) {
+    .user-picture {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .informative-text {
+      height: 3.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .user-name {
+      color: #303133;
+    }
+
+    .dot {
+      display: none;
+    }
   }
 `;

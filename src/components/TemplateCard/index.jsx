@@ -1,5 +1,11 @@
 import { MdCollections } from "react-icons/md";
-import { ProjectImageSC, ContainerCardSC, EditBtnSpaceSC } from "./style";
+import {
+  ProjectImageSC,
+  ContainerCardSC,
+  EditBtnSpaceSC,
+  ProjectOwnerInfosSC,
+} from "./style";
+import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
 import ModalEdit from "../ModalEdit";
 import { useState } from "react";
 
@@ -11,7 +17,10 @@ const TemplateCard = () => {
     class: "with-project",
     activated: true,
     projectImage:
-      "https://www.datocms-assets.com/205/1652096903-landing-page-template.png?auto=format&crop=top&fit=crop&h=350&w=450",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png",
+    userPicture: profilePictureDefault,
+    userName: "Lorem Ipsum",
+    projectDate: "12/23",
   };
 
   const [isButtonVisible, setIsButtonVisible] = useState(false);
@@ -42,6 +51,18 @@ const TemplateCard = () => {
       <p className="paragraph">
         Compartilhe seu talento com milhares de pessoas
       </p>
+      <ProjectOwnerInfosSC>
+        <img
+          className="user-picture"
+          src={props.userPicture || profilePictureDefault}
+          alt="imagem do proprietário do projeto"
+        />
+        <div className="informative-text">
+          <h1 className="user-name">{props.userName}</h1>
+          <span className="dot">•</span>
+          <p className="project-date">{props.projectDate}</p>
+        </div>
+      </ProjectOwnerInfosSC>
     </ContainerCardSC>
   );
 };

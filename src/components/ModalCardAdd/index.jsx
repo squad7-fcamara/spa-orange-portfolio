@@ -111,7 +111,7 @@ const ModalCardAdd = () => {
       const response = await api.post('projeto', {
         IdUsuario: userId,
         Titulo: data?.titulo,
-        Imagem: `@${image.name};type=${image.type}`,
+        Imagem: image,
         Tag: data?.tag,
         Link: data?.link,
         Descricao: data?.descricao
@@ -139,14 +139,13 @@ const ModalCardAdd = () => {
             <Container>
               <Title>Adicionar Projeto</Title>
 
-              <input type='file' id="picture" {...register('imagem')} ></input>
-
               <ColumnImage>
                 <Subtitle>Selecione o conteúdo que você deseja fazer upload</Subtitle>
 
                 <Image
                   className={`card-without-add-image ${imageSrc ? 'card-with-project' : ''}`}
                   onMouseDown={handleRemoveImage}
+                  imageproject={imageSrc}
                 >
 
                   {imageSrc ? (

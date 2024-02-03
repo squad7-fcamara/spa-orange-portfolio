@@ -12,13 +12,14 @@ const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
   const [authUserProjects, setAuthUserProjects] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [modalAddOrEditProject, setModalAddOrEditProject] = useState(false)
 
   // TODO: PEGAR ID DO USUÁRIO LOGADO
   // IDs para testar funcionamento:
   //  - 99: Não existe
   //  -  6: sem projeto
   //  -  5: com projeto
-  const [userAuthId, setUserAuthId] = useState(6);
+  const [userAuthId, setUserAuthId] = useState(4);
 
   useEffect(() => {
     const loadAuthUserData = async (userId) => {
@@ -39,8 +40,9 @@ const MyPortfolio = () => {
       {isLoaded ? (
         <>
           <UserProfileStamp isLoaded={isLoaded} fullName={fullName} />
-
-          {/* <ModalCardAdd /> */}
+          {modalAddOrEditProject && (
+        <ModalCardAdd setModalAddOrEditProject={setModalAddOrEditProject}/>
+      )}
           {/* <ModalCardEdit /> */}
           <ContainerProjectSC>
             {authUserProjects.length === 0 ? (

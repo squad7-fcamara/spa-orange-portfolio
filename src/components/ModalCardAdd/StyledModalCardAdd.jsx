@@ -215,6 +215,7 @@ export const Subtitle=styled.p`
     color:rgba(81, 82, 85, 1);
     line-height: 12px;
     letter-spacing: 0.15px;
+    cursor: pointer;
 
     @media (max-width: ${mobileL}){
         font-size:13px;

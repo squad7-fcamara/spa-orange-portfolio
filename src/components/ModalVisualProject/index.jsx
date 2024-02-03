@@ -1,14 +1,18 @@
 // import React from 'react'
 
 import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject"
+import { MdClose } from 'react-icons/md';
+const ModalVisualProject = ({setModalShowProject}) => {
 
-const ModalVisualProject = () => {
+
   return (
-    <BackgroundFilter>
+    <BackgroundFilter onClick={() => setModalShowProject(false)}>
         
         <CardVisualProject>
-        
+                    <MdClose onClick={() => setModalShowProject(false)} className="close-button"/>
             <ContainerProject>
+                
+                
 
                 <PerfilImageDate>
                     <img className="perfil-image-project"
@@ -21,7 +25,7 @@ const ModalVisualProject = () => {
                     </span>
                 </PerfilImageDate>
 
-                <Title>Titulo do projeto </Title>
+                <Title>Titulo do projeto</Title>
             
                 <TagProjects className="tag"> 
                     <p>HTML</p>
@@ -38,6 +42,7 @@ const ModalVisualProject = () => {
                 <DescriptionProject>
                     <p className="description-text">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quas quibusdam voluptatum eum. Suscipit incidunt explicabo odio magni est provident nulla praesentium quam, necessitatibus nobis mollitia totam unde laudantium rerum.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quas quibusdam voluptatum eum. Suscipit incidunt explicabo odio magni est provident nulla praesentium quam, necessitatibus nobis mollitia totam unde laudantium rerum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quas quibusdam voluptatum eum. Suscipit incidunt explicabo odio magni est provident nulla praesentium quam, necessitatibus nobis mollitia totam unde laudantium rerum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quas quibusdam voluptatum eum. Suscipit incidunt explicabo odio magni est provident nulla praesentium quam, necessitatibus nobis mollitia totam unde laudantium rerum.
                     </p>
                 </DescriptionProject>
                 

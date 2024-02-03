@@ -18,10 +18,7 @@ const MyPortfolio = () => {
   //  - 99: Não existe
   //  -  6: sem projeto
   //  -  5: com projeto
-  const [userAuthId, setUserAuthId] = useState(5);
-
-  const [fileContents, setFileContents] = useState(undefined);
-  const [contentType, setContentType] = useState(undefined);
+  const [userAuthId, setUserAuthId] = useState(4);
 
   useEffect(() => {
     const loadAuthUserData = async (userId) => {
@@ -31,8 +28,6 @@ const MyPortfolio = () => {
       };
       setFullName(response.fullName);
       setAuthUserProjects(response.projects);
-      setFileContents(response.projects[0].arquivoImagem.fileContents);
-      setContentType(response.projects[0].arquivoImagem.contentType);
       setIsLoaded(true);
     };
 
@@ -59,8 +54,8 @@ const MyPortfolio = () => {
                 <TemplateCard
                   key={project.idProjeto}
                   class={"with-project"}
-                  projectImage={fileContents}
-                  imageType={contentType}
+                  projectImage={project.arquivoImagem.fileContents}
+                  imageType={project.arquivoImagem.contentType}
                   userName={fullName}
                   projectDate={project.dataCriacao}
                 />

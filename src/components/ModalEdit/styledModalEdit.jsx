@@ -2,10 +2,6 @@ import { MdCreate } from "react-icons/md";
 import styled from "styled-components";
 
 export const DropdownBtn = styled.span`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,19 +11,19 @@ export const DropdownBtn = styled.span`
   width: 2.1rem;
   height: 2.1rem;
   cursor: pointer;
-  
+
   transition: opacity 0.5s ease, background-color 0.5s ease;
 
   &:hover {
     background-color: rgba(255, 204, 153, 1);
   }
 
-  @media (max-width:768px) {
-    opacity: 1
-    width: 2rem
+  @media (max-width: 768px) {
+    opacity: 1;
+    width: 2rem;
   }
-  @media (max-width:425px) {
-    width: 2rem
+  @media (max-width: 425px) {
+    width: 2rem;
   }
 `;
 
@@ -43,7 +39,7 @@ export const DropDowndivOptions = styled.span`
   top: 55px;
   right: 16px;
   width: 208px;
-  height: ${({ isOpen }) => (isOpen ? '118px' : '0px')};
+  height: ${(props) => (props.$isOpen ? "118px" : "0px")};
   overflow: hidden;
   transition: height 0.5s ease;
   border-radius: 8px;
@@ -72,13 +68,13 @@ export const DropdownCardEditOptions = styled.li`
   justify-content: flex-start; /* Alinha o texto à esquerda */
   align-items: center;
   gap: 8px;
-  background: var(--Neutral-Colors-Neutral-60, #FCFDFF);
+  background: var(--Neutral-Colors-Neutral-60, #fcfdff);
   cursor: pointer;
 
-  font-size:16px
+  font-size: 16px;
   color: rgba(81, 82, 85, 1);
   transition: background-color 0.8s ease;
-  padding-left: 16px; /* Distância da borda esquerda */
+  padding-left: 16px;
 
   &:hover {
     background-color: rgba(255, 238, 204, 1);

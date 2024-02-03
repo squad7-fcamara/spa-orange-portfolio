@@ -1,9 +1,10 @@
-import { DashboardSC } from "../../components/Dashboard/style";
-import CommunityHeader from "../../components/CommunityHeader";
-import { ContainerProjectSC } from "../../components/ContainerProjects/style";
-import TemplateCard from "../../components/TemplateCard";
 import { useEffect, useState } from "react";
 import { getAllProjects } from "../../services/projectServices";
+import { DashboardSC } from "../../components/Dashboard/style";
+import { ContainerProjectSC } from "../../components/ContainerProjects/style";
+import CommunityHeader from "../../components/CommunityHeader";
+import TemplateCard from "../../components/TemplateCard";
+import ModalCardAdd from "../../components/ModalCardAdd";
 
 const Community = () => {
   const [projectsList, setProjectsList] = useState([]);
@@ -30,6 +31,7 @@ const Community = () => {
         "Carregando..."
       ) : (
         <>
+          {/* <ModalCardAdd /> */}
           <CommunityHeader />
           <ContainerProjectSC>
             {projectsList.map((project) => (

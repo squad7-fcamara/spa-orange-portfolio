@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { ContainerProjectSC } from "../../components/ContainerProjects/style";
 import { DashboardSC } from "../../components/Dashboard/style";
-import TemplateCard from "../../components/TemplateCard";
-import UserProfileStamp from "../../components/UserProfileStamp";
+import { ContainerProjectSC } from "../../components/ContainerProjects/style";
 import { getUserFullName } from "../../services/userService";
 import { getAuthUserProjects } from "../../services/projectServices";
+import TemplateCard from "../../components/TemplateCard";
+import UserProfileStamp from "../../components/UserProfileStamp";
+import ModalCardAdd from "../../components/ModalCardAdd";
+import ModalCardEdit from "../../components/ModalCardEdit";
 
 const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
@@ -38,6 +40,8 @@ const MyPortfolio = () => {
         <>
           <UserProfileStamp isLoaded={isLoaded} fullName={fullName} />
 
+          {/* <ModalCardAdd /> */}
+          {/* <ModalCardEdit /> */}
           <ContainerProjectSC>
             {authUserProjects.length === 0 ? (
               <>

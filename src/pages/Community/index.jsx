@@ -5,6 +5,7 @@ import { ContainerProjectSC } from "../../components/ContainerProjects/style";
 import CommunityHeader from "../../components/CommunityHeader";
 import TemplateCard from "../../components/TemplateCard";
 import ModalCardAdd from "../../components/ModalCardAdd";
+import loader from "../../assets/images/Orange-loader.gif";
 
 const Community = () => {
   const [projectsList, setProjectsList] = useState([]);
@@ -31,7 +32,7 @@ const Community = () => {
     <DashboardSC>
       <CommunityHeader />
       {!isLoaded ? (
-        "Carregando..."
+        <img src={loader} alt="loader" />
       ) : projectsList.length > 0 ? (
         <>
           {/* <ModalCardAdd /> */}

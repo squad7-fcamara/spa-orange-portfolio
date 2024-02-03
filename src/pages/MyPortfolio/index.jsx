@@ -7,6 +7,7 @@ import TemplateCard from "../../components/TemplateCard";
 import UserProfileStamp from "../../components/UserProfileStamp";
 import ModalCardAdd from "../../components/ModalCardAdd";
 import ModalCardEdit from "../../components/ModalCardEdit";
+import loader from "../../assets/images/Orange-loader.gif";
 
 const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
@@ -64,7 +65,7 @@ const MyPortfolio = () => {
           </ContainerProjectSC>
         </>
       ) : (
-        "Carregando..."
+        <img src={loader} alt="loader" />
       )}
     </DashboardSC>
   );

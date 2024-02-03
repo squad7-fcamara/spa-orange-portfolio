@@ -2,6 +2,8 @@ import { MdCollections } from "react-icons/md";
 import { Card, ProjectCardSC } from "./style";
 import { useLocation } from "react-router-dom";
 import ModalEdit from "../ModalEdit";
+import { useState } from "react";
+import ModalCardEdit from "../ModalCardEdit";
 
 function ProjectCard({ projectData }) {
   const { fullName, projects } = projectData;
@@ -13,7 +15,19 @@ function ProjectCard({ projectData }) {
   };
   const { pathname } = useLocation();
 
+  const [modalEditIsClosed, setModalEditIsClosed] = useState(true)
+  
+  const [selectedProject, setSelectedProject] = useState(null)
+
+  const handleSelectedProject = (project) => {
+    setSelectedProject(project)
+  }
+
+  console.log(selectedProject);
+
   return (
+    <>
+    {!modalEditIsClosed && <ModalCardEdit selectedProject={selectedProject} closed={ modalEditIsClosed } onClose={() => setModalEditIsClosed(true)} />}
     <ProjectCardSC>
       {projects.length <= 0 ? (
         <>
@@ -26,15 +40,16 @@ function ProjectCard({ projectData }) {
           <Card className="blank-card" />
         </>
       ) : (
-        projects.map((project) => (
+        projects.map((project, index) => (
+          <div key={index}>
           <Card
             key={project.idProjeto}
             className="card-with-project"
             $imageProject={project.imagem}
             $profilePage={pathname !== "/my-projects" ? "none" : "initial"}
           >
-            <header>
-              <div>{<ModalEdit />}</div>
+            <header onClick={() => handleSelectedProject(project)}>
+              <ModalEdit  onOpen={() => setModalEditIsClosed(false)} />
             </header>
             <footer>
               <span>
@@ -51,9 +66,11 @@ function ProjectCard({ projectData }) {
               <div className="tag">{project.tag}</div>
             </footer>
           </Card>
+          </div>
         ))
       )}
     </ProjectCardSC>
+    </>
   );
 }
 

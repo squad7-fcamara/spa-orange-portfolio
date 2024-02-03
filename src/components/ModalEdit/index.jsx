@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   DropdownBtn,
   DropdownIcon,
@@ -7,13 +7,31 @@ import {
   DropdownCardEditOptions,
 } from "./styledModalEdit";
 
-const ModalEdit = () => {
+const ModalEdit = ({ onOpen }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-  // EfeitoDropdown / ainda falta efeito de abrir o card, mas isso faço depois
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        closeDropdown();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -21,9 +39,9 @@ const ModalEdit = () => {
         <DropdownIcon />
       </DropdownBtn>
 
-      <DropDowndivOptions>
+      <DropDowndivOptions ref={dropdownRef} $isOpen={isDropdownOpen}>
         <DropdownCardEdit>
-          <DropdownCardEditOptions>Editar</DropdownCardEditOptions>
+          <DropdownCardEditOptions onClick={onOpen}>Editar</DropdownCardEditOptions>
           <DropdownCardEditOptions>Excluir</DropdownCardEditOptions>
         </DropdownCardEdit>
       </DropDowndivOptions>

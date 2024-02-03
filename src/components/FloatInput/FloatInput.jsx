@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import './FloatInput_styles.css'
 
-export default function FloatInput({label, name, type, id_value, classes, register, required}) {
+export default function FloatInput({value, label, name, type, id_value, classes, register, required}) {
 
   
   
@@ -35,6 +35,7 @@ return (
 
           <InputDiv className="label" >
             <input type={type} 
+            defaultValue={ value ? value : '' }
             name={name}
             id={id_value} 
             placeholder=" " 

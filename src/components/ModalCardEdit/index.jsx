@@ -16,7 +16,7 @@ import "./styles.css"
 
 import { MdCollections } from "react-icons/md";
 
-const ModalCardEdit = () => {
+const ModalCardEdit = ({selectedProject, closed, onClose}) => {
 
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
@@ -128,7 +128,7 @@ const ModalCardEdit = () => {
 
   return (
     <>
-      <BackgroundFilter>
+      <BackgroundFilter className={ closed ? 'closed' : '' }>
         <ModalContentCardAdd>
           <form className="form" onSubmit={handleSubmit(onSubmitProjectToApi)} method="POST" >
             <Container>
@@ -156,6 +156,7 @@ const ModalCardEdit = () => {
                     <ButtonContainer onClick={handleClick}>
                       <input
                         type="file"
+                        // value={project.imagem}
                         ref={fileInputRef}
                         style={{ display: 'none' }}
                         onChange={handleFileChange}
@@ -190,7 +191,7 @@ const ModalCardEdit = () => {
                     register={register}
                     required={true}
                     classes={errors.title && "required"}
-                    
+                    value={selectedProject.titulo}
                   />
                   <FloatInput
                     id_value="input-add-project-input-teste"
@@ -200,6 +201,7 @@ const ModalCardEdit = () => {
                     register={register}
                     required={true}
                     classes={errors.title && "required"}
+                    value={selectedProject.tag}
                   />
                   <FloatInput id_value="input-add-project-input-teste"
                     label={"link"}
@@ -208,10 +210,11 @@ const ModalCardEdit = () => {
                     register={register}
                     required={true}
                     classes={errors.title && "required"}
+                    value={selectedProject.link}
                   />
 
                   <TextArea className="label">
-                    <textarea rows="6" cols="42" {...register('descricao', { required: true })} />
+                    <textarea rows="6" cols="42" value={selectedProject.descricao} {...register('descricao', { required: true })} />
                     <label >Descrição</label>
                   </TextArea >
 
@@ -225,7 +228,7 @@ const ModalCardEdit = () => {
               <FooterButtonContent>
 
                 <PrimaryButton type="submit" text={"SALVAR"} />
-                <SecondaryButton text={"CANCELAR"} />
+                <SecondaryButton onClick={onClose} text={"CANCELAR"} />
               </FooterButtonContent>
             </Container>
           </form>

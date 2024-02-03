@@ -16,7 +16,7 @@ import "./styles.css"
 
 import { MdCollections } from "react-icons/md";
 
-const ModalCardAdd = () => {
+const ModalCardAdd = ( {closeModal} ) => {
 
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
@@ -232,7 +232,7 @@ const ModalCardAdd = () => {
               <FooterButtonContent>
 
                 <PrimaryButton type="submit" text={"SALVAR"} />
-                <SecondaryButton text={"CANCELAR"} />
+                <SecondaryButton onClick={ closeModal } text={"CANCELAR"} />
               </FooterButtonContent>
             </Container>
           </form>

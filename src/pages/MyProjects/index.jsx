@@ -6,35 +6,39 @@ import ProjectCard from "../../components/ProjectCard";
 import SearchBar from "../../components/SearchBar";
 import { getUsuarioProjetoByIdUsuario } from "../../services/userServices";
 import ModalCardAdd from "../../components/ModalCardAdd";
-import ModalCardEdit from "../../components/ModalCardEdit";
 
 function MyProjects() {
+
+  
   const [userData, setUserData] = useState({
     nome: "",
     sobrenome: "",
     lstProjeto: [],
   });
-
+  
   useEffect(() => {
     async function fetchData() {
       const response = await getUsuarioProjetoByIdUsuario();
       setUserData(response.data);
     }
-
+    
     fetchData();
   }, []);
+  
+  const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
+
 
   const fullName = `${userData.nome} ${userData.sobrenome}`;
   const projects = userData.lstProjeto;
   const projectData = { fullName, projects };
 
   return (<>
-     <ModalCardAdd />
-    {/* <ModalCardEdit /> */}
+    { modalAddIsOpen && <ModalCardAdd closeModal={ () => setModalAddIsOpen(false) }  />}
+    
     <Dashboard>
-      <ProjectStamp fullName={fullName} />
+      <ProjectStamp onClick={() => setModalAddIsOpen(true)} fullName={fullName} />
       <SearchBar />
-      <ProjectCard projectData={projectData} />
+      <ProjectCard  projectData={ projectData } />
     </Dashboard>
   </>
   );

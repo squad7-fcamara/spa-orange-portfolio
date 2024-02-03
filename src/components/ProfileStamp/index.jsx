@@ -1,6 +1,7 @@
+import SecondaryButton from "../SecondaryButton";
 import { ProfileStampSC } from "./style";
 
-function ProjectStamp({ fullName }) {
+function ProjectStamp({ fullName, onClick }) {
   return (
     <ProfileStampSC>
       <div>
@@ -12,7 +13,7 @@ function ProjectStamp({ fullName }) {
       <div>
         <h1>{fullName}</h1>
         <p>Brasil</p>
-        <button>ADICIONAR PROJETO</button>
+        <SecondaryButton onClick={onClick} text={'ADICIONAR PROJETO'} />
       </div>
     </ProfileStampSC>
   );

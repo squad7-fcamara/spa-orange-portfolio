@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const mobile = "425px";
+const mobile = "768px";
 
 export const MobileDisplaySC = styled.div`
   :only-child {
@@ -14,7 +14,7 @@ export const MobileDisplaySC = styled.div`
 `;
 
 export const NavbarSC = styled.nav`
-  width: 100dvw;
+  width: 100%;
   height: 73px;
   padding: 16px 30px;
   display: flex;
@@ -38,7 +38,7 @@ export const NavbarSC = styled.nav`
   }
 
   @media (max-width: ${mobile}) {
-    padding: 16px;
+    padding: 24px;
     div {
       gap: 16px;
     }

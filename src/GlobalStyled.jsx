@@ -1,6 +1,4 @@
-import { createGlobalStyle, styled } from "styled-components";
-
-const tablet = "768px";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyled = createGlobalStyle`
   * {
@@ -16,22 +14,5 @@ export const GlobalStyled = createGlobalStyle`
 
     color: #222244;
     background-color: #FCFDFF;
-  }
-`;
-
-export const Dashboard = styled.div`
-  max-width: 1536px;
-  width: 100%;
-  min-height: calc(100dvh - 73px);
-  padding: 0 32px 80px;
-  margin: 73px auto 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-
-  @media (max-width: ${tablet}) {
-    & {
-      padding: 0 24px;
-    }
   }
 `;

@@ -1,9 +1,9 @@
 import { ButtonPrimary } from './StyledPrimaryButton'
 
-const PrimaryButton = ({onClick, text}) => {
+const PrimaryButton = ({type ="buttton", onClick, text}) => {
   return (
     <>
-      <ButtonPrimary onClick={onClick}> {text}</ButtonPrimary>
+      <ButtonPrimary type={type} onClick={onClick}> {text}</ButtonPrimary>
     </>
   )
 }

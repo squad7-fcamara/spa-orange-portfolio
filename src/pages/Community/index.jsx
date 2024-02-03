@@ -8,6 +8,7 @@ import ModalCardAdd from "../../components/ModalCardAdd";
 
 const Community = () => {
   const [projectsList, setProjectsList] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // TODO: PEGAR ID DO USUÁRIO LOGADO
   // IDs para testar funcionamento:
@@ -20,6 +21,7 @@ const Community = () => {
     async function loadProjects(excludeId) {
       const response = await getAllProjects(excludeId);
       setProjectsList(response);
+      setIsLoaded(true);
     }
 
     loadProjects(userAuthId);
@@ -27,9 +29,10 @@ const Community = () => {
 
   return (
     <DashboardSC>
-      {projectsList.length <= 0 ? (
+      <CommunityHeader />
+      {!isLoaded ? (
         "Carregando..."
-      ) : (
+      ) : projectsList.length > 0 ? (
         <>
           {/* <ModalCardAdd /> */}
           <CommunityHeader />
@@ -46,6 +49,8 @@ const Community = () => {
             ))}
           </ContainerProjectSC>
         </>
+      ) : (
+        "Seja o primeiro a publicar seu projeto!"
       )}
     </DashboardSC>
   );

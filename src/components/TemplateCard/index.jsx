@@ -36,7 +36,10 @@ const TemplateCard = (props) => {
       </EditBtnSpaceSC>
       <ProjectImageSC
         className="project-image"
-        src={props.projectImage || noImageDefault}
+        src={
+          `data:${props.contentType};base64, ${props.projectImage}` ||
+          noImageDefault
+        }
         alt="imagem do projeto"
       />
       <MdCollections className="icon-pictures " size={"3rem"} color="#323232" />

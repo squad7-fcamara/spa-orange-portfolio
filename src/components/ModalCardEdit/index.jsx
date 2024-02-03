@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import FloatInput from "../FloatInput/FloatInput";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
@@ -20,7 +20,7 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
 
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
-  const [imageSrc, setImageSrc] = useState(null);
+  const [image, setImage] = useState()
 
 
   const handleClick = () => {
@@ -29,21 +29,23 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
+    setImage(selectedFile)
+
     if (selectedFile) {
       const reader = new FileReader();
       reader.onload = () => {
-        setImageSrc(reader.result);
+        setImageBlob(reader.result);
       };
       reader.readAsDataURL(selectedFile);
     } else {
-      setImageSrc(null);
+      setImageBlob(null);
     }
   };
 
   // EXTRA - REMOVER IMAGEM
   const handleRemoveImage = () => {
     
-    setImageSrc(null);
+    setImageBlob(null);
     
     if (fileInputRef.current) {
 
@@ -55,7 +57,7 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
   //fim da area de teste de UPLOAD
 
   // Confirmação de comunicação com a API
-  const userId = '4';
+  const userId = '5';
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const notifyAlert = (status) => {
@@ -63,7 +65,7 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
     if (status == 200) {
       toast.success('Projeto adicionado com sucesso!', {
 
-        duration: Infinity,
+        duration: 5000,
 
         iconTheme: {
           primary: '#fff',
@@ -100,26 +102,51 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
 
   }
 
+  const [imageBlob, setImageBlob] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.post('projeto/2/download', {}, { responseType: 'arraybuffer' });
+        const base64Image = btoa(
+          new Uint8Array(response.data).reduce((data, byte) => data + String.fromCharCode(byte), '')
+        );
+        const imageUrl = `data:${response.headers['content-type']};base64,${base64Image}`;
+        setImageBlob(imageUrl);
+      } catch (error) {
+        console.error('Erro ao carregar a imagem:', error);
+      }
+    };
+    fetchData()
+    }, []);
+
 
   const onSubmitProjectToApi = async (data) => {
     try {
-      const formData = new FormData();
-      formData.append('IdUsuario', userId);
-      formData.append('Titulo', data.addProjectTitle);
-      formData.append('Tag', data.addProjectTag);
-      formData.append('Link', data.projectTitle);
-      formData.append('Descricao', data.descricao);
 
-      if (data.imagem[0]) {
-        formData.append('Imagem', data.imagem[0]);
-      }
+      const response = await api.put('projeto', {
+        IdProjeto: selectedProject.idProjeto,
+        IdUsuario: userId,
+        Titulo: data?.titulo,
+        Imagem: image,
+        Tag: data?.tag,
+        Link: data?.link,
+        Descricao: data?.descricao
+      } , {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
+      })
 
-      const response = await api.post('projeto/', formData);
-      notifyAlert(response.status);
       console.log('Resposta da API:', response.data);
+      
+      notifyAlert(response.status);
+      onClose()
     } catch (error) {
+
       notifyAlert(error.status);
       console.log('Resposta da API:', error.status)
+
     }
   };
 
@@ -138,15 +165,16 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
                 <Subtitle>Selecione o conteúdo que você deseja fazer upload</Subtitle>
 
                 <Image
-                  className={`card-without-add-image ${imageSrc ? 'card-with-project' : ''}`}
+                  className={`card-without-add-image ${imageBlob ? 'card-with-project' : ''}`}
                   onMouseDown={handleRemoveImage}
+                  imageproject={imageBlob}
                 >
 
-                  {imageSrc ? (
+                  {imageBlob ? (
 
                     // COM A IMAGEM
                     <div className="image-container" onClick={handleRemoveImage}>
-                      <img src={imageSrc} alt="Imagem Selecionada" />
+                      <img src={imageBlob} alt="Imagem Selecionada" />
 
                     </div>
 
@@ -156,7 +184,6 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
                     <ButtonContainer onClick={handleClick}>
                       <input
                         type="file"
-                        // value={project.imagem}
                         ref={fileInputRef}
                         style={{ display: 'none' }}
                         onChange={handleFileChange}
@@ -214,7 +241,7 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
                   />
 
                   <TextArea className="label">
-                    <textarea rows="6" cols="42" value={selectedProject.descricao} {...register('descricao', { required: true })} />
+                    <textarea rows="6" cols="42" defaultValue={selectedProject.descricao} {...register('descricao', { required: true })} />
                     <label >Descrição</label>
                   </TextArea >
 

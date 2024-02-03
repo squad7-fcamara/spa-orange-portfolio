@@ -1,4 +1,8 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { MdCollections } from "react-icons/md";
+import { formatDate } from "../../utils/formatDate";
+import { base64ToUrl } from "../../utils/createImageUrl.js";
 import {
   ProjectImageSC,
   ContainerCardSC,
@@ -8,13 +12,11 @@ import {
 import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
 import noImageDefault from "../../assets/images/no-image.png";
 import ModalEdit from "../ModalEdit";
-import { useState } from "react";
-import { formatDate } from "../../utils/formatDate";
-import { useLocation } from "react-router-dom";
 
 const TemplateCard = (props) => {
   const { pathname } = useLocation();
   const [isButtonVisible, setIsButtonVisible] = useState(false);
+  const [src, setSrc] = useState(undefined);
 
   const handleMouseEnter = () => {
     setIsButtonVisible(true);
@@ -23,6 +25,11 @@ const TemplateCard = (props) => {
   const handleMouseLeave = () => {
     setIsButtonVisible(false);
   };
+
+  useEffect(() => {
+    const url = base64ToUrl(props.contentType, props.projectImage);
+    setSrc(url);
+  }, [props.contentType, props.projectImage]);
 
   return (
     <ContainerCardSC
@@ -36,7 +43,7 @@ const TemplateCard = (props) => {
       </EditBtnSpaceSC>
       <ProjectImageSC
         className="project-image"
-        src={props.projectImage || noImageDefault}
+        src={src || noImageDefault}
         alt="imagem do projeto"
       />
       <MdCollections className="icon-pictures " size={"3rem"} color="#323232" />

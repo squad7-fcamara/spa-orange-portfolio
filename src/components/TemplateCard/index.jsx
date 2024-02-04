@@ -46,7 +46,7 @@ const TemplateCard = (props) => {
       onMouseLeave={handleMouseLeave}
     >
       <EditBtnSpaceSC onClick={() => props.handleSelectProject(props.project)} className="header">
-        {isButtonVisible && pathname === "/profile" && <ModalEdit  onOpen={ props.setModalEditIsClosed }  />}
+        {isButtonVisible && pathname === "/profile" && <ModalEdit onExclude={props.setModalExclude} onOpen={ props.setModalEditIsClosed }  />}
       </EditBtnSpaceSC>
       <ProjectImageSC
         className="project-image"

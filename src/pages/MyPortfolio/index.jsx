@@ -8,6 +8,7 @@ import UserProfileStamp from "../../components/UserProfileStamp";
 import TemplateCard from "../../components/TemplateCard";
 import ModalCardAdd from "../../components/ModalCardAdd";
 import ModalCardEdit from "../../components/ModalCardEdit";
+import DeleteConfirmationButton from "../../components/ConfirmButtons/DeleteConfirmationButton";
 
 const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
@@ -37,6 +38,7 @@ const MyPortfolio = () => {
 
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
   const [modalEditIsClosed, setModalEditIsClosed] = useState(true)
+  const [modalExclude, setModalExclude] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null)
 
   const handleSelectedProject = (project) => {
@@ -47,6 +49,7 @@ const MyPortfolio = () => {
     <>
     { modalAddIsOpen && <ModalCardAdd closeModal={ () => setModalAddIsOpen(false) }  />}
     {!modalEditIsClosed && <ModalCardEdit selectedProject={selectedProject} closed={ modalEditIsClosed } onClose={() => setModalEditIsClosed(true)} />}
+    {modalExclude && <DeleteConfirmationButton selectedProject={selectedProject} closed={ modalExclude } onOpen={() => setModalExclude(true)} onClose={() => setModalExclude(false)} />}
     <DashboardSC>
       {isLoaded ? (
         <>
@@ -63,6 +66,7 @@ const MyPortfolio = () => {
               authUserProjects.map((project) => (
                 <TemplateCard
                   setModalEditIsClosed={() => setModalEditIsClosed(false)}
+                  setModalExclude={() => setModalExclude(true)}
                   project={project}
                   handleSelectProject={handleSelectedProject}
                   key={project.idProjeto}

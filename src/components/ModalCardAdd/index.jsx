@@ -15,6 +15,7 @@ import "./styles.css"
 
 
 import { MdCollections } from "react-icons/md";
+import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
 
 const ModalCardAdd = ( {closeModal} ) => {
 
@@ -22,6 +23,8 @@ const ModalCardAdd = ( {closeModal} ) => {
   const fileInputRef = useRef(null);
   const [imageSrc, setImageSrc] = useState(null);
   const [image, setImage] = useState()
+  const [statusConfirmation, setStatusConfirmation] = useState(false)
+
 
 
   const handleClick = () => {
@@ -61,27 +64,7 @@ const ModalCardAdd = ( {closeModal} ) => {
   const userId = '4';
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const notifyAlert = (status) => {
-
-    if (status == 200) {
-      toast.success('Projeto adicionado com sucesso!', {
-
-        duration: 3000,
-
-        iconTheme: {
-          primary: '#fff',
-          secondary: '#2E7D32',
-        },
-
-        style: {
-          background: "#2E7D32",
-          color: "white",
-          minWidth: "20rem",
-        }
-      }
-      )
-      return
-    }
+  const notifyAlert = () => {
 
     toast.error('Erro ao realizar a adição de projeto. Tente novamente', {
 
@@ -122,10 +105,10 @@ const ModalCardAdd = ( {closeModal} ) => {
       });
 
       notifyAlert(response.status);
-      closeModal
+      setStatusConfirmation(true)
 
     } catch (error) {
-      notifyAlert(error.status);
+      notifyAlert();
     }
   };
 
@@ -134,6 +117,11 @@ const ModalCardAdd = ( {closeModal} ) => {
 
   return (
     <>
+    {
+      statusConfirmation ? <ConfirmationButton onClick={ closeModal } />:
+
+      (
+
       <BackgroundFilter>
         <ModalContentCardAdd>
           <form className="form" onSubmit={handleSubmit(onSubmitProjectToApi)} method="POST" >
@@ -239,6 +227,8 @@ const ModalCardAdd = ( {closeModal} ) => {
           </form>
         </ModalContentCardAdd>
       </BackgroundFilter>
+      )
+    }
     </>
   )
 }

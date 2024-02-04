@@ -8,13 +8,7 @@ import loader from "../../assets/images/Orange-loader.gif";
 const Community = () => {
   const [projectsList, setProjectsList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-
-  // TODO: PEGAR ID DO USUÁRIO LOGADO
-  // IDs para testar funcionamento:
-  //  - 99: Não existe
-  //  -  6: sem projeto
-  //  -  5: com projeto
-  const [userAuthId, setUserAuthId] = useState(4);
+  const [userAuthId, setUserAuthId] = useState(undefined);
 
   useEffect(() => {
     async function loadProjects(excludeId) {
@@ -23,12 +17,13 @@ const Community = () => {
       setIsLoaded(true);
     }
 
+    setUserAuthId(sessionStorage.getItem("userId"));
     loadProjects(userAuthId);
   }, [userAuthId]);
 
   return (
     <DashboardSC>
-      {!isLoaded ? (  
+      {!isLoaded ? (
         <img src={loader} alt="loader" />
       ) : projectsList.length > 0 ? (
         <>

@@ -13,7 +13,6 @@ import {
   ContentContainer,
   Title,
   Cadastro,
-  LinkCadastro,
 } from "./StyledLogin";
 import PrimaryButton from "../../components/PrimaryButton";
 
@@ -99,8 +98,9 @@ const Login = () => {
 
           <PrimaryButton text={"ENTRAR"}></PrimaryButton>
         </FormLogin>
-
-        <Cadastro>Cadastre-se</Cadastro>
+        <Cadastro>
+          <NavLink to={"/sign-up"}>Cadastre-se</NavLink>
+        </Cadastro>
       </ContentContainer>
     </AppContainer>
   );

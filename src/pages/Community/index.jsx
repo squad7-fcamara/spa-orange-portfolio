@@ -16,7 +16,7 @@ const Community = () => {
   //  - 99: Não existe
   //  -  6: sem projeto
   //  -  5: com projeto
-  const [userAuthId, setUserAuthId] = useState(5);
+  const [userAuthId, setUserAuthId] = useState(4);
 
   useEffect(() => {
     async function loadProjects(excludeId) {
@@ -30,8 +30,7 @@ const Community = () => {
 
   return (
     <DashboardSC>
-      <CommunityHeader />
-      {!isLoaded ? (
+      {!isLoaded ? (  
         <img src={loader} alt="loader" />
       ) : projectsList.length > 0 ? (
         <>

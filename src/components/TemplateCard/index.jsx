@@ -16,7 +16,7 @@ import ModalEdit from "../ModalEdit";
 const TemplateCard = (props) => {
   const { pathname } = useLocation();
   const [isButtonVisible, setIsButtonVisible] = useState(false);
-  const [src, setSrc] = useState(undefined);
+  const [src, setSrc] = useState('');
 
   const handleMouseEnter = () => {
     setIsButtonVisible(true);

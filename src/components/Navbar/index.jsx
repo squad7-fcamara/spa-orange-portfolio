@@ -9,6 +9,7 @@ import { MdMenu, MdNotifications } from "react-icons/md";
 import Logomarca from "../../assets/images/logomarca.png";
 
 function Navbar() {
+
   return (
     <>
       <NavbarSC>
@@ -22,8 +23,8 @@ function Navbar() {
             className="logo"
           />
           <DesktopMenuSC>
-            <li>Meus Projetos</li>
-            <li>Descobrir</li>
+            <li > <a href="/profile">Meus Projetos</a></li>
+            <li > <a href="/community">Descobrir </a></li>
           </DesktopMenuSC>
         </div>
         <div>

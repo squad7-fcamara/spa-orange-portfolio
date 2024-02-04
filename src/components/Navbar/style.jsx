@@ -55,6 +55,11 @@ export const DesktopMenuSC = styled.ul`
       display: none;
     }
   }
+  & > li > a {
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+  }
 `;
 
 export const ProfileIconSC = styled.img`

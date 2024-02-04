@@ -3,11 +3,11 @@ import { DashboardSC } from "../../components/Dashboard/style";
 import { ContainerProjectSC } from "../../components/ContainerProjects/style";
 import { getUserFullName } from "../../services/userService";
 import { getAuthUserProjects } from "../../services/projectServices";
-import TemplateCard from "../../components/TemplateCard";
+import loader from "../../assets/images/Orange-loader.gif";
 import UserProfileStamp from "../../components/UserProfileStamp";
+import TemplateCard from "../../components/TemplateCard";
 import ModalCardAdd from "../../components/ModalCardAdd";
 import ModalCardEdit from "../../components/ModalCardEdit";
-import loader from "../../assets/images/Orange-loader.gif";
 
 const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
@@ -55,8 +55,8 @@ const MyPortfolio = () => {
                 <TemplateCard
                   key={project.idProjeto}
                   class={"with-project"}
-                  projectImage={project.arquivoImagem.fileContents}
-                  imageType={project.arquivoImagem.contentType}
+                  projectImage={project.arquivoImagem?.fileContents}
+                  imageType={project.arquivoImagem?.contentType}
                   userName={fullName}
                   projectDate={project.dataCriacao}
                 />

@@ -16,7 +16,7 @@ const Community = () => {
   //  - 99: Não existe
   //  -  6: sem projeto
   //  -  5: com projeto
-  const [userAuthId, setUserAuthId] = useState(5);
+  const [userAuthId, setUserAuthId] = useState(4);
 
   useEffect(() => {
     async function loadProjects(excludeId) {
@@ -41,8 +41,8 @@ const Community = () => {
               <TemplateCard
                 key={project.idProjeto}
                 class={"with-project"}
-                projectImage={project.arquivoImagem.fileContents}
-                imageType={project.arquivoImagem.contentType}
+                projectImage={project.arquivoImagem?.fileContents}
+                imageType={project.arquivoImagem?.contentType}
                 userName={project.nomeCompleto}
                 projectDate={project.dataCriacao}
               />

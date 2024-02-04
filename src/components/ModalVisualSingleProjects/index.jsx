@@ -1,34 +1,35 @@
 import {useState} from 'react'
-
-import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject"
+import IMG from "../../../public/icon.svg"
+import IMG2 from "../../assets/img/o-que-e-paisagem.jpg.webp"
+import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualAllProjects"
 import { MdClose } from 'react-icons/md';
-const ModalVisualProject = ({setModalShowProject}) => {
+const ModalVisualSingleProjects = ({setModalVisualSingleProjects}) => {
 
     const [dataProject, setDataProject] = useState({
         idProjeto:"1",
         idUsuario:"5",
         titulo:"Teste Valor",
-        imagem:``,
+        imagem:`${IMG}`,
         tag:"WEB;HTML ",
         link:"https://www.google.com",
         descricao:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda explicabo exercitationem unde voluptatem suscipit at quaerat non! Quasi laboriosam reiciendis voluptates nisi veniam amet eligendi perspiciatis provident. Aperiam tenetur architecto labore aspernatur odio, sed, laboriosam doloribus deserunt eligendi similique, corrupti rerum et atque est exercitationem dolores praesentium quidem aut?",
         dataCriacao:"02/24",
         nomeCompleto:"Raphael Ferro",
-        arquivoImagem:``,
+        arquivoImagem:`${IMG}`,
 
     })
     const tagsArray = dataProject.tag.split(";");
 
-return (
-    <BackgroundFilter>
+  return (
+    <BackgroundFilter >
         
         <CardVisualProject>
-                    <MdClose onClick={() => setModalShowProject(false)} className="close-button"/>
+                    <MdClose onClick={() => setModalVisualSingleProjects(false)} className="close-button"/>
             <ContainerProject>
                 
                 
 
-            <PerfilImageDate>
+                <PerfilImageDate>
                     <img className="perfil-image-project"
                         src={dataProject.imagem}
                         alt="imagem de perfil"
@@ -64,4 +65,4 @@ return (
   )
 }
 
-export default ModalVisualProject
+export default ModalVisualSingleProjects;

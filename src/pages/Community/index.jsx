@@ -4,10 +4,14 @@ import { DashboardSC } from "../../components/Dashboard/style";
 import { ContainerProjectSC } from "../../components/ContainerProjects/style";
 import CommunityHeader from "../../components/CommunityHeader";
 import TemplateCard from "../../components/TemplateCard";
-import ModalCardAdd from "../../components/ModalCardAdd";
+import ModalVisualSingleProjects from "../../components/ModalVisualSingleProjects";
+
+import loader from "../../../public/icon.svg";
 
 const Community = () => {
   const [projectsList, setProjectsList] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [modalVisualSingleProjects,setModalVisualSingleProjects] = useState(true)
 
   // TODO: PEGAR ID DO USUÁRIO LOGADO
   // IDs para testar funcionamento:
@@ -20,32 +24,44 @@ const Community = () => {
     async function loadProjects(excludeId) {
       const response = await getAllProjects(excludeId);
       setProjectsList(response);
+      setIsLoaded(true);
     }
 
     loadProjects(userAuthId);
   }, [userAuthId]);
 
   return (
+    <>
+    {
+      modalVisualSingleProjects &&
+      <ModalVisualSingleProjects setModalVisualSingleProjects={setModalVisualSingleProjects}/>
+    }
     <DashboardSC>
-      {projectsList.length <= 0 ? (
-        "Carregando..."
-      ) : (
+      <CommunityHeader />
+      {!isLoaded ? (
+        <img src={loader} alt="loader" />
+      ) : projectsList.length > 0 ? (
         <>
-          {/* <ModalCardAdd /> */}
+          
           <CommunityHeader />
           <ContainerProjectSC>
             {projectsList.map((project) => (
               <TemplateCard
                 key={project.idProjeto}
                 class={"with-project"}
+                projectImage={project.arquivoImagem.fileContents}
+                imageType={project.arquivoImagem.contentType}
                 userName={project.nomeCompleto}
                 projectDate={project.dataCriacao}
               />
             ))}
           </ContainerProjectSC>
         </>
+      ) : (
+        "Seja o primeiro a publicar seu projeto!"
       )}
     </DashboardSC>
+    </>
   );
 };
 

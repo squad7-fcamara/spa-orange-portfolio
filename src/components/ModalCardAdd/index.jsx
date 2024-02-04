@@ -18,9 +18,10 @@ import { MdCollections } from "react-icons/md";
 import ModalVisualProject from '../ModalVisualProject';
 
 
-const ModalCardAdd = (setModalAddOrEditProject) => {
+const ModalCardAdd = ({setModalAddOrEditProject}) => {
   //abrir modal de visualização
-  const [modalShowProject, setmodalShowProject] = useState(false);
+  const [modalShowProject, setmodalShowProject] = useState(true);
+  
 
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
@@ -140,7 +141,7 @@ const ModalCardAdd = (setModalAddOrEditProject) => {
       {modalShowProject && (
         <ModalVisualProject setModalShowProject={setmodalShowProject}/>
       )}
-      <BackgroundFilter onClick={() => setModalAddOrEditProject(false)}>
+      <BackgroundFilter >
         <ModalContentCardAdd>
           <form className="form" onSubmit={handleSubmit(onSubmitProjectToApi)} method="POST" >
             <Container>

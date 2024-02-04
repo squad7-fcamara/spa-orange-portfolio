@@ -12,7 +12,7 @@ const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
   const [authUserProjects, setAuthUserProjects] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [modalAddOrEditProject, setModalAddOrEditProject] = useState(false)
+  const [modalAddOrEditProject, setModalAddOrEditProject] = useState(true)
 
   // TODO: PEGAR ID DO USUÁRIO LOGADO
   // IDs para testar funcionamento:

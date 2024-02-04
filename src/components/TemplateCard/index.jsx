@@ -11,6 +11,7 @@ import {
 } from "./style";
 import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
 import noImageDefault from "../../assets/images/no-image.png";
+import errorTypeImage from "../../assets/images/erro-type-image.png";
 import ModalEdit from "../ModalEdit";
 
 const TemplateCard = (props) => {
@@ -27,9 +28,15 @@ const TemplateCard = (props) => {
   };
 
   useEffect(() => {
-    const url = base64ToUrl(props.contentType, props.projectImage);
+    const url =
+      props.imageType === "image/jpg" || props.imageType === "image/png"
+        ? base64ToUrl(props.imageType, props.projectImage)
+        : props.imageType
+        ? errorTypeImage
+        : noImageDefault;
+
     setSrc(url);
-  }, [props.contentType, props.projectImage]);
+  }, [props.imageType, props.projectImage]);
 
   return (
     <ContainerCardSC

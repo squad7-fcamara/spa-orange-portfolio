@@ -35,14 +35,13 @@ const Community = () => {
       ) : projectsList.length > 0 ? (
         <>
           {/* <ModalCardAdd /> */}
-          <CommunityHeader />
           <ContainerProjectSC>
             {projectsList.map((project) => (
               <TemplateCard
                 key={project.idProjeto}
                 class={"with-project"}
-                projectImage={project.arquivoImagem.fileContents}
-                imageType={project.arquivoImagem.contentType}
+                projectImage={project.arquivoImagem?.fileContents}
+                imageType={project.arquivoImagem?.contentType}
                 userName={project.nomeCompleto}
                 projectDate={project.dataCriacao}
               />

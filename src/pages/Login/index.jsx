@@ -19,7 +19,8 @@ import PrimaryButton from "../../components/PrimaryButton";
 import FloatInput from "../../components/FloatInput/FloatInput";
 
 import { useForm } from "react-hook-form";
-import DeleteConfirmationButton from "../../components/ConfirmButtons/DeleteConfirmationButton";
+// import DeleteConfirmationButton from "../../components/ConfirmButtons/DeleteConfirmationButton";
+import ConfirmationButton from "../../components/ConfirmButtons/ConfirmationButton";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -59,7 +60,6 @@ const Login = () => {
 
   return (
     <AppContainer>
-      <DeleteConfirmationButton/>
       <ImageContainer>
         <HeroImage />
       </ImageContainer>

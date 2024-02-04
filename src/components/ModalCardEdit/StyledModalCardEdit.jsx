@@ -10,7 +10,7 @@ export const BackgroundFilter=styled.span`
     top: 0;
     left: 0;
     width: 100%;
-    height: 200%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     display:;
     z-index: 10;
@@ -299,8 +299,7 @@ export const Image = styled.div`
     }
 
     &.card-with-project {
-        background-image: url(${(props) => props.$imageProject});
-        background-image: url(https://media.istockphoto.com/id/1193323373/vector/a-colorful-trendy-card-design-vector-illustration.jpg?s=612x612&w=0&k=20&c=iIqY56kV1nKpfKCceag5NFWBnogRv8ZmJCFiicZxlpU=);
+        background: ${(props) => `url(${props.imageproject})`}; 
         background-size: cover;
 
         img {

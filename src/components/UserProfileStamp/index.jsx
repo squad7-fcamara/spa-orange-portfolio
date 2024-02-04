@@ -29,6 +29,7 @@ const UserProfileStamp = (props) => {
         <UserNameSC>{userName}</UserNameSC>
         <UserCountrySC>{userCountry}</UserCountrySC>
         <AddProjectButtonSC
+          onClick={props.onClick}
           $activated={props.isLoaded}
           disabled={!props.isLoaded}
         >

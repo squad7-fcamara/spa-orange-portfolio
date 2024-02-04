@@ -7,7 +7,7 @@ import {
   DropdownCardEditOptions,
 } from "./styledModalEdit";
 
-const ModalEdit = () => {
+const ModalEdit = ( { onOpen } ) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // EfeitoDropdown / ainda falta efeito de abrir o card, mas isso faço depois
@@ -23,7 +23,7 @@ const ModalEdit = () => {
 
       <DropDowndivOptions $isOpen={isDropdownOpen}>
         <DropdownCardEdit>
-          <DropdownCardEditOptions>Editar</DropdownCardEditOptions>
+          <DropdownCardEditOptions onClick={onOpen} >Editar</DropdownCardEditOptions>
           <DropdownCardEditOptions>Excluir</DropdownCardEditOptions>
         </DropdownCardEdit>
       </DropDowndivOptions>

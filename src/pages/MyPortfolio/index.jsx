@@ -33,16 +33,25 @@ const MyPortfolio = () => {
     };
 
     loadAuthUserData(userAuthId);
-  }, [userAuthId]);
+  }, [userAuthId, authUserProjects]);
+
+  const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
+  const [modalEditIsClosed, setModalEditIsClosed] = useState(true)
+  const [selectedProject, setSelectedProject] = useState(null)
+
+  const handleSelectedProject = (project) => {
+    setSelectedProject(project)
+  }
 
   return (
+    <>
+    { modalAddIsOpen && <ModalCardAdd closeModal={ () => setModalAddIsOpen(false) }  />}
+    {!modalEditIsClosed && <ModalCardEdit selectedProject={selectedProject} closed={ modalEditIsClosed } onClose={() => setModalEditIsClosed(true)} />}
     <DashboardSC>
       {isLoaded ? (
         <>
-          <UserProfileStamp isLoaded={isLoaded} fullName={fullName} />
+          <UserProfileStamp onClick={() => setModalAddIsOpen(true)} isLoaded={isLoaded} fullName={fullName} />
 
-          {/* <ModalCardAdd /> */}
-          {/* <ModalCardEdit /> */}
           <ContainerProjectSC>
             {authUserProjects.length === 0 ? (
               <>
@@ -53,12 +62,16 @@ const MyPortfolio = () => {
             ) : (
               authUserProjects.map((project) => (
                 <TemplateCard
+                  setModalEditIsClosed={() => setModalEditIsClosed(false)}
+                  project={project}
+                  handleSelectProject={handleSelectedProject}
                   key={project.idProjeto}
                   class={"with-project"}
                   projectImage={project.arquivoImagem.fileContents}
                   imageType={project.arquivoImagem.contentType}
                   userName={fullName}
                   projectDate={project.dataCriacao}
+                  fullName={fullName}
                 />
               ))
             )}
@@ -68,6 +81,7 @@ const MyPortfolio = () => {
         <img src={loader} alt="loader" />
       )}
     </DashboardSC>
+    </>
   );
 };
 

@@ -15,9 +15,8 @@ import "./styles.css"
 
 
 import { MdCollections } from "react-icons/md";
-import ModalVisualProject from '../ModalVisualProject';
 
-const ModalCardAdd = () => {
+const ModalCardAdd = ( {closeModal} ) => {
 
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
@@ -112,7 +111,7 @@ const ModalCardAdd = () => {
       const response = await api.post('projeto', {
         IdUsuario: userId,
         Titulo: data?.titulo,
-        Imagem: `@${image.name};type=${image.type}`,
+        Imagem: image,
         Tag: data?.tag,
         Link: data?.link,
         Descricao: data?.descricao
@@ -123,6 +122,7 @@ const ModalCardAdd = () => {
       });
 
       notifyAlert(response.status);
+      closeModal
 
     } catch (error) {
       notifyAlert(error.status);
@@ -134,14 +134,11 @@ const ModalCardAdd = () => {
 
   return (
     <>
-      <ModalVisualProject />
       <BackgroundFilter>
         <ModalContentCardAdd>
           <form className="form" onSubmit={handleSubmit(onSubmitProjectToApi)} method="POST" >
             <Container>
               <Title>Adicionar Projeto</Title>
-
-              <input type='file' id="picture" {...register('imagem')} ></input>
 
               <ColumnImage>
                 <Subtitle>Selecione o conteúdo que você deseja fazer upload</Subtitle>
@@ -149,6 +146,7 @@ const ModalCardAdd = () => {
                 <Image
                   className={`card-without-add-image ${imageSrc ? 'card-with-project' : ''}`}
                   onMouseDown={handleRemoveImage}
+                  imageproject={imageSrc}
                 >
 
                   {imageSrc ? (
@@ -235,7 +233,7 @@ const ModalCardAdd = () => {
               <FooterButtonContent>
 
                 <PrimaryButton type="submit" text={"SALVAR"} />
-                <SecondaryButton text={"CANCELAR"} />
+                <SecondaryButton onClick={ closeModal } text={"CANCELAR"} />
               </FooterButtonContent>
             </Container>
           </form>

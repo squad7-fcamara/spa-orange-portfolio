@@ -5,8 +5,10 @@ import { jwtDecode } from "jwt-decode";
 import { api } from "../../api/apiRest";
 
 import { Content } from "./styledLogingGoogleBtn";
+import { useNavigate } from "react-router-dom";
 
 const LoginGoogleBtn = () => {
+  const navigate = useNavigate();
   const loginWithGoogle = async (data) => {
     try {
       const response = await api.get(
@@ -21,6 +23,7 @@ const LoginGoogleBtn = () => {
         signUpWithGoogle(data);
       } else {
         console.log("Login bem-sucedido:", response.data);
+        navigate("/profile");
       }
     } catch (error) {
       console.error("Erro na requisição:", error);

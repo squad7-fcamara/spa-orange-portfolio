@@ -1,4 +1,5 @@
 import { api } from "../../api/apiRest";
+import { useNavigate } from 'react-router-dom'
 
 import { NavLink } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
@@ -21,6 +22,9 @@ import FloatInput from "../../components/FloatInput/FloatInput";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
+
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -47,6 +51,7 @@ const Login = () => {
         });
       } else {
         console.log("Login bem-sucedido:", response.data);
+        navigate('/profile')
       }
     } catch (error) {
       console.error("Erro na requisição:", error);

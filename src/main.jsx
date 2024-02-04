@@ -16,8 +16,8 @@ const routes = createBrowserRouter([
     path: "/",
     element: <Navbar />,
     children: [
-      { path: "my-projects", element: <MyProjects /> },
-      { path: "discover", element: <Discover /> },
+      { path: "profile", element: <MyProjects /> },
+      { path: "community", element: <Discover /> },
     ],
   },
 ]);

@@ -16,8 +16,12 @@ import toast, { Toaster } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 
 import { api } from "../../api/apiRest";
+import { useNavigate } from 'react-router-dom'
 
 export default function SignUp() {
+
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -27,7 +31,7 @@ export default function SignUp() {
   const notifyAlert = (status) => {
     if (status == 200) {
       toast.success("Cadastro feito com sucesso!", {
-        duration: 5000,
+        duration: 1500,
 
         iconTheme: {
           primary: "#fff",
@@ -67,6 +71,10 @@ export default function SignUp() {
       })
       .then((response) => {
         notifyAlert(response.status);
+
+        setTimeout(() => {
+          navigate('/')
+        }, 1500);
       })
       .catch((error) => {
         notifyAlert(error.status);

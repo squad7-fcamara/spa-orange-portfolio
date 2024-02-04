@@ -236,7 +236,7 @@ const ModalCardAdd = ({setModalAddOrEditProject}) => {
 
               <FooterSubtitleContent>
 
-                <Subtitle onClick={() => setmodalShowProject(true)}>
+                <Subtitle  onClick={() => {setmodalShowProject(true), }}>
                   
                     Visualizar publicação
                   

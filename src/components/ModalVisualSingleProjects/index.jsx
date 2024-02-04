@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import IMG from "../../../public/icon.svg"
-import IMG2 from "../../assets/img/o-que-e-paisagem.jpg.webp"
+
 import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualAllProjects"
 import { MdClose } from 'react-icons/md';
 const ModalVisualSingleProjects = ({setModalVisualSingleProjects}) => {

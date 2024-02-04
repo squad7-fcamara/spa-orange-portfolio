@@ -36,7 +36,6 @@ const Community = () => {
       ) : projectsList.length > 0 ? (
         <>
           {/* <ModalCardAdd /> */}
-          <CommunityHeader />
           <ContainerProjectSC>
             {projectsList.map((project) => (
               <TemplateCard

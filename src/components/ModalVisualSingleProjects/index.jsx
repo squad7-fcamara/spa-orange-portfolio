@@ -1,8 +1,9 @@
 import {useState} from 'react'
 
-import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject"
+
+import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualAllProjects"
 import { MdClose } from 'react-icons/md';
-const ModalVisualProject = ({setModalShowProject}) => {
+const ModalVisualSingleProjects = ({setModalVisualSingleProjects}) => {
 
     const [dataProject, setDataProject] = useState({
         idProjeto:"1",
@@ -19,16 +20,16 @@ const ModalVisualProject = ({setModalShowProject}) => {
     })
     const tagsArray = dataProject.tag.split(";");
 
-return (
-    <BackgroundFilter>
+  return (
+    <BackgroundFilter >
         
         <CardVisualProject>
-                    <MdClose onClick={() => setModalShowProject(false)} className="close-button"/>
+                    <MdClose onClick={() => setModalVisualSingleProjects(false)} className="close-button"/>
             <ContainerProject>
                 
                 
 
-            <PerfilImageDate>
+                <PerfilImageDate>
                     <img className="perfil-image-project"
                         src={dataProject.imagem}
                         alt="imagem de perfil"
@@ -64,4 +65,4 @@ return (
   )
 }
 
-export default ModalVisualProject
+export default ModalVisualSingleProjects;

@@ -1,9 +1,7 @@
-
 <div style="display: flex; align-items: center;">
     <img src="./public/icon.svg" alt="Descrição da imagem" width="48" style="margin-right: 10px;"/>
     <h1>SPA — Orange Portfólio</h1>
 </div>
-
 
 O Orange Portfólio é uma aplicação web inovadora e responsiva, desenvolvida para proporcionar aos usuários uma plataforma interativa e esteticamente agradável para exibição de seus projetos. Projetado com uma abordagem centrada no usuário, o Orange Portfólio facilita o cadastro e a visualização de projetos de forma intuitiva.
 
@@ -45,6 +43,16 @@ $ cd nome-da-pasta
 # Instalação das dependências
 $ npm install
 ```
+
+- Antes de continuar, acesse o _[repositório do back-end](https://github.com/squad7-fcamara/spa-orange-portfolio-backend)_ e siga o passo-a-passo de como executar:
+<br/>
+  - **Back-end: https://github.com/squad7-fcamara/spa-orange-portfolio-backend**
+<br/>
+- Com o back-end rodando altere o `baseURL` em `./src/api/apiRest.js` para o endereço do localhost indicado pela aplicação back-end:
+<br/>
+  - **Exemplo:** 
+    - Server rodando em `http://127.0.0.1:5167/`
+    - altere para `baseURL: "http://127.0.0.1:5167/api"`
 
 #### Modo de desenvolvimento:
 

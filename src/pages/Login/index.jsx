@@ -49,6 +49,7 @@ const Login = () => {
         });
       } else {
         console.log("Login bem-sucedido:", response.data);
+        sessionStorage.setItem("userId", response.data.idUsuario);
         navigate("/profile");
       }
     } catch (error) {

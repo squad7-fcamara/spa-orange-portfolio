@@ -14,13 +14,7 @@ const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
   const [authUserProjects, setAuthUserProjects] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-
-  // TODO: PEGAR ID DO USUÁRIO LOGADO
-  // IDs para testar funcionamento:
-  //  - 99: Não existe
-  //  -  6: sem projeto
-  //  -  5: com projeto
-  const [userAuthId, setUserAuthId] = useState(4);
+  const [userAuthId, setUserAuthId] = useState(undefined);
 
   useEffect(() => {
     const loadAuthUserData = async (userId) => {
@@ -33,58 +27,78 @@ const MyPortfolio = () => {
       setIsLoaded(true);
     };
 
+    setUserAuthId(sessionStorage.getItem("userId"));
     loadAuthUserData(userAuthId);
   }, [userAuthId, authUserProjects]);
 
-  const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
-  const [modalEditIsClosed, setModalEditIsClosed] = useState(true)
-  const [modalExclude, setModalExclude] = useState(false)
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [modalAddIsOpen, setModalAddIsOpen] = useState(false);
+  const [modalEditIsClosed, setModalEditIsClosed] = useState(true);
+  const [modalExclude, setModalExclude] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const handleSelectedProject = (project) => {
-    setSelectedProject(project)
-  }
+    setSelectedProject(project);
+  };
 
   return (
     <>
-    { modalAddIsOpen && <ModalCardAdd closeModal={ () => setModalAddIsOpen(false) }  />}
-    {!modalEditIsClosed && <ModalCardEdit selectedProject={selectedProject} closed={ modalEditIsClosed } onClose={() => setModalEditIsClosed(true)} />}
-    {modalExclude && <DeleteConfirmationButton selectedProject={selectedProject} closed={ modalExclude } onOpen={() => setModalExclude(true)} onClose={() => setModalExclude(false)} />}
-    <DashboardSC>
-      {isLoaded ? (
-        <>
-          <UserProfileStamp onClick={() => setModalAddIsOpen(true)} isLoaded={isLoaded} fullName={fullName} />
-
-          <ContainerProjectSC>
-            {authUserProjects.length === 0 ? (
-              <>
-                <TemplateCard class={"add-project"} activated={isLoaded} />
-                <TemplateCard class={"blank"} />
-                <TemplateCard class={"blank"} />
-              </>
-            ) : (
-              authUserProjects.map((project) => (
-                <TemplateCard
-                  setModalEditIsClosed={() => setModalEditIsClosed(false)}
-                  setModalExclude={() => setModalExclude(true)}
-                  project={project}
-                  handleSelectProject={handleSelectedProject}
-                  key={project.idProjeto}
-                  class={"with-project"}
-                  projectImage={project.arquivoImagem?.fileContents}
-                  imageType={project.arquivoImagem?.contentType}
-                  userName={fullName}
-                  projectDate={project.dataCriacao}
-                  fullName={fullName}
-                />
-              ))
-            )}
-          </ContainerProjectSC>
-        </>
-      ) : (
-        <img src={loader} alt="loader" />
+      {modalAddIsOpen && (
+        <ModalCardAdd closeModal={() => setModalAddIsOpen(false)} />
       )}
-    </DashboardSC>
+      {!modalEditIsClosed && (
+        <ModalCardEdit
+          selectedProject={selectedProject}
+          closed={modalEditIsClosed}
+          onClose={() => setModalEditIsClosed(true)}
+        />
+      )}
+      {modalExclude && (
+        <DeleteConfirmationButton
+          selectedProject={selectedProject}
+          closed={modalExclude}
+          onOpen={() => setModalExclude(true)}
+          onClose={() => setModalExclude(false)}
+        />
+      )}
+      <DashboardSC>
+        {isLoaded ? (
+          <>
+            <UserProfileStamp
+              onClick={() => setModalAddIsOpen(true)}
+              isLoaded={isLoaded}
+              fullName={fullName}
+            />
+
+            <ContainerProjectSC>
+              {authUserProjects.length === 0 ? (
+                <>
+                  <TemplateCard class={"add-project"} activated={isLoaded} />
+                  <TemplateCard class={"blank"} />
+                  <TemplateCard class={"blank"} />
+                </>
+              ) : (
+                authUserProjects.map((project) => (
+                  <TemplateCard
+                    setModalEditIsClosed={() => setModalEditIsClosed(false)}
+                    setModalExclude={() => setModalExclude(true)}
+                    project={project}
+                    handleSelectProject={handleSelectedProject}
+                    key={project.idProjeto}
+                    class={"with-project"}
+                    projectImage={project.arquivoImagem?.fileContents}
+                    imageType={project.arquivoImagem?.contentType}
+                    userName={fullName}
+                    projectDate={project.dataCriacao}
+                    fullName={fullName}
+                  />
+                ))
+              )}
+            </ContainerProjectSC>
+          </>
+        ) : (
+          <img src={loader} alt="loader" />
+        )}
+      </DashboardSC>
     </>
   );
 };

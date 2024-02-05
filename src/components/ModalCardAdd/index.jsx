@@ -144,6 +144,7 @@ const ModalCardAdd = ({ closeModal, fullName }) => {
     }
   };
 
+  
   // Fim da confirmação de comunicação com a API
 
   return (
@@ -253,9 +254,11 @@ const ModalCardAdd = ({ closeModal, fullName }) => {
                     <ModalVisualProject
                       goBack={() => setShowModal(false)}
                       preview={previewData}
+                      tags={tags}
                       image={imageSrc}
                       fullName={fullName}
                       currentDate={currentDate}
+                      way={"add"}
                     />
                   )}
 

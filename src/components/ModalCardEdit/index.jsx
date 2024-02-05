@@ -30,7 +30,7 @@ import ModalVisualProject from "../ModalVisualProject";
 import InputTags from "../InputTags/InputTags";
 import PrimaryButton2 from "../PrimaryButton/PrimaryButton";
 
-const ModalCardEdit = ({ selectedProject, closed, onClose }) => {
+const ModalCardEdit = ({ selectedProject, closed, onClose, fullName }) => {
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
   const [image, setImage] = useState();
@@ -117,6 +117,7 @@ const ModalCardEdit = ({ selectedProject, closed, onClose }) => {
     if (showModal) {
       handlePreview();
     }
+    console.log(tags)
   }, [showModal]);
 
   const onSubmitProjectToApi = async (data) => {
@@ -261,6 +262,10 @@ const ModalCardEdit = ({ selectedProject, closed, onClose }) => {
                       goBack={() => setShowModal(false)}
                       preview={previewData}
                       image={imageBlob}
+                      tags={tags}
+                      fullName={fullName}
+                      selectedProject={selectedProject}
+                      way={"edit"}
                     />
                   )}
 

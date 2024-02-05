@@ -64,9 +64,10 @@ const MyPortfolio = () => {
       )}
       {!modalEditIsClosed && (
         <ModalCardEdit
-          selectedProject={selectedProject}
-          closed={modalEditIsClosed}
-          onClose={() => setModalEditIsClosed(true)}
+        selectedProject={selectedProject}
+        closed={modalEditIsClosed}
+        fullName={fullName}
+        onClose={() => setModalEditIsClosed(true)}
         />
       )}
       {modalExclude && (

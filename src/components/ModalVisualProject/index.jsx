@@ -10,6 +10,7 @@ import {
 } from "./StyledModalVisualProject";
 import { MdClose } from "react-icons/md";
 import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
+import { formatDate } from "../../utils/formatDate";
 
 const ModalVisualProject = ({
   goBack,
@@ -17,8 +18,27 @@ const ModalVisualProject = ({
   fullName,
   image,
   currentDate,
+  tags,
+  selectedProject,
+  way
+
 }) => {
-  const tagsArray = preview && preview.tag ? preview.tag.split(";") : [];
+
+
+  
+  if (way === "edit") {
+    
+    currentDate = formatDate(selectedProject.dataCriacao);
+  }
+  let tagsArray;
+
+if (tags.length > selectedProject.tag.length) {
+  tagsArray = tags && tags ? tags.split(";") : [];
+} else {
+  tagsArray = selectedProject.tag && selectedProject.tag ? selectedProject.tag.split(";") : [];
+}
+
+console.log(tagsArray);
 
   return (
     <BackgroundFilter>
@@ -39,7 +59,7 @@ const ModalVisualProject = ({
 
           <Title>{preview.titulo}</Title>
 
-          <TagProjects className="tag">
+          <TagProjects className="tag" >
             {tagsArray.map((tag, index) => (
               <p key={index}>{tag}</p>
             ))}

@@ -1,13 +1,18 @@
-import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject"
+import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject";
+import { MdClose } from 'react-icons/md';
 
-const ModalVisualProject = ({goBack, preview, image}) => {
 
+const ModalVisualProject = ({goBack, preview, fullName, image, currentDate}) => {
+
+
+    const tagsArray = preview && preview.tag ? preview.tag.split(";") : [];
+    
   return (
     <BackgroundFilter>
         
         
         <CardVisualProject>
-        
+        <MdClose  onClick={goBack} className="close-button"/>
             <ContainerProject>
 
                 <PerfilImageDate>
@@ -16,19 +21,17 @@ const ModalVisualProject = ({goBack, preview, image}) => {
                         alt="imagem de perfil"
                     />
                     <span className="span-perfil-name-data">
-                        <h5 className="perfil-name">Raphael da Silveira</h5>
-                        <h5 className="data-project">01/12</h5>
+                        <h5 className="perfil-name">{fullName}</h5>
+                        <h5 className="data-project">{currentDate}</h5>
                     </span>
                 </PerfilImageDate>
 
                 <Title>{preview.titulo}</Title>
             
                 <TagProjects className="tag"> 
-                    <p>HTML</p>
-                    <p>JAVASCRIPT</p>
-                    <p>C++</p>
-                    <p>Node</p>
-                    <p>WEB</p>
+                    { 
+                        tagsArray.map((tag, index) => <p key={index}>{tag}</p>)                    
+                    }
                     
                     
                 </TagProjects>
@@ -37,7 +40,7 @@ const ModalVisualProject = ({goBack, preview, image}) => {
 
                 <DescriptionProject>
                     <p className="description-text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quas quibusdam voluptatum eum. Suscipit incidunt explicabo odio magni est provident nulla praesentium quam, necessitatibus nobis mollitia totam unde laudantium rerum.
+                        {preview.descricao}
                     </p>
                 </DescriptionProject>
                 

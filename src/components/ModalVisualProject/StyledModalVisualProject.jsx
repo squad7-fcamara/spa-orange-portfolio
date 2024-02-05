@@ -35,7 +35,7 @@ export const BackgroundFilter=styled.span`
 
 export const CardVisualProject=styled.div`
     width: 980px;
-    height: 600px;
+    height: calc(100% - 40px);
 
     // OBSERVAR ISSO NO RESPONSIVO
     margin: 20px auto;
@@ -50,12 +50,36 @@ export const CardVisualProject=styled.div`
         @media (max-width: ${mobileL}){
             width: calc(100% - 40px);
             margin: 120px 20px;
-            height: 900px;
+            height: 700px;
         };
     
     &::-webkit-scrollbar {
         display: none;
-      }
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color:white;
+        cursor: pointer;
+    }
+    
+    @media (max-width: ${mobileL}){  
+        width: 100%;
+        
+        // OBSERVAR ISSO NO RESPONSIVO
+        margin: 18% 0;
+        padding: 48px auto 95px;
+    };
+    @media (max-width: ${mobileM}){  
+        
+        width: 100%;
+    };
+    @media (max-width: ${mobileS}){  
+        width: 100%;
+    };
+    
 `;
 export const ContainerProject=styled.div` 
     max-width: 840px;
@@ -66,21 +90,22 @@ export const ContainerProject=styled.div`
     grid-template-rows: auto;
     grid-row-gap: 5px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 20   px;
+    grid-column-gap: 20 px;
 
     @media (max-width: ${mobileL}){
+        
         max-width: 425px;
         padding: 0 auto;
-        width: 385px;
+        width: 100%;
         height: 100%;
         margin: 0;
     };
     @media (max-width: ${mobileM}) {
-        width: 273px;
+        
     }
     @media (max-width: ${mobileS}) {
         padding: 20px;
-        width: 280px;
+        
     }
 `;
 
@@ -102,20 +127,26 @@ margin-bottom: 5px;
 
 
     @media (max-width: ${mobileL}){  
-        width: 320px;
+        height:100%;
+        width: 100%;
         grid-row: 1;
+        grid-column: span 3;
     };
     @media (max-width: ${mobileM}) {
-        width: 273px;
+        
+        grid-column: span 3;
+        width: 100%;
     }
     @media (max-width: ${mobileS}) {
-        width: 242px;
+        
+        grid-column: span 3;
+        width: 100%;
     }
 `;
 
 export const PerfilImageDate = styled.span`
     grid-row: 1;
-    width: 150px;
+    width: 100%;
     height: 70px;
     display: flex;
     align-items: center;
@@ -128,14 +159,12 @@ export const PerfilImageDate = styled.span`
         height: 40px; 
         border-radius: 50%;
         margin-right: 10px;
-        background-color:blue;
+        
     }
 
 
     .span-perfil-name-data {
         display: flex; 
-        
-        
         
         flex-direction: column;
         padding: 3px 0;
@@ -158,7 +187,22 @@ export const PerfilImageDate = styled.span`
             margin: 2px ;
         }
     }
-    `
+    @media (max-width: ${mobileL}){  
+        grid-row: 3;
+        width: 215px
+    };
+    
+    @media (max-width: ${mobileM}) {
+        grid-row: 3;
+        width: 215px
+        
+    }
+    @media (max-width: ${mobileS}) {
+        width: 200px;
+        grid-row: 3;
+        
+    }
+`
     
 export const TagProjects = styled.div`
 grid-row: 1;
@@ -176,10 +220,30 @@ text-align: end;
 
     p{
         word-break: break-all;  
-        background-color:red;
+        
         padding: 7px;
         border-radius: 100px;
         background-color: #00000014;
+    }
+    
+    @media (max-width: ${mobileL}){  
+        font-size: 10px;
+        grid-row: 3;
+        width: 150px;
+        
+        
+    };
+    @media (max-width: ${mobileM}) {
+        grid-row: 3;
+        width: 99px;
+
+        p{
+            padding: 5px;  
+        }
+    }
+    @media (max-width: ${mobileS}) {
+        grid-row: 3;
+        width: 80px;
     }
 `
 
@@ -196,7 +260,25 @@ export const ImagemProject = styled.div`
     box-shadow: 1px 4px 4px rgba(230, 233, 242, 1);
     align-items: center;
     display: flex;
-    background: ${(props) => `url(${props.imageproject})`}; 
+    background: ${(props) => `url(${props.imageproject})`};
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (max-width: ${mobileL}){  
+        width:100%;
+        height:290px;
+        margin: 0;
+        
+    };
+    @media (max-width: ${mobileM}) {
+        width:100%;
+        height:260px;
+    }
+    @media (max-width: ${mobileS}) {
+        width:100%;
+        
+        
+    }
 `
 
 export const DescriptionProject = styled.div`
@@ -211,4 +293,29 @@ export const DescriptionProject = styled.div`
         text-align: justify; 
         margin: 0;
     }
+
+    @media (max-width: ${mobileL}){  
+        grid-row: 4;
+    };
+    @media (max-width: ${mobileM}) {
+        grid-row: 4;
+        width:100%
+    }
+    @media (max-width: ${mobileS}) {
+        grid-row: 4;
+    }
+`;
+export const Close = styled.div`
+
+  
+
+    .close-button {
+        position:absolute
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
 `;

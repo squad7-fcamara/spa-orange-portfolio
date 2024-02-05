@@ -61,7 +61,7 @@ const MyPortfolio = () => {
   return (
     <>
       {modalAddIsOpen && (
-        <ModalCardAdd closeModal={() => setModalAddIsOpen(false)} />
+        <ModalCardAdd fullName={fullName} closeModal={() => setModalAddIsOpen(false)} />
       )}
       {!modalEditIsClosed && (
         <ModalCardEdit
@@ -92,7 +92,7 @@ const MyPortfolio = () => {
             <ContainerProjectSC>
               {authUserProjects.length === 0 ? (
                 <>
-                  <TemplateCard class={"add-project"} activated={isLoaded} />
+                  <TemplateCard class={"add-project"}  activated={isLoaded} />
                   <TemplateCard class={"blank"} />
                   <TemplateCard class={"blank"} />
                 </>

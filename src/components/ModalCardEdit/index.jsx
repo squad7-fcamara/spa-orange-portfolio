@@ -19,6 +19,7 @@ import { MdCollections } from "react-icons/md";
 import { base64ToUrl } from '../../utils/createImageUrl';
 import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
 import ModalVisualProject from '../ModalVisualProject';
+import InputTags from '../InputTags/InputTags';
 
 const ModalCardEdit = ({selectedProject, closed, onClose}) => {
 
@@ -28,6 +29,15 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
   const [statusConfirmation, setStatusConfirmation] = useState(false)
   const [previewData, setPreviewData] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [tags, setTags] = useState('')
+
+
+  const getTags = (tags) => {
+    const formattedTags = `${tags.join(';')}`;
+    setTags(formattedTags)
+    console.log(tags);
+  }
+  
 
 
   const handlePreview = () => {
@@ -118,7 +128,7 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
         IdUsuario: userId,
         Titulo: data?.titulo,
         Imagem: image,
-        Tag: data?.tag,
+        Tag: tags,
         Link: data?.link,
         Descricao: data?.descricao
       } , {
@@ -211,16 +221,9 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
                       classes={errors.title && "required"}
                       value={selectedProject.titulo}
                     />
-                    <FloatInput
-                      id_value="input-add-project-input-teste"
-                      label={"tag"}
-                      type={"text"}
-                      name={"addProjectTitle"}
-                      register={register}
-                      required={true}
-                      classes={errors.title && "required"}
-                      value={selectedProject.tag}
-                    />
+
+                    <InputTags values={selectedProject.tag} getTags={getTags} />
+                    
                     <FloatInput id_value="input-add-project-input-teste"
                       label={"link"}
                       type={"text"}

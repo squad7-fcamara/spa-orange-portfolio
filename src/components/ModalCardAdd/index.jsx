@@ -18,6 +18,7 @@ import "./styles.css"
 import { MdCollections } from "react-icons/md";
 import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
 import ModalVisualProject from '../ModalVisualProject';
+import InputTags from '../InputTags/InputTags';
 
 const ModalCardAdd = ( {closeModal, fullName,} ) => {
 
@@ -27,6 +28,14 @@ const ModalCardAdd = ( {closeModal, fullName,} ) => {
   const [imageSrc, setImageSrc] = useState(null);
   const [image, setImage] = useState()
   const [statusConfirmation, setStatusConfirmation] = useState(false)
+  const [tags, setTags] = useState('')
+  
+
+  const getTags = (tags) => {
+    const formattedTags = `${tags.join(';')}`;
+    setTags(formattedTags)
+    console.log(tags);
+  }
   
 
   const handleClick = () => {
@@ -115,11 +124,11 @@ const ModalCardAdd = ( {closeModal, fullName,} ) => {
     
     try {
 
-      const response = await api.post('projeto', {
+      await api.post('projeto', {
         IdUsuario: userId,
         Titulo: data?.titulo,
         Imagem: image,
-        Tag: data?.tag,
+        Tag: tags,
         Link: data?.link,
         Descricao: data?.descricao
       } , {
@@ -128,7 +137,6 @@ const ModalCardAdd = ( {closeModal, fullName,} ) => {
         }
       });
 
-      notifyAlert(response.status);
       setStatusConfirmation(true)
 
     } catch (error) {
@@ -212,15 +220,9 @@ const ModalCardAdd = ( {closeModal, fullName,} ) => {
                     classes={errors.title && "required"}
                     
                   />
-                  <FloatInput
-                    id_value="input-add-project-input-teste"
-                    label={"tag"}
-                    type={"text"}
-                    name={"addProjectTitle"}
-                    register={register}
-                    required={true}
-                    classes={errors.title && "required"}
-                  />
+
+                  <InputTags getTags={getTags} />
+                  
                   <FloatInput id_value="input-add-project-input-teste"
                     label={"link"}
                     type={"text"}

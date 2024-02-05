@@ -5,6 +5,10 @@ const mobile = "768px";
 export const MobileDisplaySC = styled.div`
   :only-child {
     display: none;
+    cursor: pointer;
+  }
+  :active {
+    scale: 95%;
   }
   @media (max-width: ${mobile}) {
     :only-child {
@@ -64,4 +68,30 @@ export const DesktopMenuSC = styled.ul`
 
 export const ProfileIconSC = styled.img`
   width: 40px;
+`;
+
+export const MenuListSC = styled.ul`
+  width: fit-content;
+  height: 9rem;
+  background-color: #fcfdff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.25rem;
+  background: #fcfdff;
+  padding-inline: 1.25rem;
+  position: fixed;
+  top: 4rem;
+  left: 1.5rem;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  display: ${(props) => (props.$isOpen ? "inherit" : "none")};
+
+  & a {
+    width: 100%;
+    height: 2rem;
+    text-decoration: none;
+    color: #222244;
+  }
 `;

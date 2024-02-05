@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
 import { api } from "../../api/apiRest";
 
-import PrimaryButton from "../PrimaryButton"
 import SecondaryButton from "../SecondaryButton"
 
 import {
@@ -20,6 +19,7 @@ import { base64ToUrl } from '../../utils/createImageUrl';
 import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
 import ModalVisualProject from '../ModalVisualProject';
 import InputTags from '../InputTags/InputTags';
+import PrimaryButton2 from '../PrimaryButton/PrimaryButton';
 
 const ModalCardEdit = ({selectedProject, closed, onClose}) => {
 
@@ -223,7 +223,7 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
                     />
 
                     <InputTags values={selectedProject.tag} getTags={getTags} />
-                    
+
                     <FloatInput id_value="input-add-project-input-teste"
                       label={"link"}
                       type={"text"}
@@ -250,7 +250,7 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
                 </FooterSubtitleContent>
                 <FooterButtonContent>
   
-                  <PrimaryButton type="submit" text={"SALVAR"} />
+                  <PrimaryButton2 type="submit" text={"SALVAR"} />
                   <SecondaryButton onClick={onClose} text={"CANCELAR"} />
                 </FooterButtonContent>
               </Container>

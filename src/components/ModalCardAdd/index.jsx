@@ -5,7 +5,6 @@ import toast, { Toaster } from 'react-hot-toast';
 import { api } from "../../api/apiRest";
 import { formatDate } from "../../utils/formatDate";
 
-import PrimaryButton from "../PrimaryButton"
 import SecondaryButton from "../SecondaryButton"
 
 import {
@@ -19,6 +18,7 @@ import { MdCollections } from "react-icons/md";
 import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
 import ModalVisualProject from '../ModalVisualProject';
 import InputTags from '../InputTags/InputTags';
+import PrimaryButton2 from '../PrimaryButton/PrimaryButton';
 
 const ModalCardAdd = ( {closeModal, fullName,} ) => {
 
@@ -247,7 +247,7 @@ const ModalCardAdd = ( {closeModal, fullName,} ) => {
               </FooterSubtitleContent>
               <FooterButtonContent>
 
-                <PrimaryButton type="submit" text={"SALVAR"} />
+                <PrimaryButton2 type="submit" text={"SALVAR"} />
                 <SecondaryButton onClick={ closeModal } text={"CANCELAR"} />
               </FooterButtonContent>
             </Container>

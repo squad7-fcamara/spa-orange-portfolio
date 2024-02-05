@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { bp } from "../../utils/breakpoints";
 
 export const CommunityHeaderSC = styled.header`
-  max-width: 46.5rem;
+  display: flex;
+  align-items: center;
+  justify-content:center;
   margin: 3rem;
 `;
 

@@ -11,7 +11,6 @@ export const DashboardSC = styled.main`
 
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 
   @media (max-width: ${bp.mobile}) {

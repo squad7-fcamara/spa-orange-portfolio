@@ -61,7 +61,8 @@ const ModalCardAdd = ( {closeModal} ) => {
   //fim da area de teste de UPLOAD
 
   // Confirmação de comunicação com a API
-  const userId = '4';
+  const userId = sessionStorage.getItem("userId");
+  console.log(userId)
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const notifyAlert = () => {

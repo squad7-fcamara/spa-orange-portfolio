@@ -9,12 +9,16 @@ import TemplateCard from "../../components/TemplateCard";
 import ModalCardAdd from "../../components/ModalCardAdd";
 import ModalCardEdit from "../../components/ModalCardEdit";
 import DeleteConfirmationButton from "../../components/ConfirmButtons/DeleteConfirmationButton";
+import SearchBar from "../../components/SearchBar";
+import { api } from "../../api/apiRest";
+import './style.css'
 
 const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
   const [authUserProjects, setAuthUserProjects] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [userAuthId, setUserAuthId] = useState(undefined);
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     const loadAuthUserData = async (userId) => {
@@ -23,13 +27,21 @@ const MyPortfolio = () => {
         projects: await getAuthUserProjects(userId),
       };
       setFullName(response.fullName);
+
+    if (search == "") {
       setAuthUserProjects(response.projects);
       setIsLoaded(true);
+    } else {
+      const response = await api.get(`/projeto/getByUsuarioTags?idUsuario=${userAuthId}&tags=${search}`)
+        setAuthUserProjects(response.data)
+        console.log(response)
+    }
+    
     };
 
     setUserAuthId(sessionStorage.getItem("userId"));
     loadAuthUserData(userAuthId);
-  }, [userAuthId, authUserProjects]);
+  }, [userAuthId, authUserProjects, search]);
 
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false);
   const [modalEditIsClosed, setModalEditIsClosed] = useState(true);
@@ -39,6 +51,12 @@ const MyPortfolio = () => {
   const handleSelectedProject = (project) => {
     setSelectedProject(project);
   };
+
+  const handleSearch = (tags) => {
+    const formattedTags = `${tags.join(';')}`;
+    setSearch(formattedTags)
+  };
+
 
   return (
     <>
@@ -69,6 +87,8 @@ const MyPortfolio = () => {
               fullName={fullName}
             />
 
+            <label className="label-my-projects">Meus Projetos</label>
+            <SearchBar getSearch={ handleSearch } />
             <ContainerProjectSC>
               {authUserProjects.length === 0 ? (
                 <>

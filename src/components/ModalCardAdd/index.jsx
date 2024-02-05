@@ -28,7 +28,7 @@ import { MdCollections } from "react-icons/md";
 import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
 import ModalVisualProject from '../ModalVisualProject';
 import InputTags from '../InputTags/InputTags';
-import PrimaryButton2 from '../PrimaryButton/PrimaryButton';
+import PrimaryButton from "../PrimaryButton";
 
 const ModalCardAdd = ({ closeModal, fullName }) => {
   // testando UPLOAD IMAGE
@@ -43,7 +43,6 @@ const ModalCardAdd = ({ closeModal, fullName }) => {
   const getTags = (tags) => {
     const formattedTags = `${tags.join(";")}`;
     setTags(formattedTags);
-    console.log(tags);
   };
 
   const handleClick = () => {
@@ -265,7 +264,7 @@ const ModalCardAdd = ({ closeModal, fullName }) => {
                   </Subtitle>
                 </FooterSubtitleContent>
                 <FooterButtonContent>
-                  <PrimaryButton type="submit" text={"SALVAR"} />
+                  <PrimaryButton type="submit" text={"SALVAR"} loading={loading} />
                   <SecondaryButton onClick={closeModal} text={"CANCELAR"} />
                 </FooterButtonContent>
               </Container>

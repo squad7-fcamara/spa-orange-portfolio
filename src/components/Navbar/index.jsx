@@ -42,6 +42,10 @@ function Navbar() {
                 {" "}
                 <a href="/community">Descobrir </a>
               </li>
+              <li onClick={() => sessionStorage.removeItem("userId")}>
+                {" "}
+                <a href="/">Sair </a>
+              </li>
             </MenuListSC>
             <img
               src={Logomarca}
@@ -56,6 +60,10 @@ function Navbar() {
               <li>
                 {" "}
                 <a href="/community">Descobrir </a>
+              </li>
+              <li onClick={() => sessionStorage.removeItem("userId")}>
+                {" "}
+                <a href="/">Sair </a>
               </li>
             </DesktopMenuSC>
           </div>

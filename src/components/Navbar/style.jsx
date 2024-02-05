@@ -72,7 +72,7 @@ export const ProfileIconSC = styled.img`
 
 export const MenuListSC = styled.ul`
   width: fit-content;
-  height: 9rem;
+  height: 11rem;
   background-color: #fcfdff;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 0.25rem;

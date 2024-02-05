@@ -1,57 +1,59 @@
-import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject";
-import { MdClose } from 'react-icons/md';
+import {
+  BackgroundFilter,
+  CardVisualProject,
+  ContainerProject,
+  Title,
+  PerfilImageDate,
+  TagProjects,
+  ImagemProject,
+  DescriptionProject,
+} from "./StyledModalVisualProject";
+import { MdClose } from "react-icons/md";
 import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
 
+const ModalVisualProject = ({
+  goBack,
+  preview,
+  fullName,
+  image,
+  currentDate,
+}) => {
+  const tagsArray = preview && preview.tag ? preview.tag.split(";") : [];
 
-const ModalVisualProject = ({goBack, preview, fullName, image, currentDate}) => {
-
-    console.log(image);
-
-
-    const tagsArray = preview && preview.tag ? preview.tag.split(";") : [];
-    
   return (
     <BackgroundFilter>
-        
-        
-        <CardVisualProject>
-        <MdClose  onClick={goBack} className="close-button"/>
-            <ContainerProject>
+      <CardVisualProject>
+        <MdClose onClick={goBack} className="close-button" />
+        <ContainerProject>
+          <PerfilImageDate>
+            <img
+              className="perfil-image-project"
+              src={profilePictureDefault}
+              alt="imagem de perfil"
+            />
+            <span className="span-perfil-name-data">
+              <h5 className="perfil-name">{fullName}</h5>
+              <h5 className="data-project">{currentDate}</h5>
+            </span>
+          </PerfilImageDate>
 
-                <PerfilImageDate>
-                    <img className="perfil-image-project"
-                        src={profilePictureDefault}
-                        alt="imagem de perfil"
-                    />
-                    <span className="span-perfil-name-data">
-                        <h5 className="perfil-name">{fullName}</h5>
-                        <h5 className="data-project">{currentDate}</h5>
-                    </span>
-                </PerfilImageDate>
+          <Title>{preview.titulo}</Title>
 
-                <Title>{preview.titulo}</Title>
-            
-                <TagProjects className="tag"> 
-                    { 
-                        tagsArray.map((tag, index) => <p key={index}>{tag}</p>)                    
-                    }
-                    
-                    
-                </TagProjects>
-                
-                <ImagemProject imageproject={image} />
+          <TagProjects className="tag">
+            {tagsArray.map((tag, index) => (
+              <p key={index}>{tag}</p>
+            ))}
+          </TagProjects>
 
-                <DescriptionProject>
-                    <p className="description-text">
-                        {preview.descricao}
-                    </p>
-                </DescriptionProject>
-                
-            </ContainerProject>
+          <ImagemProject imageproject={image} />
 
-        </CardVisualProject>
+          <DescriptionProject>
+            <p className="description-text">{preview.descricao}</p>
+          </DescriptionProject>
+        </ContainerProject>
+      </CardVisualProject>
     </BackgroundFilter>
-  )
-}
+  );
+};
 
-export default ModalVisualProject
+export default ModalVisualProject;

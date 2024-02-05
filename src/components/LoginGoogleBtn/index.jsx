@@ -16,13 +16,8 @@ const LoginGoogleBtn = () => {
       );
 
       if (response.data.idUsuario === -1) {
-        console.log(
-          "Usuário não existe, criando um novo usuário:",
-          response.data
-        );
         signUpWithGoogle(data);
       } else {
-        console.log("Login bem-sucedido:", response.data);
         sessionStorage.setItem("userId", response.data.idUsuario);
         navigate("/profile");
       }
@@ -40,12 +35,9 @@ const LoginGoogleBtn = () => {
         senha: data?.sub,
       })
       .then((response) => {
-        console.log(response, "nova tentativa de login");
         loginWithGoogle(data);
       })
       .catch((error) => {
-        console.log(error);
-
         if (error.response.status == 409) {
           loginWithGoogle(data);
         }

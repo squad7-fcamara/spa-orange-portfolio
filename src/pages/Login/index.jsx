@@ -38,7 +38,6 @@ const Login = () => {
         `usuario/validarLogin?email=${data.email}&senha=${data.senha}`
       );
       if (response.data.idUsuario === -1) {
-        console.log("Login falhou:", response.data);
         toast.error("Email ou senha incorreta. Tente novamente.", {
           iconTheme: {
             primary: "#fff",
@@ -51,7 +50,6 @@ const Login = () => {
           },
         });
       } else {
-        console.log("Login bem-sucedido:", response.data);
         sessionStorage.setItem("userId", response.data.idUsuario);
         navigate("/profile");
       }

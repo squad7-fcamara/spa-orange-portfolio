@@ -34,7 +34,6 @@ const MyPortfolio = () => {
     } else {
       const response = await api.get(`/projeto/getByUsuarioTags?idUsuario=${userAuthId}&tags=${search}`)
         setAuthUserProjects(response.data)
-        console.log(response)
     }
     
     };

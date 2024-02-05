@@ -8,6 +8,11 @@ export const SearchBarSC = styled.div`
   border-radius: 4px;
   padding: 0.5rem;
   margin-bottom: 2rem;
+
+  input {
+    border: none;
+  }
+
   &:hover { cursor: text; }
 
 
@@ -17,14 +22,14 @@ export const SearchBarSC = styled.div`
 export const UlTags = styled.ul`
   display: flex;
   gap: 0.5rem;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 
   .tag-li {
     display: flex;
     align-items: center;
     font-size: 1rem;
     padding: 0.25rem;
-    background-color: #9747FF;
+    background-color: #9747ff;
     color: white;
     border-radius: 10px;
     transition: 0.5s;
@@ -40,7 +45,7 @@ export const UlTags = styled.ul`
     padding: 0.25rem;
     color: #888;
   }
-`
+`;
 
 export const ClearTag = styled.span`
   display: flex;
@@ -50,4 +55,4 @@ export const ClearTag = styled.span`
   &:hover {
     cursor: pointer;
   }
-`
+`;

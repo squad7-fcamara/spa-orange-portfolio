@@ -2,21 +2,9 @@ import {useState} from 'react'
 
 import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject"
 import { MdClose } from 'react-icons/md';
-const ModalVisualProject = ({setModalShowProject}) => {
+const ModalVisualProject = ({setModalShowProject, dataProject}) => {
 
-    const [dataProject, setDataProject] = useState({
-        idProjeto:"1",
-        idUsuario:"5",
-        titulo:"Teste Valor",
-        imagem:``,
-        tag:"WEB;HTML ",
-        link:"https://www.google.com",
-        descricao:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda explicabo exercitationem unde voluptatem suscipit at quaerat non! Quasi laboriosam reiciendis voluptates nisi veniam amet eligendi perspiciatis provident. Aperiam tenetur architecto labore aspernatur odio, sed, laboriosam doloribus deserunt eligendi similique, corrupti rerum et atque est exercitationem dolores praesentium quidem aut?",
-        dataCriacao:"02/24",
-        nomeCompleto:"Raphael Ferro",
-        arquivoImagem:``,
-
-    })
+    
     const tagsArray = dataProject.tag.split(";");
 
 return (

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import FloatInput from "../FloatInput/FloatInput";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
@@ -20,9 +20,25 @@ import ModalVisualProject from '../ModalVisualProject';
 const ModalCardAdd = () => {
 
   // testando UPLOAD IMAGE
+  const [modalShowProject,setModalShowProject] = useState(false) 
   const fileInputRef = useRef(null);
   const [imageSrc, setImageSrc] = useState(null);
   const [image, setImage] = useState()
+    // teste get value dos inputs
+    const [dataProject, setDataProject] = useState({
+      idProjeto:``,
+      idUsuario:``,
+      titulo:``,
+      imagem:``,
+      tag:``,
+      link:``,
+      descricao:``,
+      dataCriacao:``,
+      nomeCompleto:``,
+      arquivoImagem:``,
+  
+  })
+  //PARA ATUALIZAR OS VALORES
 
 
   const handleClick = () => {
@@ -32,23 +48,49 @@ const ModalCardAdd = () => {
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
     setImage(selectedFile)
-
+    console.log("1",image);
+    
+    
+    
     if (selectedFile) {
       const reader = new FileReader();
       reader.onload = () => {
         setImageSrc(reader.result);
       };
       reader.readAsDataURL(selectedFile);
+      
+      const imageUrl = URL.createObjectURL(selectedFile);
+      
+      
+      console.log("2",dataProject)
+      console.log("3",imageUrl);
+      console.log("teste",dataProject.imagem)
     } else {
       setImageSrc(null);
+      setDataProject({
+        ...dataProject,
+        imagem: null,
+      });
+      
     }
   };
+useEffect(() =>
+setDataProject({
+  ...dataProject,
+  imagem: image,
+})
 
+,[]);
   // EXTRA - REMOVER IMAGEM
   const handleRemoveImage = () => {
     
     setImageSrc(null);
     
+    setDataProject({
+      ...dataProject,
+      imagem: "",
+    });
+
     if (fileInputRef.current) {
 
       fileInputRef.current.value = '';
@@ -60,7 +102,7 @@ const ModalCardAdd = () => {
 
   // Confirmação de comunicação com a API
   const userId = '4';
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
   const notifyAlert = (status) => {
 
@@ -105,6 +147,16 @@ const ModalCardAdd = () => {
   }
 
 
+
+// Função para abrir o modal
+const handleOpenModal = () => {
+  setModalShowProject(true);
+  console.log(dataProject)
+};
+
+
+  //fim teste get value dos inputs
+
   const onSubmitProjectToApi = async (data) => {
     
     try {
@@ -134,7 +186,9 @@ const ModalCardAdd = () => {
 
   return (
     <>
-      <ModalVisualProject />
+      {modalShowProject &&
+      <ModalVisualProject dataProject={dataProject} setModalShowProject={setModalShowProject}/>}
+
       <BackgroundFilter>
         <ModalContentCardAdd>
           <form className="form" onSubmit={handleSubmit(onSubmitProjectToApi)} method="POST" >
@@ -200,7 +254,9 @@ const ModalCardAdd = () => {
                     register={register}
                     required={true}
                     classes={errors.title && "required"}
-                    
+                    onChange={(e) => {
+                      setValue('titulo', e.target.value);
+                      }}
                   />
                   <FloatInput
                     id_value="input-add-project-input-teste"
@@ -230,7 +286,9 @@ const ModalCardAdd = () => {
 
               <FooterSubtitleContent>
 
-                <Subtitle>Visualizar publicação</Subtitle>
+                <Subtitle onClick={handleOpenModal
+                  // console.log(dataProject)
+                  }>Visualizar publicação</Subtitle>
               </FooterSubtitleContent>
               <FooterButtonContent>
 

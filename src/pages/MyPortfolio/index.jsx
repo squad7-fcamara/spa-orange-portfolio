@@ -12,7 +12,7 @@ import loader from "../../assets/images/Orange-loader.gif";
 const MyPortfolio = () => {
   const [fullName, setFullName] = useState("");
   const [authUserProjects, setAuthUserProjects] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true); //depois voltar valor para false
 
   // TODO: PEGAR ID DO USUÁRIO LOGADO
   // IDs para testar funcionamento:
@@ -41,7 +41,7 @@ const MyPortfolio = () => {
         <>
           <UserProfileStamp isLoaded={isLoaded} fullName={fullName} />
 
-          {/* <ModalCardAdd /> */}
+          <ModalCardAdd />
           {/* <ModalCardEdit /> */}
           <ContainerProjectSC>
             {authUserProjects.length === 0 ? (
@@ -55,7 +55,7 @@ const MyPortfolio = () => {
                 <TemplateCard
                   key={project.idProjeto}
                   class={"with-project"}
-                  projectImage={project.arquivoImagem.fileContents}
+                  // projectImage={project.arquivoImagem.fileContents}
                   imageType={project.arquivoImagem.contentType}
                   userName={fullName}
                   projectDate={project.dataCriacao}

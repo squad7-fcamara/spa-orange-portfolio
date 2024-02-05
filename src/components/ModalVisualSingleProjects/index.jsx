@@ -1,10 +1,11 @@
 import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualAllProjects"
 import { MdClose } from 'react-icons/md';
-import picture from '../../assets/images/profile-picture-default.svg'
 import noImageDefault from "../../assets/images/no-image.png";
 import errorTypeImage from "../../assets/images/erro-type-image.png";
 import { base64ToUrl } from "../../utils/createImageUrl.js";
 import { useEffect, useState } from "react";
+import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
+
 
 
 const ModalVisualSingleProjects = ({onCloseModal, projectSelected}) => {
@@ -39,7 +40,7 @@ const ModalVisualSingleProjects = ({onCloseModal, projectSelected}) => {
 
                 <PerfilImageDate>
                     <img className="perfil-image-project"
-                        src={picture}
+                        src={profilePictureDefault}
                         alt="imagem de perfil"
                     />
                     <span className="span-perfil-name-data">

@@ -1,5 +1,6 @@
 import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject";
 import { MdClose } from 'react-icons/md';
+import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
 
 
 const ModalVisualProject = ({goBack, preview, fullName, image, currentDate}) => {
@@ -19,7 +20,7 @@ const ModalVisualProject = ({goBack, preview, fullName, image, currentDate}) => 
 
                 <PerfilImageDate>
                     <img className="perfil-image-project"
-                        src="/src/assets/images/profile-picture-default.svg"
+                        src={profilePictureDefault}
                         alt="imagem de perfil"
                     />
                     <span className="span-perfil-name-data">

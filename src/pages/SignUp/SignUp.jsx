@@ -16,11 +16,13 @@ import toast, { Toaster } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 
 import { api } from "../../api/apiRest";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function SignUp() {
+  const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     register,
@@ -62,6 +64,8 @@ export default function SignUp() {
   };
 
   const onSubmit = (data) => {
+    setLoading(true);
+
     api
       .post("usuario/", {
         nome: data?.nome,
@@ -73,11 +77,13 @@ export default function SignUp() {
         notifyAlert(response.status);
 
         setTimeout(() => {
-          navigate('/')
+          setLoading(false);
+          navigate("/");
         }, 1500);
       })
       .catch((error) => {
         notifyAlert(error.status);
+        setLoading(false);
       });
   };
 
@@ -142,8 +148,11 @@ export default function SignUp() {
             {errors.senha && (
               <span className="helperMessage">{errors.senha.message}</span>
             )}
-
-            <PrimaryButton text={"CADASTRAR"} />
+            <PrimaryButton
+              text={"CADASTRAR"}
+              loading={loading}
+              onClick={handleSubmit(onSubmit)}
+            />
           </form>
         </div>
       </SignUpContainer>

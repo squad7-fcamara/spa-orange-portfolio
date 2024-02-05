@@ -1,11 +1,24 @@
-import { ButtonPrimary } from './StyledPrimaryButton'
+import loadingGif from "../../assets/images/loading2.gif";
+import { ButtonPrimary } from "./StyledPrimaryButton";
 
-const PrimaryButton = ({type ="buttton", onClick, text}) => {
+const PrimaryButton = ({ type = "button", onClick, text, loading }) => {
   return (
     <>
-      <ButtonPrimary type={type} onClick={onClick}> {text}</ButtonPrimary>
+      <ButtonPrimary type={type} onClick={onClick} disabled={loading}>
+        {loading ? (
+          <img
+            className="loadingIcon"
+            src={loadingGif}
+            alt="Loading"
+            width="20"
+            height="20"
+          />
+        ) : (
+          text
+        )}
+      </ButtonPrimary>
     </>
-  )
-}
+  );
+};
 
-export default PrimaryButton
+export default PrimaryButton;

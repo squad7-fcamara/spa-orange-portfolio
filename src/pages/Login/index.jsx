@@ -19,8 +19,10 @@ import PrimaryButton from "../../components/PrimaryButton";
 import FloatInput from "../../components/FloatInput/FloatInput";
 
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const {
@@ -30,6 +32,7 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       const response = await api.get(
         `usuario/validarLogin?email=${data.email}&senha=${data.senha}`
@@ -54,6 +57,8 @@ const Login = () => {
       }
     } catch (error) {
       console.error("Erro na requisição:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -97,7 +102,7 @@ const Login = () => {
             classes={errors.senha && "required"}
           />
 
-          <PrimaryButton text={"ENTRAR"}></PrimaryButton>
+          <PrimaryButton type="submit" text={"ENTRAR"} loading={loading} />
         </FormLogin>
         <Cadastro>
           <NavLink to={"/sign-up"}>Cadastre-se</NavLink>

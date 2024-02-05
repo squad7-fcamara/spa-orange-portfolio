@@ -1,8 +1,9 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import FloatInput from "../FloatInput/FloatInput";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
 import { api } from "../../api/apiRest";
+import { formatDate } from "../../utils/formatDate";
 
 import PrimaryButton from "../PrimaryButton"
 import SecondaryButton from "../SecondaryButton"
@@ -18,9 +19,10 @@ import { MdCollections } from "react-icons/md";
 import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
 import ModalVisualProject from '../ModalVisualProject';
 
-const ModalCardAdd = ( {closeModal} ) => {
+const ModalCardAdd = ( {closeModal, fullName,} ) => {
 
   // testando UPLOAD IMAGE
+  
   const fileInputRef = useRef(null);
   const [imageSrc, setImageSrc] = useState(null);
   const [image, setImage] = useState()
@@ -73,6 +75,18 @@ const ModalCardAdd = ( {closeModal} ) => {
     setPreviewData(formData);
     // console.log(formData)
   };
+
+  useEffect(() => {
+
+    
+    if (showModal) {
+      handlePreview();
+    }
+  }, [showModal]);
+
+  
+    const dataAtual = new Date();
+     const currentDate = formatDate(dataAtual);
 
 
   const notifyAlert = () => {
@@ -226,9 +240,9 @@ const ModalCardAdd = ( {closeModal} ) => {
               </ColumnContent>
 
               <FooterSubtitleContent>
-                {showModal && <ModalVisualProject goBack={() => setShowModal(false)} preview={previewData} image={imageSrc} />}
+                {showModal && <ModalVisualProject goBack={() => setShowModal(false)} preview={previewData} image={imageSrc} fullName={fullName} currentDate={currentDate}/>}
                 
-                <Subtitle onClick={() =>{ handlePreview(); setShowModal(true); }}  >Visualizar publicação</Subtitle>
+                <Subtitle onClick={() => setShowModal(true)}  >Visualizar publicação</Subtitle>
               </FooterSubtitleContent>
               <FooterButtonContent>
 

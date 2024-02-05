@@ -16,6 +16,7 @@ import "./styles.css"
 
 import { MdCollections } from "react-icons/md";
 import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
+import ModalVisualProject from '../ModalVisualProject';
 
 const ModalCardAdd = ( {closeModal} ) => {
 
@@ -24,8 +25,7 @@ const ModalCardAdd = ( {closeModal} ) => {
   const [imageSrc, setImageSrc] = useState(null);
   const [image, setImage] = useState()
   const [statusConfirmation, setStatusConfirmation] = useState(false)
-
-
+  
 
   const handleClick = () => {
     fileInputRef.current.click();
@@ -62,8 +62,18 @@ const ModalCardAdd = ( {closeModal} ) => {
 
   // Confirmação de comunicação com a API
   const userId = sessionStorage.getItem("userId");
-  console.log(userId)
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  // console.log(userId)
+  const { register, handleSubmit, getValues, formState: { errors } } = useForm();
+
+  const [previewData, setPreviewData] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+
+  const handlePreview = () => {
+    const formData = getValues();
+    setPreviewData(formData);
+    // console.log(formData)
+  };
+
 
   const notifyAlert = () => {
 
@@ -216,8 +226,9 @@ const ModalCardAdd = ( {closeModal} ) => {
               </ColumnContent>
 
               <FooterSubtitleContent>
-
-                <Subtitle>Visualizar publicação</Subtitle>
+                {showModal && <ModalVisualProject goBack={() => setShowModal(false)} preview={previewData} image={imageSrc} />}
+                
+                <Subtitle onClick={() =>{ handlePreview(); setShowModal(true); }}  >Visualizar publicação</Subtitle>
               </FooterSubtitleContent>
               <FooterButtonContent>
 

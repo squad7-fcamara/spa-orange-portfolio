@@ -196,6 +196,7 @@ export const ImagemProject = styled.div`
     box-shadow: 1px 4px 4px rgba(230, 233, 242, 1);
     align-items: center;
     display: flex;
+    background: ${(props) => `url(${props.imageproject})`}; 
 `
 
 export const DescriptionProject = styled.div`

@@ -2,9 +2,12 @@
 
 import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject"
 
-const ModalVisualProject = () => {
+const ModalVisualProject = ({goBack, preview, image}) => {
+
+    // console.log(image);
   return (
     <BackgroundFilter>
+        
         
         <CardVisualProject>
         
@@ -21,7 +24,7 @@ const ModalVisualProject = () => {
                     </span>
                 </PerfilImageDate>
 
-                <Title>Titulo do projeto </Title>
+                <Title>{preview.titulo}</Title>
             
                 <TagProjects className="tag"> 
                     <p>HTML</p>
@@ -33,7 +36,7 @@ const ModalVisualProject = () => {
                     
                 </TagProjects>
                 
-                <ImagemProject />
+                <ImagemProject imageproject={image} />
 
                 <DescriptionProject>
                     <p className="description-text">
@@ -42,6 +45,8 @@ const ModalVisualProject = () => {
                 </DescriptionProject>
                 
             </ContainerProject>
+
+            <button onClick={goBack}>Voltar</button>
         
         </CardVisualProject>
     </BackgroundFilter>

@@ -1,10 +1,7 @@
-// import React from 'react'
-
 import {BackgroundFilter,CardVisualProject, ContainerProject, Title, PerfilImageDate, TagProjects, ImagemProject, DescriptionProject} from "./StyledModalVisualProject"
 
 const ModalVisualProject = ({goBack, preview, image}) => {
 
-    // console.log(image);
   return (
     <BackgroundFilter>
         

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { bp } from "../../utils/breakpoints";
 
 export const ContainerCardSC = styled.div`
+  cursor:pointer;
   position: relative;
   width: 32%;
 

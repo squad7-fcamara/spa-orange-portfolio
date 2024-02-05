@@ -62,7 +62,7 @@ const ModalCardAdd = ( {closeModal} ) => {
 
   // Confirmação de comunicação com a API
   const userId = sessionStorage.getItem("userId");
-  // console.log(userId)
+  
   const { register, handleSubmit, getValues, formState: { errors } } = useForm();
 
   const [previewData, setPreviewData] = useState(false)
@@ -71,7 +71,6 @@ const ModalCardAdd = ( {closeModal} ) => {
   const handlePreview = () => {
     const formData = getValues();
     setPreviewData(formData);
-    // console.log(formData)
   };
 
 

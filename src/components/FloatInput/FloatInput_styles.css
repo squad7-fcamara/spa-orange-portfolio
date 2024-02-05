@@ -36,16 +36,7 @@
     color: #515255;
     text-transform: capitalize;
   }
-  
-  /* .label input:required:invalid + label{
-    color: red;
-  }
-  .label input:focus:required:invalid{
-    border: 2px solid red;
-  }
-  .label input:required:invalid + label:before{
-    content: '*';
-  } */
+
 
   .label .required + label::after{
     content: ' *';

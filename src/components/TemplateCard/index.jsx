@@ -39,7 +39,9 @@ const TemplateCard = (props) => {
   }, [props.imageType, props.projectImage]);
 
   return (
+    
     <ContainerCardSC
+      onClick={props.select}
       className={props.class}
       $activated={props.activated}
       onMouseEnter={handleMouseEnter}

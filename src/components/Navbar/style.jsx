@@ -47,6 +47,10 @@ export const NavbarSC = styled.nav`
       gap: 16px;
     }
   }
+
+  .notificationIcon {
+    cursor: pointer;
+  }
 `;
 
 export const DesktopMenuSC = styled.ul`

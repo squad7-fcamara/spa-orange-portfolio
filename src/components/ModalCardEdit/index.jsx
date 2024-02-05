@@ -18,14 +18,23 @@ import "./styles.css"
 import { MdCollections } from "react-icons/md";
 import { base64ToUrl } from '../../utils/createImageUrl';
 import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
+import ModalVisualProject from '../ModalVisualProject';
 
 const ModalCardEdit = ({selectedProject, closed, onClose}) => {
 
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
   const [image, setImage] = useState()
-
   const [statusConfirmation, setStatusConfirmation] = useState(false)
+  const [previewData, setPreviewData] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+
+
+  const handlePreview = () => {
+    const formData = getValues();
+    setPreviewData(formData);
+  };
+
 
   const handleClick = () => {
     fileInputRef.current.click();
@@ -62,7 +71,7 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
 
   // Confirmação de comunicação com a API
   const userId = '5';
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, getValues,formState: { errors } } = useForm();
 
   const notifyAlert = () => {
 
@@ -93,6 +102,12 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
     const url = base64ToUrl(selectedProject.arquivoImagem.contentType, selectedProject.arquivoImagem.fileContents);
     setImageBlob(url);
   }, [selectedProject]);
+
+  useEffect(() => {
+    if (showModal) {
+      handlePreview();
+    }
+  }, [showModal]);
 
 
   const onSubmitProjectToApi = async (data) => {
@@ -225,8 +240,10 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
                 </ColumnContent>
   
                 <FooterSubtitleContent>
+
+                {showModal && <ModalVisualProject goBack={() => setShowModal(false)} preview={previewData} image={imageBlob} />}
   
-                  <Subtitle>Visualizar publicação</Subtitle>
+                  <Subtitle onClick={() => setShowModal(true)}>Visualizar publicação</Subtitle>
                 </FooterSubtitleContent>
                 <FooterButtonContent>
   

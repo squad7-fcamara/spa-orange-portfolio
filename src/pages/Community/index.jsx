@@ -65,6 +65,7 @@ const Community = () => {
             <ContainerProjectSC>
               {projectsList.map((project) => (
                 <TemplateCard
+                  tags={project.tag}
                   key={project.idProjeto}
                   class={"with-project"}
                   projectImage={project.arquivoImagem?.fileContents}

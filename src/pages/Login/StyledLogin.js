@@ -10,7 +10,7 @@ export const AppContainer = styled.div`
 export const ImageContainer = styled.div`
     flex-shrink: 0;
 
-    @media (max-width: 425px) {
+    @media (max-width: 1060px) {
     display: none;
     }
 `;

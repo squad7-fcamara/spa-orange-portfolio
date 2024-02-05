@@ -8,6 +8,7 @@ import {
   ContainerCardSC,
   EditBtnSpaceSC,
   ProjectOwnerInfosSC,
+  TagProjects,
 } from "./style";
 import profilePictureDefault from "../../assets/images/profile-picture-default.svg";
 import noImageDefault from "../../assets/images/no-image.png";
@@ -18,6 +19,8 @@ const TemplateCard = (props) => {
   const { pathname } = useLocation();
   const [isButtonVisible, setIsButtonVisible] = useState(false);
   const [src, setSrc] = useState('');
+
+  const tagsArray = props.tags ? props.tags.split(";") : [];
 
   const handleMouseEnter = () => {
     setIsButtonVisible(true);
@@ -41,7 +44,7 @@ const TemplateCard = (props) => {
   return (
     
     <ContainerCardSC
-      onClick={props.select}
+      onClick={props.select || props.click}
       className={props.class}
       $activated={props.activated}
       onMouseEnter={handleMouseEnter}
@@ -71,6 +74,11 @@ const TemplateCard = (props) => {
           <span className="dot">•</span>
           <p className="project-date">{formatDate(props.projectDate)}</p>
         </div>
+        <TagProjects>
+        { 
+          tagsArray.map((tag, index) => <p key={index}>{tag}</p>)                    
+        }
+        </TagProjects>
       </ProjectOwnerInfosSC>
     </ContainerCardSC>
   );

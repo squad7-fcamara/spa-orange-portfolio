@@ -7,7 +7,7 @@ export const SearchBarSC = styled.div`
   border: solid 1px rgba(0, 0, 0, 0.23);
   border-radius: 4px;
   padding: 0.5rem;
-
+  margin-bottom: 2rem;
   &:hover { cursor: text; }
 
 

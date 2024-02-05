@@ -9,6 +9,8 @@ import {
 import { Outlet, useNavigate } from "react-router-dom";
 import { MdMenu, MdNotifications } from "react-icons/md";
 import Logomarca from "../../assets/images/logomarca.png";
+import toast, { Toaster } from "react-hot-toast";
+
 
 function Navbar() {
   const [auth, setAuth] = useState(false);
@@ -23,10 +25,23 @@ function Navbar() {
     sessionStorage.getItem("userId") !== null ? setAuth(true) : navigate("/");
   }, [navigate]);
 
+  const notify = () => {
+    toast("Funcionalidade em breve!!", {
+      duration: 5000,
+
+      style: {
+        background: "#8a8a8a",
+
+      },
+    });
+  }
+
   return (
     <>
       {auth && (
         <NavbarSC>
+
+          <Toaster />
           <div>
             <MobileDisplaySC onClick={toggleDropdown}>
               <MdMenu size={"36px"} color="#FCFDFF" />
@@ -72,7 +87,7 @@ function Navbar() {
               src="/src/assets/images/profile-picture-default.svg"
               alt="ícone imagem de perfil"
             />
-            <MdNotifications size={"36px"} color="#FCFDFF" />
+            <MdNotifications className="notificationIcon" onClick={() => notify()} size={"36px"} color="#FCFDFF" />
           </div>
         </NavbarSC>
       )}

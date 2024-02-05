@@ -4,6 +4,8 @@ import { MdClose } from 'react-icons/md';
 
 const ModalVisualProject = ({goBack, preview, fullName, image, currentDate}) => {
 
+    console.log(image);
+
 
     const tagsArray = preview && preview.tag ? preview.tag.split(";") : [];
     
@@ -46,8 +48,6 @@ const ModalVisualProject = ({goBack, preview, fullName, image, currentDate}) => 
                 
             </ContainerProject>
 
-            <button onClick={goBack}>Voltar</button>
-        
         </CardVisualProject>
     </BackgroundFilter>
   )

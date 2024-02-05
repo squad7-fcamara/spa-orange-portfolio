@@ -92,13 +92,14 @@ const MyPortfolio = () => {
             <ContainerProjectSC>
               {authUserProjects.length === 0 ? (
                 <>
-                  <TemplateCard class={"add-project"}  activated={isLoaded} />
+                  <TemplateCard click={() => setModalAddIsOpen(true)} class={"add-project"}  activated={isLoaded} />
                   <TemplateCard class={"blank"} />
                   <TemplateCard class={"blank"} />
                 </>
               ) : (
                 authUserProjects.map((project) => (
                   <TemplateCard
+                    tags={project.tag}
                     setModalEditIsClosed={() => setModalEditIsClosed(false)}
                     setModalExclude={() => setModalExclude(true)}
                     project={project}

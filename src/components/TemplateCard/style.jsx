@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { bp } from "../../utils/breakpoints";
 
+const mobileL="425px";
+const mobileM="375px";
+const mobileS="320px";
+
+
 export const ContainerCardSC = styled.div`
   cursor:pointer;
   position: relative;
@@ -189,3 +194,46 @@ export const ProjectOwnerInfosSC = styled.footer`
     }
   }
 `;
+
+export const TagProjects = styled.div`
+grid-row: 1;
+display: flex;
+flex-wrap: wrap; 
+max-width: 215px;
+width: 215px;
+height: 70px;
+font-size: 11px;
+margin-right: 0;
+color: #000000de;
+justify-content: end; 
+align-items: center;
+text-align: end;
+
+    p{
+        word-break: break-all;  
+        
+        padding: 7px;
+        border-radius: 100px;
+        background-color: #00000014;
+    }
+    
+    @media (max-width: ${mobileL}){  
+        font-size: 10px;
+        grid-row: 3;
+        width: 150px;
+        
+        
+    };
+    @media (max-width: ${mobileM}) {
+        grid-row: 3;
+        width: 99px;
+
+        p{
+            padding: 5px;  
+        }
+    }
+    @media (max-width: ${mobileS}) {
+        grid-row: 3;
+        width: 80px;
+    }
+`

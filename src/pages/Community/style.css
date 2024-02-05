@@ -1,0 +1,7 @@
+
+.loaderDiv {
+    margin: 0 auto;
+  }
+  .loaderDiv > img{
+    width: 80px;
+  }

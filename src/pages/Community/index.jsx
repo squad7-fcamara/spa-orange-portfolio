@@ -8,6 +8,7 @@ import CommunityHeader from "../../components/CommunityHeader";
 import SearchBar from "../../components/SearchBar";
 import { api } from "../../api/apiRest";
 import ModalVisualSingleProjects from "../../components/ModalVisualSingleProjects";
+import './style.css'
 
 const Community = () => {
   const [projectsList, setProjectsList] = useState([]);
@@ -54,7 +55,9 @@ const Community = () => {
     {modalShowSelectedProject && <ModalVisualSingleProjects projectSelected={selectProjet} onCloseModal={() => setModalShowSelectedProject(false)} />}
       <DashboardSC>
         {!isLoaded ? (
-          <img src={loader} alt="loader" />
+          <div className="loaderDiv">
+            <img src={loader} alt="loader" />
+          </div>
         ) : (
           <>
               <CommunityHeader />

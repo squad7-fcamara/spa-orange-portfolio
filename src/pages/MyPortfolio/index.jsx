@@ -116,7 +116,9 @@ const MyPortfolio = () => {
             </ContainerProjectSC>
           </>
         ) : (
-          <img src={loader} alt="loader" />
+          <div className="loaderDiv">
+            <img src={loader} alt="loader" />
+          </div>
         )}
       </DashboardSC>
     </>

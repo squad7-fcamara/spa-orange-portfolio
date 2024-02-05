@@ -206,7 +206,9 @@ export const FooterButtonContent=styled.div`
 
 `;
 
-export const Subtitle=styled.p` 
+export const Subtitle=styled.p`
+    cursor:pointer; 
+    
     width:100%;
     margin-bottom:10px;
     font-size: 14px;

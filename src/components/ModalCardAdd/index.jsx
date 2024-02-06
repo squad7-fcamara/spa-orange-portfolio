@@ -28,7 +28,7 @@ import { MdCollections } from "react-icons/md";
 import ConfirmationButton from '../ConfirmButtons/ConfirmButton';
 import ModalVisualProject from '../ModalVisualProject';
 import InputTags from '../InputTags/InputTags';
-import PrimaryButton2 from '../PrimaryButton/PrimaryButton';
+import PrimaryButton from "../PrimaryButton";
 
 const ModalCardAdd = ({ closeModal, fullName }) => {
   // testando UPLOAD IMAGE

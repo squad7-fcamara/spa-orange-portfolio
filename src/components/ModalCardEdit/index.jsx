@@ -33,11 +33,12 @@ import PrimaryButton2 from "../PrimaryButton/PrimaryButton";
 const ModalCardEdit = ({ selectedProject, closed, onClose, fullName }) => {
   // testando UPLOAD IMAGE
   const fileInputRef = useRef(null);
-  const [image, setImage] = useState();
-  const [statusConfirmation, setStatusConfirmation] = useState(false);
-  const [previewData, setPreviewData] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [tags, setTags] = useState("");
+  const [image, setImage] = useState()
+  const [statusConfirmation, setStatusConfirmation] = useState(false)
+  const [previewData, setPreviewData] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [tags, setTags] = useState()
+
 
   const getTags = (tags) => {
     const formattedTags = `${tags.join(";")}`;

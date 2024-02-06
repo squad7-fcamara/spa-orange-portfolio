@@ -29,7 +29,7 @@ const ModalCardEdit = ({selectedProject, closed, onClose}) => {
   const [statusConfirmation, setStatusConfirmation] = useState(false)
   const [previewData, setPreviewData] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  const [tags, setTags] = useState('')
+  const [tags, setTags] = useState()
 
 
   const getTags = (tags) => {
